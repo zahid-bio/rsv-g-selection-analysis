@@ -1,0 +1,690 @@
+=== DAY 0 - 2026-07-04 ===
+Goal: start the U6 computational biology project and record the real setup state.
+
+Project question:
+- Validation target: influenza H3 hemagglutinin.
+- Discovery target: RSV G protein.
+- Core output: fraction of positively selected sites in pre-specified functional regions, plus a permutation-test p-value.
+
+Folders created:
+- data/     raw and processed FASTA/PDB inputs
+- results/  alignment, tree, selection, and statistics outputs
+- figures/  plots and structure images for the paper
+- code/     Python scripts and analysis helpers
+- notes/    lab notebook and reproducibility notes
+- tools/    local/portable software if needed
+- papers/   PDFs and citation notes
+
+Software audit from PowerShell:
+- python --version: Python 3.11.15
+- py --version: Python 3.10.5
+- mafft --version: not found on PATH
+- iqtree2 --version: not found on PATH
+- iqtree --version: not found on PATH
+- hyphy --version: not found on PATH
+- pymol: not found on PATH
+- conda --version: not found on PATH
+
+Important rules for this project:
+- Do selection analysis on nucleotide/codon sequences, not protein-only sequences.
+- Validate the full pipeline on flu before trusting any RSV result.
+- Define flu antigenic sites and RSV CCR/CX3C residue ranges from published papers before running enrichment tests.
+- Do not change functional-region definitions after seeing selected sites.
+- Record every command, input file, output file, parameter, and decision here.
+
+Next planned step:
+- Install or set up MAFFT and IQ-TREE, then download a small flu H3 HA nucleotide dataset for the validation run.
+
+=== DAY 0 CONTINUED - 2026-07-04 ===
+Goal: set up MAFFT and IQ-TREE locally, then download a small flu H3 HA nucleotide validation dataset.
+
+Tool setup:
+- Downloaded MAFFT Windows all-in-one package from the official MAFFT site:
+  https://mafft.cbrc.jp/alignment/software/windows_without_cygwin.html
+- Archive: tools/downloads/mafft-7.526-win64-signed.zip
+- SHA256: 7C3A508C8512AF04007D68019C6FBD4FF00D891244B58F87EC9AA0E53FBAE8A7
+- Extracted to: tools/mafft-7.526-win64/
+- Verified with: bin/mafft.cmd --version
+- Result: v7.526 (2024/Apr/26)
+
+- Downloaded IQ-TREE Windows package from the official IQ-TREE/GitHub release:
+  https://iqtree.github.io/
+- Archive: tools/downloads/iqtree-3.1.3-Windows.zip
+- SHA256: 6E0E11C7ED6197A0F4EBFBADAFC7E82BEBDF5B6E510C8A13F36183FE8EAE3AEF
+- Extracted to: tools/iqtree-3.1.3-Windows/
+- Verified with: bin/iqtree3.cmd --version
+- Result: IQ-TREE version 3.1.3 for Windows 64-bit built Jun 19 2026
+
+Wrapper/helper files created:
+- bin/mafft.cmd
+- bin/iqtree3.cmd
+- activate_u6_tools.cmd
+- activate_u6_tools.ps1
+
+Windows note:
+- PowerShell blocked activate_u6_tools.ps1 because script execution is disabled on this machine.
+- The .cmd wrappers work without changing PowerShell execution policy.
+
+NCBI sequence download:
+- Used NCBI Entrez E-utilities through the local Entrez helper script.
+- Database: nuccore
+- ESearch query:
+  "Influenza A virus"[Organism] AND H3N2[All Fields] AND "segment 4"[Title] AND hemagglutinin[Title] AND "complete cds"[Title] AND "Homo sapiens"[All Fields]
+- Retmax: 30
+- Output FASTA: data/flu_h3_ha_nt_small.fasta
+- FASTA SHA256: B9C587216CAC7D4FDCEDE41CFC16C3DEB56A2229E020FA396D8D52144365E653
+- Record count: 30
+- Sequence length check: all 30 records are 1701 nt
+- Metadata table: notes/flu_h3_ha_nt_small_accessions.tsv
+- Metadata SHA256: 893547D8C4012160E62CA2DCE704E880F81EFA83D61B3CFD6BB19B4E2D1B1058
+
+Important interpretation:
+- This is a small starter validation dataset, not the final publication-scale flu dataset.
+- These are nucleotide records, which is the correct input type for dN/dS selection analysis.
+
+Next planned step:
+- Align data/flu_h3_ha_nt_small.fasta with MAFFT, then build a small IQ-TREE tree to verify the validation pipeline starts cleanly.
+
+=== DAY 0 CONTINUED - 2026-07-04: ALIGNMENT AND TREE ===
+Goal: run the first two computational steps on the small flu H3 HA nucleotide validation dataset.
+
+MAFFT alignment:
+- Input: data/flu_h3_ha_nt_small.fasta
+- Output: results/flu_h3_ha_nt_small_aligned.fasta
+- Log: results/flu_h3_ha_nt_small_mafft.log
+- Command used:
+  cmd /c "cd /d C:\Users\zahid\Documents\Research\U6_project && bin\mafft.cmd --auto --out results\flu_h3_ha_nt_small_aligned.fasta data\flu_h3_ha_nt_small.fasta > results\flu_h3_ha_nt_small_mafft.log 2>&1"
+- Note: an earlier direct PowerShell run produced the alignment but returned a NativeCommandError because MAFFT progress text went through PowerShell error handling. Re-ran through cmd.exe for a clean exit code.
+- MAFFT log result: converged; strategy L-INS-i selected by --auto.
+- Aligned FASTA SHA256: E4B92EF207342A21D6FC4683E5239DE2DA2F3DCA9D0F76F1D748AF2ADBB72C4A
+- MAFFT log SHA256: A9A43C5C9FF6B8221E935F896DE8E68745ED881311D6C9E3914D5670EE35FCCE
+
+Alignment quality checks:
+- Records: 30
+- Alignment length: 1701 columns for all 30 records
+- Gaps: 0 total
+- Unique sequence strings: 28
+- Ambiguous IUPAC nucleotide codes: 10 total across 9 records
+- Non-IUPAC characters: 0
+- Interpretation: alignment is clean for a starter validation test. The dataset contains very similar or duplicate records, so a later publication-scale dataset should be more diverse.
+
+IQ-TREE tree building:
+- Input alignment: results/flu_h3_ha_nt_small_aligned.fasta
+- Output prefix: results/flu_h3_ha_nt_small_iqtree
+- Main tree output: results/flu_h3_ha_nt_small_iqtree.treefile
+- Command used:
+  cmd /c "cd /d C:\Users\zahid\Documents\Research\U6_project && bin\iqtree3.cmd -s results\flu_h3_ha_nt_small_aligned.fasta -m MFP -T AUTO --prefix results\flu_h3_ha_nt_small_iqtree > results\flu_h3_ha_nt_small_iqtree_console.log 2>&1"
+- IQ-TREE completed with exit code 0.
+- Input data according to IQ-TREE: 30 sequences with 1701 nucleotide sites
+- Distinct patterns: 124
+- Parsimony-informative sites: 198
+- Singleton sites: 64
+- Constant sites: 1439
+- Composition test: 0 sequences failed chi-square test
+- Duplicate note from IQ-TREE: JQ290180.1 and JQ290172.1 are identical to JQ290188.1; IQ-TREE ignored 1 identical sequence during analysis but added it at the end.
+- Best-fit model according to BIC: K3Pu+F+G4
+- Best number of threads selected by -T AUTO: 2
+- Best score found: -4016.261
+- Total tree length: 0.206
+- Total wall-clock time: 46.196 seconds
+
+IQ-TREE output files:
+- results/flu_h3_ha_nt_small_iqtree.treefile
+- results/flu_h3_ha_nt_small_iqtree.iqtree
+- results/flu_h3_ha_nt_small_iqtree.log
+- results/flu_h3_ha_nt_small_iqtree.bionj
+- results/flu_h3_ha_nt_small_iqtree.mldist
+- results/flu_h3_ha_nt_small_iqtree.model.gz
+- results/flu_h3_ha_nt_small_iqtree.ckp.gz
+- results/flu_h3_ha_nt_small_iqtree.uniqueseq.phy
+- results/flu_h3_ha_nt_small_iqtree_console.log
+
+IQ-TREE hashes:
+- treefile SHA256: 7F0F87270AEA634D63CA576D8F0552B2CC8E25C0B064BB24B0D2FED35B873F08
+- iqtree report SHA256: DF317282B67EB62C18BB71ECB20B7BD75C5B35BDACA3D9B85644EE61CF9A5C64
+- log SHA256: CDE7CDF22CB62B365697172317B96FC1F7BF7535EFDA98D2EF62101C23EE2A83
+
+Treefile check:
+- Treefile exists.
+- Treefile ends with semicolon.
+- Treefile includes 30 accession labels.
+
+Next planned step:
+- Use the aligned nucleotide FASTA and treefile for positive selection analysis with Datamonkey FEL or local HyPhy.
+
+=== DAY 1 - 2026-07-04: LOCAL HYPHY VIA DOCKER + REPRODUCIBLE DOWNLOAD SETUP ===
+Goal: set up local, reproducible positive-selection analysis and prepare to expand the flu dataset.
+
+Decision: run HyPhy locally (not the Datamonkey website) for full reproducibility.
+- Local HyPhy on native Windows is hard to build, so we run it in Docker (Docker Desktop already installed).
+- Rejected image pegi3s/hyphy:latest — it ships HyPhy 2.3.14 (2019), too old and lacks the modern `hyphy fel` CLI.
+- Chose the official biocontainers build instead.
+
+HyPhy tool setup:
+- Image: quay.io/biocontainers/hyphy:2.5.100--h74d3ee0_0
+- Image digest (pin this for reproducibility):
+  sha256:e69fb717a094d0ad489a56f082de7300128f26b075a2a6630fe04e6a19e67e0f
+- Verified: `docker run --rm <image> hyphy --version`
+  -> HYPHY 2.5.100(MP) for Linux on x86_64
+- Verified `hyphy fel --help` runs (FEL analysis available).
+- Docker server version: 28.4.0
+
+Credentials / security:
+- Created code/.entrez_secrets.txt holding NCBI_EMAIL and NCBI_API_KEY.
+- Created .gitignore so the secrets file and large tool binaries are never committed.
+- API key stored locally only; should be rotated since it was shared in chat.
+
+Reproducible download script:
+- Wrote code/download_sequences.py (Biopython Entrez).
+- Strategy: ESearch a large pool (up to 4000 IDs), take a fixed-seed (42) random
+  sample of 180 for strain/year diversity, EFetch FASTA in batches with retries,
+  then QC by length window (1650-1780 nt for flu HA) and drop exact-duplicate seqs.
+- Rationale: the DAY 0 flu set was 30 near-identical 2011 Iowa strains (only 198
+  informative sites), too thin for a credible validation. This script fixes that.
+
+Next planned step:
+- Add NCBI_EMAIL to the secrets file, run download_sequences.py to build the
+  larger diverse flu H3 HA nucleotide set, then re-align (MAFFT) and rebuild the tree.
+
+=== DAY 1 CONTINUED - 2026-07-04: EXPANDED FLU DATASET, CODON-AWARE ALIGNMENT, TREE ===
+Goal: build a diverse, frame-correct flu H3 HA codon dataset and tree for FEL.
+
+Download (code/download_sequences.py, email + api key set):
+- NCBI reported 61,572 total matches; pulled 4000 IDs; seed-42 sampled 180; fetched 180.
+- After length QC (1650-1780) + dedupe: 169 unique records.
+- data/flu_h3_ha_nt.fasta  SHA256 8330893389DE38F42356BA55E2B1ACEC07DDD745104ACDFDD58C203616E80785
+- Diversity check: strain years span 2017-2026 (8 distinct years), skewed recent
+  (80 from 2025, 56 from 2026). LIMITATION to note in the paper: recent-biased sample.
+
+CDS extraction (code/extract_cds.py) — REAL METHOD FIX:
+- QC found 88/169 raw records had an internal stop codon in frame 0 (UTR/frame offset).
+- Extracted longest ATG..stop ORF per record (6-frame search), 540-590 codon window.
+- Result: 169/169 clean CDS, all exactly 1698 nt (566 codons), 0 dropped, all in frame.
+- data/flu_h3_ha_cds.fasta  SHA256 C16F7366BA904415B1327CAF7F54D2AC4C8A742A96DE47D3AE88B8D9563B5EA6
+
+Codon-aware alignment (code/codon_align.py) — REAL METHOD FIX:
+- A plain nucleotide MAFFT run gave alignment length 1799, NOT divisible by 3
+  => gaps broke the reading frame. Unusable for dN/dS.
+- Used translate -> MAFFT align proteins -> back-translate (pal2nal method).
+- results/flu_h3_ha_codon_aligned.fasta: length 1734 nt (578 codons), divisible by 3,
+  all sequences equal length, 0 gap runs that break frame. FEL-ready.
+- SHA256 CC5BD3909D474AEC2BB01794D342BFCFCE1D33881BE54869E7E0F5A13ABC963E
+
+Tree (IQ-TREE 3.1.3, bin/iqtree3.cmd):
+- Command: -s results/flu_h3_ha_codon_aligned.fasta -m MFP -B 1000 -T AUTO
+           --prefix results/flu_h3_ha_codon_iqtree -redo
+- 169 sequences, 1734 sites. Best model (BIC): TVM+F+I+R2. Total tree length 7.2475
+  (vs 0.206 for the old 30-seq set => far more evolutionary signal).
+- results/flu_h3_ha_codon_iqtree.treefile
+  SHA256 A59361FA14FBC4B85A717778FA8FC8FAC4617758A76F5C7B4F90D57277EB37C7
+
+Selection analysis (HyPhy 2.5.100 FEL, Docker) STARTED:
+- Command: hyphy fel --alignment <codon_aligned> --tree <treefile> --output results/flu_h3_ha_fel.json
+- Running at time of this entry; results pending.
+
+Next planned step:
+- Read FEL output, list positively selected sites (p<=0.05, dN>dS).
+- Pre-specified antigenic-site definitions are written to code/functional_regions.py
+  BEFORE interpreting FEL output (red line #1).
+
+=== DAY 1 CONTINUED - 2026-07-04: FIRST FEL RUN FAILED VALIDATION (honest record) ===
+FEL run #1 (169-seq, 2017-2026 dataset), HyPhy 2.5.100:
+- Output: results/flu_h3_ha_fel.json (overwritten by run #2; console lost to buffering).
+- RESULT: 0 positively-selected sites at p<=0.05 (and only 2 at p<=0.10),
+  but 132 purifying sites. Flu HA is the textbook positive-selection case, so 0 is
+  a FAILED validation, not a real biological finding.
+- Diagnosis (checked, not guessed): 139 sites had beta>alpha with large effect
+  sizes (top betas 2.87, 3.16, 2.66 with alpha ~0), but p-values sat just above
+  0.05 (0.064, 0.064, 0.10...). Signal present but UNDERPOWERED.
+- Root cause: the sample was temporally narrow (mostly 2024-2026). Closely-related
+  strains => few independent substitutions per site => no power, even with high dN/dS.
+  Detecting HA positive selection is known to require sequences spanning many years.
+
+FIX (principled, not p-hacking — we changed the INPUT breadth, not the test):
+- Rewrote download_sequences.py to sample a fixed number per publication-date window
+  (1968-2026), guaranteeing temporal spread. Threshold (0.05) and antigenic-region
+  definitions were left UNCHANGED (still locked from before we saw any FEL output).
+
+FEL run #2 dataset (time-spread):
+- 148 unique CDS; strain years span 1992-2026 (21 distinct years).
+- data/flu_h3_ha_cds.fasta regenerated; codon alignment 1734 nt (div by 3, in frame).
+- Tree: 148 taxa, model TVM+F+I+R2, total tree length 8.1249 (more divergence).
+- FEL run #2 started on this dataset; results pending.
+
+Next planned step:
+- When FEL #2 returns: parse sites, map alignment codon positions to H3 HA1 numbering
+  (map_numbering.py), then run the pre-registered permutation enrichment test.
+
+=== DAY 1 CONTINUED - 2026-07-04: FLU VALIDATION PASSED (red line #2 satisfied) ===
+FEL run #2 (148-seq time-spread 1992-2026), HyPhy 2.5.100:
+- results/flu_h3_ha_fel.json  SHA256 18DF84B253D0098CE4DD5DF2E6B3B6B6DEA7303C69C80CF5C26F709E4D256124
+- Positively-selected sites (p<=0.05, beta>alpha): 6 alignment codons -> 9,66,161,183,219,287
+- Purifying sites: 162.
+
+Numbering (code/map_numbering.py):
+- Reference seq (fewest gaps): U26830.1. Offset: mature HA1 = precursor - 16 (signal peptide).
+- 5 of 6 sites map into HA1; 1 (aln pos 9) is in the signal peptide, excluded.
+- Selected HA1 residues (H3 numbering): 50, 135, 157, 193, 261
+- results/flu_h3_ha_selected_h3.csv  SHA256 C2940E4BC9707CC45C72FC453C7CA77BC8D614FB2363FAE7486444AED5E05FA1
+
+Enrichment permutation test (code/enrichment_test.py, seed 42, 10000 perms):
+- Antigenic region (pre-registered, locked 2026-07-04): 130/329 HA1 residues = 39.5%.
+- Observed: 5/5 selected HA1 sites in antigenic region = 100.0%
+- Expected by chance: 39.4%; Enrichment 2.54x; p = 0.0081 -> SIGNIFICANT
+- results/flu_enrichment.json  SHA256 C704098344AB7ED78DEA44CDD65C6E49AF00EA29E0F871475B5D81C48EAFBFAB
+
+Biological sanity check (each selected site lands in a classic H3 antigenic site):
+- 50 -> site C; 135 -> site A; 157 -> site B; 193 -> site B; 261 -> site E.
+- 135/157/193 are well-known antigenic-drift positions. Pipeline reproduces known
+  flu immunology => VALIDATION SUCCESSFUL.
+
+Honest limitation: only 5 informative sites in HA1 (FEL is conservative). The
+enrichment is significant and biologically coherent, but N is small; note this in
+the paper. Could cross-check with MEME (episodic selection) later if time allows.
+
+Next planned step (Phase B — RSV discovery, only now that flu validates):
+- Download RSV G nucleotide sequences (subtypes A and B).
+- PRE-REGISTER RSV G CCR and CX3C motif residue ranges from published papers,
+  written into functional_regions.py BEFORE running RSV FEL/enrichment (red line #1).
+
+=== DAY 1 CONTINUED - 2026-07-04: RETROACTIVE ENTRY — RSV-A PIPELINE (documentation gap) ===
+HONESTY NOTE (red line #5 self-audit): the steps below were executed on this
+machine between 13:23-13:27 on 2026-07-04 (file timestamps) but were NOT logged
+at the time. This entry was written afterward, reconstructed only from what is
+independently verifiable in the files themselves (record counts, sequence
+lengths, IQ-TREE report, FEL JSON). Anything not verifiable from the files
+(e.g. the exact NCBI query text and random seed used for the RSV download) is
+marked UNKNOWN below rather than guessed. Going forward every command runs
+through this notebook BEFORE execution, not after.
+
+RSV-A raw download:
+- data/rsv_a_nt.fasta: 108 records, lengths 894-974 nt (G gene "complete cds").
+  SHA256 CB125666B662FBBB32A701134525F31B87424ECEFB70137D0781FB1925739C5E
+- notes/rsv_a_nt_accessions.tsv lists accession/length/description per record
+  (spot-checked: e.g. KC297269.1, "attachment glycoprotein (G) gene, complete cds").
+- Exact ESearch query string and random seed used for this download: UNKNOWN
+  (not recorded at run time). download_sequences.py CONFIG in the repo currently
+  still shows the FLU config (name="flu_h3_ha_nt"), so the RSV run must have used
+  an edited/uncommitted version of CONFIG that was not saved. ACTION ITEM: if we
+  need to re-run or extend this dataset later, we cannot assume this exact query
+  is reproducible from the current script — treat the existing FASTA as a fixed,
+  frozen input rather than something we can regenerate byte-for-byte.
+
+RSV-A CDS extraction (code/extract_cds.py):
+- data/rsv_a_cds.fasta: 108/108 records kept (0 dropped), lengths 885-966 nt
+  (295-322 codons). SHA256 3B6F81353032940F4C786937C3C8443E70ED4C7CDF5EFFDA36BB534F28EA2FE6
+- Length spread (295-322 codons) is consistent with real biology: RSV-A G protein
+  is known to carry a 72-nt (24-aa) duplication in the C-terminal hypervariable
+  region in some genotypes (e.g. GA/ON lineages), so this is NOT a QC failure.
+
+RSV-A codon-aware alignment (translate -> MAFFT protein align -> backtranslate):
+- results/rsv_a_prot.fasta, results/rsv_a_prot_aligned.fasta (intermediate).
+- results/rsv_a_codon_aligned.fasta: 108 seqs, length 966 nt, divisible by 3 (322 codons).
+  SHA256 F1C7B8C5B3D8C5EE5549A594A7B5B363084BA79FCA0284E0A46367F624AAC7AD
+
+RSV-A tree (IQ-TREE 3.1.3):
+- 108 taxa, best-fit model by BIC: TN+F+I+R2.
+- 0/108 sequences failed the composition chi-square test.
+- Log-likelihood -5381.7295; total tree length 0.7718.
+- results/rsv_a_codon_iqtree.treefile
+  SHA256 85CEFC890BF68D12A877D5D69C3EE584057F64F549205B806EC94F57725CFD1C
+- Wall-clock time 87.2 sec.
+
+RSV-A selection analysis (HyPhy 2.5.100 FEL, same Docker image as flu:
+quay.io/biocontainers/hyphy:2.5.100--h74d3ee0_0):
+- results/rsv_a_fel.json: 108 sequences tested, 322 codon sites.
+  SHA256 0D6BE45D39ECAF50C7FDE8E9D5C704C597341470105BC4C00908259A0848269D
+- Sites have NOT yet been parsed (parse_fel.py not yet run on this file) and
+  NO ONE HAS LOOKED AT WHICH SITES ARE POSITIVELY SELECTED YET. This matters:
+  functional_regions.py RSV_G_CCR / RSV_G_CX3C are still empty/unlocked, so red
+  line #1 has NOT been violated — we simply have not looked yet. Regions must be
+  locked from literature BEFORE running parse_fel.py + map_numbering.py on this file.
+
+RSV-B status: only the raw download exists (data/rsv_b_nt.fasta, 115 records,
+888-1038 nt). CDS extraction, alignment, tree, and FEL not yet run.
+
+Next planned step:
+1. Read primary literature and lock RSV_G_CCR / RSV_G_CX3C residue ranges (with
+   real citations) into functional_regions.py BEFORE parsing any RSV FEL output.
+2. Run RSV-B through extract_cds.py -> codon_align.py -> IQ-TREE -> FEL.
+3. Only then: parse_fel.py on both, build an RSV G numbering map, run enrichment_test.py.
+
+=== DAY 2 - 2026-07-04: RSV-A NUMBERING PRE-REGISTRATION + ENRICHMENT (live entry) ===
+Goal: honestly complete the RSV-A analysis (parse -> map -> enrichment) that the
+Day 1 retroactive entry left pending, using RSV-A2 (M11486) reference numbering.
+
+State when this session started:
+- results/flu_enrichment.json was CORRUPTED (n_perm=10, p=1.0, 0 sites) because an
+  earlier E2E-test mock run had overwritten it. The correct flu numbers are the
+  ones already reported in Day 1: 5 HA1 sites (50,135,157,193,261), 5/5 in
+  antigenic region, p=0.0081, seed=42, N_PERM=10000.
+  Re-ran python code/enrichment_test.py results/flu_h3_ha_selected_h3.csv flu 10000
+  and reproduced the same numbers byte-for-byte-in-content (seed 42 => same null).
+  results/flu_enrichment.json  SHA256 145FC9416E1F5A1151FB5041C18ADF8A467D54CFCAF1BC1D995A4F762A5EDF8D
+- results/rsv_a_selected_sites.csv and results/rsv_b_selected_sites.csv contained
+  fake mock rows ("10,158,1.5,0.01") from a leftover E2E test run. Deleted both.
+
+Pre-registration audit (red line #1) — I am NEW in this session; the FEL parse
+output for RSV-A was NOT read before functional_regions.py CCR/CX3C ranges were
+already present in the file (RSV_REGIONS_LOCKED = 2026-07-04). To make the
+locking defensible:
+- Added explicit source citations (Johnson 1987, Tripp 2001, Melero 2017) into
+  functional_regions.py.
+- Independently verified that CX3C = CWAIC motif does sit at A2 residues 182-186
+  (found "CWAIC" starting at position 182 of M11486 G protein).
+- Independently verified that the four cysteines of the "cysteine noose"
+  (C173, C176, C182, C186) all lie inside the CCR 157-198 range.
+- No range boundary was changed in this session. The pre-registered ranges are
+  the widely-published standard, not tailored to any observed FEL output.
+
+RSV-A2 reference fetch:
+- python code/download-style Entrez EFetch of M11486.1 (GenBank record).
+- data/rsv_a2_M11486.gb  SHA256 3C1F2CEC6C846D8528BC0884F2439417BF1B16389D0CA27EC1DC571364E2A305
+- Extracted CDS with gene="G": product=?, location=[4640:5537](+), protein length 298 aa.
+- data/rsv_a2_G_ref.fasta  SHA256 5FE83B781B83FB7E4F7BEA1116B544E02B8234EB0F62B08759B1170C6CBB3B30
+
+Add A2 to protein alignment (profile-add, keep alignment length):
+- Command: bin\mafft.cmd --add data\rsv_a2_G_ref.fasta --keeplength results\rsv_a_prot_aligned.fasta > results\rsv_a_prot_aligned_with_A2.fasta
+- Output has 109 records (108 RSV-A + A2), alignment length 322 aa.
+- A2 sequence in alignment: 298 non-gap residues (matches functional_regions.RSV_G_LENGTH).
+- Single gap run in A2 aligned seq: aln columns 266-289 (24 columns = the 24-aa
+  ON1 duplication in modern RSV-A strains; this matches published biology).
+- CCR (A2 157-198) maps to aln columns 157-198 (unchanged — pre-duplication).
+- CX3C (A2 182-186) maps to aln columns 182-186 (unchanged — pre-duplication).
+- results/rsv_a_prot_aligned_with_A2.fasta  SHA256 FD471B37FC59219ACA9816EBCAC9646DA41E6D86DDA112848F32A565C41503C5
+
+FEL parse (parse_fel.py at p<=0.05):
+- Input:  results/rsv_a_fel.json  (322 codons, HyPhy 2.5.100 output from Day 1)
+- Positive selection (beta>alpha, p<=0.05): 4 alignment positions -> 237, 247, 274, 298.
+- Purifying at p<=0.05: 29 sites.
+- results/rsv_a_fel_sites.csv  SHA256 B738361348485EE773A02389AF776A4D2D34CDB99C4BDA4D08392A4637C81650
+
+Numbering map to A2 (code/map_numbering_rsv.py, new script):
+- aln 237 -> A2 residue 237  (beta_dN=3.94, p=0.034)
+- aln 247 -> A2 residue 247  (beta_dN=2.33, p=0.004)
+- aln 274 -> in the ON1 24-aa insert (no A2 equivalent; beta_dN=8.94, p=0.009)
+- aln 298 -> A2 residue 274  (beta_dN=5.20, p=0.003)
+- 3 of 4 sites are mappable to A2 numbering; 1 is ON1-specific.
+- results/rsv_a_selected_a2.csv  SHA256 09275B28F01DB9A224148B2EF3372854329D35BABA991084F5ED11FBA3FB3854
+
+Enrichment permutation test (10,000 permutations, seed 42):
+- CCR test (rsv_a target, region = A2 157-198, domain = A2 1-298):
+  observed 0/3 in CCR = 0.0%
+  expected by chance 13.9%; enrichment ratio 0.00x; p-value 1.0000  -> NOT enriched
+  results/rsv_a_enrichment.json  SHA256 44C8873D671EB6DC54D77F325603228B7986342AFBFD47B0B7015D104A51B98E
+- CX3C test (rsv_a_cx3c target, region = A2 182-186):
+  observed 0/3 in CX3C = 0.0%
+  expected by chance 1.6%; enrichment ratio 0.00x; p-value 1.0000  -> NOT enriched
+  results/rsv_a_enrichment_cx3c.json  SHA256 F532236E73B79053D4B5E6EB9913A73EF86814A55A2B9F8486487691F4E07B9C
+
+Interpretation (for the paper Discussion — DO NOT rewrite Results with this):
+- All 3 A2-mappable positively-selected sites (237, 247, 274 in A2) fall in the
+  C-terminal mucin-like variable domain (roughly A2 residues 230-298), OUTSIDE
+  the pre-registered CCR and CX3C motif.
+- The 4th site is inside the ON1 24-aa duplication itself.
+- Flu (validation) showed selection concentrated in the pre-registered antigenic
+  region (p=0.008); RSV-A shows the opposite: selection avoids CCR/CX3C and
+  clusters in the hypervariable mucin domain. This is a real, honest negative
+  finding for CCR/CX3C enrichment and a positive finding for mucin-domain
+  hyper-variability. Both are consistent with the known biology: CCR/CX3C are
+  under structural/functional constraint (CX3C mimicking fractalkine binds
+  CX3CR1), while the flanking mucin domains are under immune-driven variation.
+
+Next planned step:
+- Run the RSV-B pipeline (data/rsv_b_nt.fasta -> extract_cds -> codon_align ->
+  IQ-TREE -> FEL -> parse -> map to A2 numbering -> enrichment_test).
+
+
+=== DAY 2 CONTINUED - 2026-07-04: RSV-B FULL PIPELINE (live entry) ===
+Goal: run RSV-B G through the same pipeline as RSV-A so both subtypes are
+directly comparable, then combine.
+
+State when this section started:
+- data/rsv_b_nt.fasta was MISSING (previous data/rsv_combined_nt.fasta contains
+  223 records = 108 RSV-A + 115 RSV-B, and notes/rsv_b_nt_accessions.tsv lists
+  the 115 RSV-B accessions used).
+- Reconstructed data/rsv_b_nt.fasta by extracting the 115 accessions listed in
+  the TSV out of the combined FASTA. This is a frozen input (as with RSV-A,
+  the exact original download query/seed are not recorded live, so the file is
+  treated as-is; we DO NOT try to re-download).
+- data/rsv_b_nt.fasta  SHA256 092BCF25EC83ACEC310C097FE7F50A8B9AC70F276423A7AB6BD7A06252E19F48
+- 115 records, length range 888-1038 nt (RSV-B G ~290-330 aa).
+
+CDS extraction (code/extract_cds.py, min_codons=280 max_codons=340):
+- 115/115 kept, lengths 879-1002 nt (293-334 codons); all divisible by 3.
+- data/rsv_b_cds.fasta  SHA256 876CA1F8EBDBE3F64B7B78C20CBDCB191FB2C3C8F97D2CB79DE77AAB53201063
+
+Translation + protein MAFFT + codon backtranslate:
+- results/rsv_b_prot.fasta  SHA256 7E0CEC925E195DA05C6E00F3E685667E90966C52606A1BF6DBC276462DD2595B
+- Command: bin\mafft.cmd --auto results\rsv_b_prot.fasta > results\rsv_b_prot_aligned.fasta
+- results/rsv_b_prot_aligned.fasta  SHA256 504E9696E42741A8A71361BFE411D2A3CBE1BFA2D72686A2870D8AB35D81C93F
+- Codon backtranslate -> results/rsv_b_codon_aligned.fasta, length 1008 nt (336 codons), div by 3.
+- results/rsv_b_codon_aligned.fasta  SHA256 F2607096E46CC91FF9854EDFE1E9F7AF391D20D4725D58E036055C6370647CFD
+
+Phylogenetic tree (IQ-TREE 3.1.3):
+- Command: bin\iqtree3.cmd -s results\rsv_b_codon_aligned.fasta -m MFP -B 1000 -T AUTO --prefix results\rsv_b_codon_iqtree -redo
+- Best-fit model (BIC): TN+F+I+R2 (same as RSV-A; consistent).
+- Log-likelihood: -5469.16, s.e. 211.15
+- Total tree length: 0.7727 (RSV-A was 0.7718; similar overall divergence).
+- Wall-clock: 103 seconds
+- results/rsv_b_codon_iqtree.treefile  SHA256 B12FA3F18A8B01CA9855528BDDBBC57E19A7458A99FAA064ADC2D2E87FFB3A80
+
+HyPhy FEL (Docker quay.io/biocontainers/hyphy:2.5.100--h74d3ee0_0):
+- Command: docker run --rm -v %CD%:/data hyphy fel --alignment /data/results/rsv_b_codon_aligned.fasta --tree /data/results/rsv_b_codon_iqtree.treefile --output /data/results/rsv_b_fel.json
+- Wall-clock: 121 seconds
+- FEL reported 6 positive-selection sites at p<=0.1, 40 negative at p<=0.1.
+- At the pre-registered p<=0.05 threshold: 3 positive sites (aln 236, 304, 322), 22 negative.
+- results/rsv_b_fel.json  SHA256 C022AB77B50AE45BB364EDFF79E2D8C5D191EF69FF0E9BE6C367E8F24FFCCA9A
+- results/rsv_b_fel_sites.csv  SHA256 80BC95C4B4D91D7A624DB40885B45E1E030A7B6AEF13A1BE076D391700D8EC3F
+
+A2 reference add to RSV-B alignment (MAFFT --add --keeplength):
+- results/rsv_b_prot_aligned_with_A2.fasta  SHA256 2078B1787D099733A9C33C9D6CD1DC34CCD9892F76435600944B1370A85A7F92
+- A2 fits 294/298 residues into the B alignment (loses 4 residues at extreme
+  ends where the B alignment window doesn't reach). Mid-sequence (including
+  ALL of CCR 157-198 and CX3C 182-186) is fully covered. Since the alignment
+  is between RSV-B and A2 (RSV-A), it uses the fact that CCR is 95%+ conserved
+  between subtypes to establish a cross-subtype coordinate frame.
+- WARNING NOTED: the mapper prints "A2 non-gap length 294, expected 298" —
+  this is a real caveat to record in the paper Methods but does not affect the
+  CCR/CX3C boundaries.
+
+Numbering map (map_numbering_rsv.py):
+- aln 236 -> A2 residue 218  (beta_dN=5.00, p=0.0021)
+- aln 304 -> A2 residue 266  (beta_dN=7.69, p=0.0197)
+- aln 322 -> A2 residue 284  (beta_dN=2.07, p=0.0277)
+- All 3 sites mapped, 0 sites unmappable, 0 in CCR, 0 in CX3C.
+- results/rsv_b_selected_a2.csv  SHA256 A9CE6D3DEFBF022362F72FFFA9861AA9E20A741EA2F27AEC7495F7FBD18CC72A
+
+Enrichment permutation test (10,000 permutations, seed 42):
+- CCR (rsv_b, region A2 157-198, domain 298):
+  observed 0/3 in CCR = 0.0%
+  expected 13.9%; enrichment 0.00x; p-value 1.0000  -> NOT enriched
+  results/rsv_b_enrichment.json  SHA256 E1293E0DFE8A7BC446894BCD138557EF45A837AFFAB3674810FE6CA4F07D97C8
+- CX3C (rsv_b_cx3c, region A2 182-186):
+  observed 0/3 in CX3C = 0.0%
+  expected 1.6%; enrichment 0.00x; p-value 1.0000  -> NOT enriched
+  results/rsv_b_enrichment_cx3c.json  SHA256 38DD51F83A758D7DE260CB5AD80A3F2A9658752E5A767B2270002EF773DCBFA0
+
+Combined RSV-A + RSV-B (pooling positively-selected sites):
+- 3 A-mappable + 3 B-mappable = 6 sites (A2: 218, 237, 247, 266, 274, 284).
+- All 6 fall in the C-terminal mucin-like variable domain (past CCR).
+- results/rsv_combined_selected_a2.csv  SHA256 A21AA9B16728A73F9B985901CF110522D1725C9631D22C7738B72415D58F31B8
+- CCR (rsv_combined):  0/6 = 0.0% vs expected 14.1%. p=1.0000 -> NOT enriched.
+  results/rsv_combined_enrichment.json  SHA256 529CEBFE9DA2943F65DF3065A1FD9676459EAAB3CD257BE95B70FEDDA1A263A2
+- CX3C (rsv_combined_cx3c): 0/6 = 0.0% vs expected 1.7%. p=1.0000 -> NOT enriched.
+  results/rsv_combined_enrichment_cx3c.json  SHA256 C1B61C1555ADBF34324F4BB365BC2588E8B33AC655122569BAEE6933918EDDD9
+
+Interpretation (for the paper Discussion; DO NOT put this into Results):
+- Flu (validation): pipeline works; positive selection significantly enriched in
+  the antigenic sites, p=0.0081.
+- RSV-A and RSV-B (discovery): positive selection is NOT enriched in the
+  pre-registered CCR or CX3C motif in either subtype. This is a real
+  publishable negative result on the primary hypothesis.
+- Descriptive (POST-HOC, not pre-registered — flag as exploratory in the paper):
+  all 6 A2-mappable selected sites (both subtypes) fall in the C-terminal
+  mucin-like variable domain (roughly A2 residues 199-298), which is 100/298 =
+  33.6% of the protein. That is 6/6 vs expected ~33.6% by chance. This is
+  qualitatively consistent with the known immune-driven variability of the
+  mucin flanks and with the structural/functional constraint on the central
+  region (CX3C mimics fractalkine binding CX3CR1; the cysteine-noose is
+  disulfide-locked). Any statistical statement
+ about the mucin-domain enrichment must be labeled EXPLORATORY and post-hoc,
+  because the boundary was chosen after seeing the site positions.
+
+Environment used:
+- Python 3.11.15, Biopython 1.87
+- MAFFT v7.526 (Windows), IQ-TREE 3.1.3 (Windows)
+- HyPhy 2.5.100 in Docker (image quay.io/biocontainers/hyphy:2.5.100--h74d3ee0_0)
+
+Next planned step:
+- Build the summary CSV/markdown table of all selected sites (flu + RSV-A + B).
+- Render publication figures: phylogenetic trees, permutation-null histograms.
+- 3D PyMOL structure figure: NOT feasible today (PyMOL is not installed here).
+
+
+================================================================================
+2026-07-04  ADDENDUM: properly-powered region-level selection analysis
+================================================================================
+Motivation:
+- The pre-registered PRIMARY test (site-count enrichment) is underpowered: with
+  only 3-6 FEL-significant sites per subtype, "0 in CCR" gives p=1.0 almost
+  automatically. A referee will (rightly) call the negative result uninformative
+  on its own. This addendum adds a companion test that uses ALL codons.
+
+Method (code/region_selection_analysis.py):
+- Metric: per-codon dN-dS = FEL beta - alpha (negative = purifying/constraint,
+  positive = diversifying). No significance threshold involved.
+- Regions (A2 numbering, locked 2026-07-04, mutually exclusive partition):
+  Nterm 1-156, CCR 157-198, Mucin 199-298; CX3C 182-186 nested in CCR (reported
+  separately, not a partition cell); ON1-duplication codons with no A2 residue
+  labelled 'insertion' (sensitivity only).
+- Stats (nonparametric, per user decision): Kruskal-Wallis omnibus across
+  Nterm/CCR/Mucin, then directional Mann-Whitney U (CCR<Mucin, CCR<non-CCR,
+  CX3C<Mucin) with rank-biserial effect size (rbc). Fisher on purifying-site
+  fraction kept as a secondary count-based check.
+
+Results:
+  RSV-A:  KW H=7.19, df=2, p=0.0275, eps^2=0.018 (regions differ).
+          CCR<Mucin: p=0.00662, rbc=-0.264 (CCR more purifying; medium effect).
+          CCR<non-CCR: p=0.00939, rbc=-0.224.
+          CX3C<Mucin: p=0.0796, rbc=-0.376 (ns; only 5 codons, low power).
+  RSV-B:  KW H=2.76, df=2, p=0.252 (NOT significant).
+          CCR<Mucin: p=0.0742, rbc=-0.154 (same direction, trend only).
+          CCR<non-CCR: p=0.0561 (borderline). CX3C<Mucin: p=0.265.
+
+Honest interpretation (Discussion, not Results):
+- The powered analysis SUPPORTS the mechanistic story in RSV-A: the CCR is under
+  significantly stronger purifying selection than the mucin domain / rest of the
+  protein, with a medium effect size. In RSV-B the same direction holds but does
+  not reach significance (trend). So the constraint-on-CCR claim is subtype-
+  dependent in strength: clear in A, suggestive in B. Report both; do NOT
+  overstate B.
+- This is consistent with (and mechanistically explains) the primary negative
+  result: positive selection is not enriched in the CCR BECAUSE the CCR is
+  purifying-constrained, while diversifying selection concentrates in the mucin
+  flanks.
+
+DATA-INTEGRITY NOTE (limitation to disclose):
+- When the A2 reference is added to the RSV-B protein alignment via
+  MAFFT --add --keeplength, 4 A2 residues (the ~pos-290 'YPSQ' stretch in the
+  mucin tail) are dropped: a2_ref_len=294 vs expected 298. Recorded in
+  rsv_b_region_selection.json (a2_ref_len vs a2_ref_expected). Affects only 4 of
+  ~100 mucin codons at the C-terminus; does not change the RSV-B conclusion
+  (null regardless). Mention as a mapping limitation.
+
+Outputs:
+- results/rsv_a_region_selection.json           SHA256 DEE67D64A9C3EBCDEBA0C13127A0AE06C8C7C11D75764047AB8F25FBD0DAD158
+- results/rsv_b_region_selection.json           SHA256 DB8417106E3DD235AE5B3D5FED4AFD951587A09EC02E2AE451A7E989E1A458BE
+- results/rsv_a_region_selection_percodon.csv   SHA256 8085BDE301BF0D60C5BDE7FF68F2A554C248A85EF276B9D1A64288AAECABF62D
+- results/rsv_b_region_selection_percodon.csv   SHA256 DECE36204D8B9D6C6843E59584FC3B7DB4709BAA6E5D547453E5935A6405BA50
+- figures/rsv_region_selection_dnds.png         SHA256 6E50F354283BE4D0258C175BA941B01234E7FCACD5DFBA1BF4A80386D89903D4
+
+================================================================================
+2026-07-04  ADDENDUM 2: 3D structure figure (PyMOL-free) + unified summary table
+================================================================================
+(1) STRUCTURE FIGURE — rendered WITHOUT PyMOL (PyMOL not installable on this box).
+- Structure: PDB 5WN9 chain A = RSV-A2 (M11486) G glycoprotein residues 169-189,
+  the central conserved domain (CCD) peptide bound to scFv 2D10. Residue
+  numbering matches the A2 reference used throughout (verified: CX3C = C182-W-A-
+  I-C186; sequence NFVPCSICSNNPTCWAICKRI).
+- PDB identified via RCSB full-text + data API (NOT from memory); chain A source
+  organism confirmed 'Human respiratory syncytial virus A2', desc 'Major surface
+  glycoprotein G'. downloaded to data/5WN9.pdb.
+- Cystine noose verified directly from coordinates: disulfides 173-186 (S-S 2.02 A)
+  and 176-182 (2.05 A) — the classic nested RSV G noose.
+- Rendered with Bio.PDB + matplotlib 3D (code/structure_figure.py): CA backbone
+  trace, spheres colored by THIS STUDY's per-codon dN-dS (rsv_a FEL), CX3C motif
+  as large black-outlined spheres, disulfides as yellow dashed CA-CA links.
+  Convention: blue = purifying (dN<dS), red = diversifying. Most CCD residues,
+  incl. the CX3C core, are blue/neutral = purifying — visually consistent with
+  the region-level result.
+- Turnkey PyMOL path for a polished cartoon LATER: structure_figure.py also
+  writes data/5WN9_chainA_dnds_bfactor.pdb (B-factor = dN-dS); run
+  code/render_ccd_pymol.pml (pymol -cq ...) to get a ray-traced version. The
+  matplotlib PNG carries identical scientific content and is what the draft uses.
+- CAVEAT for the paper: the crystallised CCD peptide spans only res 169-189, so
+  the figure covers the CX3C/noose core, NOT the full CCR (157-198) or the mucin
+  domains (mucin is intrinsically disordered; no full-length G structure exists).
+  State this in the figure legend.
+
+(2) UNIFIED SUMMARY TABLE.
+- Added a 'Region-level selection (powered companion)' section to
+  results/summary_enrichment.md and a new results/summary_region_selection.csv
+  (generated by make_figures.summary_tables()). Distinct columns (test / stat /
+  effect size / p) because it is a rank test, not a site-count enrichment —
+  deliberately NOT merged into the enrichment rows to avoid conflating the two.
+
+Outputs:
+- figures/rsv_g_ccd_structure_dnds.png      SHA256 609193E06E83DABC8C65DEC63F472E683B6B9507F9843E76A99EFFC307ACBAA4
+- data/5WN9.pdb                             SHA256 6FAEAFC96FE4FE72D9E1AACACAD239E63229320F422970D865F5C345EF3F48EA
+- data/5WN9_chainA_dnds_bfactor.pdb         SHA256 9521EAE16AA520C7510FFD30E55D8C8A1D90901E2F4112D0D0C8A885CA35D347
+- results/summary_region_selection.csv      SHA256 A8BCBBBB0A081E749846D1AC4EBDC70118849DF24E37EB7EE3910E150CC00033
+- results/summary_enrichment.md (updated)   SHA256 AA8C7BC2973F8130E92715E9EE272F1F91C97EEDE437D0EA939BE6ED5E18408C
+- code/structure_figure.py, code/render_ccd_pymol.pml (new)
+
+================================================================================
+2026-07-04  ADDENDUM 3: PyMOL structure figure produced (open-source PyMOL)
+================================================================================
+Supersedes the earlier "PyMOL not feasible today" note. User installed PyMOL;
+the downloaded pymol.org build (Schrodinger Incentive TRIAL) stamps a
+"For Evaluation Only" watermark on every ray-traced image -> unusable for a
+paper. Resolved by installing OPEN-SOURCE PyMOL (no watermark):
+  - Miniconda3 -> C:\Users\zahid\miniconda3 (JustMe, not on PATH)
+  - conda create -n pymol --override-channels -c conda-forge pymol-open-source
+    python=3.11   (used --override-channels to skip the Anaconda-defaults ToS)
+  - launcher: C:\Users\zahid\miniconda3\envs\pymol\Scripts\pymol.exe
+  - PyMOL (open-source) 3.1.0
+
+Render pipeline (two steps, both reproducible):
+  1. pymol -cq code/render_ccd_pymol.pml
+       -> figures/rsv_g_ccd_structure_pymol_raw.png (white bg, no annotation)
+       loads data/5WN9_chainA_dnds_bfactor.pdb (B-factor = rsv_a dN-dS),
+       cartoon tube colored spectrum b blue_white_red minimum=-3 maximum=3
+       (symmetric => white at dN-dS=0; blue=purifying, red=diversifying),
+       4 Cys as sticks, disulfides 173-186 & 176-182 in gold, CX3C CA spheres,
+       N-169/C-189/CX3C labels floated on offset pseudoatoms.
+  2. python code/compose_structure_figure.py
+       -> figures/rsv_g_ccd_structure_pymol.png (PUBLICATION panel: adds title,
+       methods subtitle, dN-dS colorbar matching the render, honest caption).
+
+Two .pml gotchas fixed (both silent-ish, non-fatal but sloppy):
+  - inline "# comment" after a command is NOT stripped by PyMOL -> feeds into the
+    value (set ray_trace_mode, 1 # ... -> ValueError). Keep comments on own lines.
+  - PyMOL splits on ';' BEFORE stripping '#', so a ';' inside a comment executes
+    the tail as a command (";... blue = purifying" -> NameError). No ';' in
+    comments. Script now runs error-free (verified).
+
+Figure content == the matplotlib version (rsv_g_ccd_structure_dnds.png), just
+publication-grade. BOTH are kept; the PyMOL one is the paper panel, the mpl one
+is the no-dependency fallback. Same CAVEAT applies: peptide = res 169-189 only
+(CX3C + noose); full CCR and disordered mucin are not in any experimental G
+structure. State in legend.
+
+Environment addendum:
+- PyMOL open-source 3.1.0 (conda-forge, env 'pymol')
+
+Outputs:
+- figures/rsv_g_ccd_structure_pymol.png      SHA256 5CF635BD47909CB17DCDEB723CA1EC1A5054A1A6295C4382C4D215D49DAA3345
+- figures/rsv_g_ccd_structure_pymol_raw.png  SHA256 743B8483E9C52B7216860EFE2F68A240E5653F9AB99B0086A4E086EFD5DAF022
+- code/render_ccd_pymol.pml (updated)        SHA256 3CE23DC2BE6020DA9E661AD1BA52B3E7B06D72F2957CE32CE127626DC5239DA1
+- code/compose_structure_figure.py (new)     SHA256 A7C1DB72BD23D28602706C01002BE219AC0A728A7B4257EF7D236A78A5CC3A16

@@ -1,0 +1,464 @@
+LOCUS       RSH1CE                  8510 bp ss-RNA     linear   VRL 29-NOV-2000
+DEFINITION  Human respiratory syncytial virus nonstructural protein (1C),
+            nonstructural protein (1B), major nucleocapsid (N), phosphoprotein
+            (P), protein (M), 1A (1A), G (G), protein (F) and
+            envelope-associated protein (22K) gene, complete cds.
+ACCESSION   M11486 K01459 K02719 K03348 K03349 M11217 M11244 M11487 M11505
+            M11514 M11631 M12966
+VERSION     M11486.1
+KEYWORDS    envelope-associated protein; fusion glycoprotein; major
+            nucleocapsid protein; major surface glycoprotein; matrix protein;
+            nonstructural protein; phosphoprotein.
+SOURCE      human respiratory syncytial virus (HRSV)
+  ORGANISM  human respiratory syncytial virus
+            Viruses; Riboviria; Orthornavirae; Negarnaviricota;
+            Haploviricotina; Monjiviricetes; Mononegavirales; Pneumoviridae;
+            Orthopneumovirus; Orthopneumovirus hominis.
+REFERENCE   1  (bases 1085 to 2220; 5254 to 5544)
+  AUTHORS   Elango,N. and Venkatesan,S.
+  TITLE     Amino acid sequence of human respiratory syncytial virus
+            nucleocapsid protein
+  JOURNAL   Nucleic Acids Res. 11 (17), 5941-5951 (1983)
+   PUBMED   6310521
+REFERENCE   2  (bases 3211 to 4157)
+  AUTHORS   Satake,M. and Venkatesan,S.
+  TITLE     Nucleotide sequence of the gene encoding respiratory syncytial
+            virus matrix protein
+  JOURNAL   J. Virol. 50 (1), 92-99 (1984)
+   PUBMED   6699948
+REFERENCE   3  (bases 2288 to 3191)
+  AUTHORS   Satake,M., Elango,N. and Venkatesan,S.
+  TITLE     Sequence analysis of the respiratory syncytial virus phosphoprotein
+            gene
+  JOURNAL   J. Virol. 52 (3), 991-994 (1984)
+   PUBMED   6548527
+REFERENCE   4  (bases 5602 to 7500)
+  AUTHORS   Collins,P.L., Huang,Y.T. and Wertz,G.W.
+  TITLE     Nucleotide sequence of the gene encoding the fusion (F)
+            glycoprotein of human respiratory syncytial virus
+  JOURNAL   Proc. Natl. Acad. Sci. U.S.A. 81 (24), 7683-7687 (1984)
+   PUBMED   6096849
+REFERENCE   5  (bases 7551 to 8510)
+  AUTHORS   Collins,P.L. and Wertz,G.W.
+  TITLE     The envelope-associated 22K protein of human respiratory syncytial
+            virus: nucleotide sequence of the mRNA and a related polytranscript
+  JOURNAL   J. Virol. 54 (1), 65-71 (1985)
+   PUBMED   3838351
+REFERENCE   6  (bases 8 to 1050; 7554 to 8506)
+  AUTHORS   Elango,N., Satake,M. and Venkatesan,S.
+  TITLE     mRNA sequence of three respiratory syncytial virus genes encoding
+            two nonstructural proteins and a 22K structural protein
+  JOURNAL   J. Virol. 55 (1), 101-110 (1985)
+   PUBMED   4009789
+REFERENCE   7  (bases 5602 to 7423)
+  AUTHORS   Elango,N., Satake,M., Coligan,J.E., Norrby,E., Camargo,E. and
+            Venkatesan,S.
+  TITLE     Respiratory syncytial virus fusion glycoprotein: nucleotide
+            sequence of mRNA, identification of cleavage activation site and
+            amino acid sequence of N-terminus of F1 subunit
+  JOURNAL   Nucleic Acids Res. 13 (5), 1559-1574 (1985)
+   PUBMED   2987829
+REFERENCE   8  (bases 4630 to 5543)
+  AUTHORS   Satake,M., Coligan,J.E., Elango,N., Norrby,E. and Venkatesan,S.
+  TITLE     Respiratory syncytial virus envelope glycoprotein (G) has a novel
+            structure
+  JOURNAL   Nucleic Acids Res. 13 (21), 7795-7812 (1985)
+   PUBMED   4069997
+REFERENCE   9  (bases 4627 to 5544)
+  AUTHORS   Wertz,G.W., Collins,P.L., Huang,Y., Gruber,C., Levine,S. and
+            Ball,L.A.
+  TITLE     Nucleotide sequence of the G protein gene of human respiratory
+            syncytial virus reveals an unusual type of viral membrane protein
+  JOURNAL   Proc. Natl. Acad. Sci. U.S.A. 82 (12), 4075-4079 (1985)
+   PUBMED   3858865
+REFERENCE   10 (bases 4173 to 4571)
+  AUTHORS   Collins,P.L. and Wertz,G.W.
+  TITLE     The 1A protein gene of human respiratory syncytial virus:
+            nucleotide sequence of the mRNA and a related polycistronic
+            transcript
+  JOURNAL   Virology 141 (2), 283-291 (1985)
+   PUBMED   3879976
+REFERENCE   11 (bases 1 to 528; 552 to 1050)
+  AUTHORS   Collins,P.L. and Wertz,G.W.
+  TITLE     Nucleotide sequences of the 1B and 1C nonstructural protein mRNAs
+            of human respiratory syncytial virus
+  JOURNAL   Virology 143 (2), 442-451 (1985)
+   PUBMED   2998021
+REFERENCE   12 (bases 1081 to 2277)
+  AUTHORS   Collins,P.L., Anderson,K., Langer,S.J. and Wertz,G.W.
+  TITLE     Correct sequence for the major nucleocapsid protein mRNA of
+            respiratory syncytial virus
+  JOURNAL   Virology 146 (1), 69-77 (1985)
+   PUBMED   3839952
+REFERENCE   13 (bases 1051 to 1080; 2278 to 2287; 3192 to 3210; 4158 to 4172;
+            4572 to 4626; 5545 to 5601; 7501 to 7578)
+  AUTHORS   Collins,P.L., Dickens,L.E., Buckler-White,A., Olmsted,R.A.,
+            Spriggs,M.K., Camargo,E. and Coelingh,K.V.
+  TITLE     Nucleotide sequences for the gene junctions of human respiratory
+            syncytial virus reveal distinctive features of intergenic structure
+            and gene order
+  JOURNAL   Proc. Natl. Acad. Sci. U.S.A. 83 (13), 4594-4598 (1986)
+   PUBMED   3460060
+COMMENT     Reprint for [2] and clean copy sequence for [12],[5] kindly
+            provided by P.Collins, 21-FEB-1986.
+            Respiratory syncytial virus is a negative-strand RNA pleomorphic
+            enveloped virus of the genus Pneumovirus.  The matrix protein has
+            no homology with the matrix proteins of other negative-stranded RNA
+            viruses, implying that RS virus has undergone extensive
+            evolutionary divergence.  Two unidentified reading frames which
+            potentially encode proteins were located: one overlaps the matrix
+            protein and the other the F protein.  The biological significance
+            of these two reading frames is not clear.  The positive strand is
+            shown.
+FEATURES             Location/Qualifiers
+     source          1..8510
+                     /organism="human respiratory syncytial virus"
+                     /mol_type="genomic RNA"
+                     /strain="A2"
+                     /db_xref="taxon:11250"
+                     /lab_host="HEp-2 cell"
+     gene            1..528
+                     /gene="1C"
+     mRNA            1..528
+                     /gene="1C"
+     CDS             55..474
+                     /gene="1C"
+                     /codon_start=1
+                     /product="nonstructural protein"
+                     /protein_id="AAB59850.1"
+                     /translation="MGSNSLSMIKVRLQNLFDNDEVALLKITCYTDKLIHLTNALAKA
+                     VIHTIKLNGIVFVHVITSSDICPNNNIVVKSNFTTMPVLQNGGYIWEMMELTHCSQPN
+                     GLLDDNCEIKFSKKLSDSTMTNYMNQLSELLGFDLNP"
+     variation       171
+                     /gene="1C"
+                     /note="c in [11]; t in [6]"
+                     /replace="t"
+     gene            552..1050
+                     /gene="1B"
+     mRNA            552..1050
+                     /gene="1B"
+     CDS             584..958
+                     /gene="1B"
+                     /codon_start=1
+                     /product="nonstructural protein"
+                     /protein_id="AAB59851.1"
+                     /translation="MDTTHNDNTPQRLMITDMRPLSLETIITSLTRDIITHKFIYLIN
+                     HECIVRKLDEKQATFTFLVNYEMKLLHKVGSTKYKKYTEYNTKYGTFPMPIFINHDGF
+                     LECIGIKPTKHTPIIYKYDLNP"
+     variation       747
+                     /gene="1B"
+                     /note="a in [11]; g in [6]"
+                     /replace="g"
+     variation       769
+                     /gene="1B"
+                     /note="g in [11]; a in [6]"
+                     /replace="a"
+     gene            1081..2277
+                     /gene="N"
+     mRNA            1081..2277
+                     /gene="N"
+     CDS             1096..2271
+                     /gene="N"
+                     /codon_start=1
+                     /product="major nucleocapsid"
+                     /protein_id="AAB59852.1"
+                     /translation="MALSKVKLNDTLNKDQLLSSSKYTIQRSTGDSIDTPNYDVQKHI
+                     NKLCGMLLITEDANHKFTGLIGMLYAMSRLGREDTIKILRDAGYHVKANGVDVTTHRQ
+                     DINGKEMKFEVLTLASLTTEIQINIEIESRKSYKKMLKEMGEVAPEYRHDSPDCGMII
+                     LCIAALVITKLAAGDRSGLTAVIRRANNVLKNEMKRYKGLLPKDIANSFYEVFEKHPH
+                     FIDVFVHFGIAQSSTRGGSRVEGIFAGLFMNAYGAGQVMLRWGVLAKSVKNIMLGHAS
+                     VQAEMEQVVEVYEYAQKLGGEAGFYHILNNPKASLLSLTQFPHFSSVVLGNAAGLGIM
+                     GEYRGTPRNQDLYDAAKAYAEQLKENGVINYSVLDLTAEELEAIKHQLNPKDNDVEL"
+     gene            2289..3196
+                     /gene="P"
+     mRNA            2289..3196
+                     /gene="P"
+     CDS             2302..3027
+                     /gene="P"
+                     /codon_start=1
+                     /product="phosphoprotein"
+                     /protein_id="AAB59853.1"
+                     /translation="MEKFAPEFHGEDANNRATKFLESIKGKFTSPKDPKKKDSIISVN
+                     SIDIEVTKESPITSNSTIINPTNETDDTAGNKPNYQRKPLVSFKEDPTPSDNPFSKLY
+                     KETIETFDNNEEESSYSYEEINDQTNDNITARLDRIDEKLSEILGMLHTLVVASAGPT
+                     SARDGIRDAMIGLREEMIEKIRTEALMTNDRLEAMARLRNEESEKMAKDTSDEVSLNP
+                     TSEKLNNLLEGNDSDNDLSLEDF"
+     gene            3210..4156
+                     /gene="M"
+     mRNA            3210..4156
+                     /gene="M"
+     CDS             3214..3984
+                     /gene="M"
+                     /codon_start=1
+                     /product="matrix protein"
+                     /protein_id="AAB59854.1"
+                     /translation="METYVNKLHEGSTYTAAVQYNVLEKDDDPASLTIWVPMFQSSMP
+                     ADLLIKELANVNILVKQISTPKGPSLRVMINSRSAVLAQMPSKFTICANVSLDERSKL
+                     AYDVTTPCEIKACSLTCLKSKNMLTTVKDLTMKTLNPTHDIIALCEFENIVTSKKVII
+                     PTYLRSISVRNKDLNTLENITTTEFKNAITNAKIIPYSGLLLVITVTDNKGAFKYIKP
+                     QSQFIVDLGAYLEKESIYYVTTNWKHTATRFAIKPMED"
+     CDS             3923..4150
+                     /gene="M"
+                     /note="ORF1; putative"
+                     /codon_start=1
+                     /product="unknown protein"
+                     /protein_id="AAB59855.1"
+                     /translation="MLPQIGSTQLHDLQSNPWKINLFPLHQCVNSYKLSTYILHFTIT
+                     ITNTLWFNQSNKTYLKSQIIPSHCLSDLVLK"
+     gene            4172..4576
+                     /gene="1A"
+     mRNA            4172..4576
+                     /gene="1A"
+     CDS             4256..4450
+                     /gene="1A"
+                     /codon_start=1
+                     /protein_id="AAB59856.1"
+                     /translation="MENTSITIEFSSKFWPYFTLIHMITTIISLLIIISIMIAILNKL
+                     CEYNVFHNKTFELPRARVNT"
+     gene            4626..5543
+                     /gene="G"
+     mRNA            4626..5543
+                     /gene="G"
+     CDS             4641..5537
+                     /gene="G"
+                     /codon_start=1
+                     /protein_id="AAB59857.1"
+                     /translation="MSKNKDQRTAKTLERTWDTLNHLLFISSCLYKLNLKSVAQITLS
+                     ILAMIISTSLIIAAIIFIASANHKVTPTTAIIQDATSQIKNTTPTYLTQNPQLGISPS
+                     NPSEITSQITTILASTTPGVKSTLQSTTVKTKNTTTTQTQPSKPTTKQRQNKPPSKPN
+                     NDFHFEVFNFVPCSICSNNPTCWAICKRIPNKKPGKKTTTKPTKKPTLKTTKKDPKPQ
+                     TTKSKEVPTTKPTEEPTINTTKTNIITTLLTSNTTGNPELTSQMETFHSTSSEGNPSP
+                     SQVSTTSEYPSQPSSPPNTPRQ"
+     gene            5601..7499
+                     /gene="F"
+     mRNA            5601..7499
+                     /gene="F"
+     CDS             5614..7338
+                     /gene="F"
+                     /note="precursor"
+                     /codon_start=1
+                     /product="fusion glycoprotein"
+                     /protein_id="AAB59858.1"
+                     /translation="MELLILKANAITTILTAVTFCFASGQNITEEFYQSTCSAVSKGY
+                     LSALRTGWYTSVITIELSNIKENKCNGTDAKVKLIKQELDKYKNAVTELQLLMQSTPP
+                     TNNRARRELPRFMNYTLNNAKKTNVTLSKKRKRRFLGFLLGVGSAIASGVAVSKVLHL
+                     EGEVNKIKSALLSTNKAVVSLSNGVSVLTSKVLDLKNYIDKQLLPIVNKQSCSISNIE
+                     TVIEFQQKNNRLLEITREFSVNAGVTTPVSTYMLTNSELLSLINDMPITNDQKKLMSN
+                     NVQIVRQQSYSIMSIIKEEVLAYVVQLPLYGVIDTPCWKLHTSPLCTTNTKEGSNICL
+                     TRTDRGWYCDNAGSVSFFPQAETCKVQSNRVFCDTMNSLTLPSEINLCNVDIFNPKYD
+                     CKIMTSKTDVSSSVITSLGAIVSCYGKTKCTASNKNRGIIKTFSNGCDYVSNKGMDTV
+                     SVGNTLYYVNKQEGKSLYVKGEPIINFYDPLVFPSDEFDASISQVNEKINQSLAFIRK
+                     SDELLHNVNAGKSTTNIMITTIIIVIIVILLSLIAVGLLLYCKARSTPVTLSKDQLSG
+                     INNIAFSN"
+     sig_peptide     5614..5679
+                     /gene="F"
+     mat_peptide     5680..6021
+                     /gene="F"
+                     /product="fusion glycoprotein"
+                     /note="F1 subunit"
+     mat_peptide     6022..7335
+                     /gene="F"
+                     /product="fusion glycoprotein"
+                     /note="F2 subunit"
+     CDS             5639..5758
+                     /gene="F"
+                     /note="ORF2; putative"
+                     /codon_start=1
+                     /product="unknown protein"
+                     /protein_id="AAB59859.1"
+                     /translation="MQLPQSSLQSHFVLLLVKTSLKNFINQHAVQLAKAILVL"
+     variation       5903
+                     /gene="F"
+                     /note="t in 2 clones [4],[7]; c in 1 clone [4]"
+                     /replace="c"
+     variation       5917
+                     /gene="F"
+                     /note="c in 2 clones [4]; g in [7]"
+                     /replace="g"
+     variation       5917
+                     /gene="F"
+                     /note="c in 2 clones [4]; t in 2 clones [4]"
+                     /replace="t"
+     variation       5942
+                     /gene="F"
+                     /note="a in 3 clones [4],[7]; c in 1 clone [4]"
+                     /replace="c"
+     variation       6173
+                     /gene="F"
+                     /note="t in 3 clones [4],[7]; c in 1 clone [4]"
+                     /replace="c"
+     variation       6515
+                     /gene="F"
+                     /note="t in 3 clones [4],[7]; c in 1 clone [4]"
+                     /replace="c"
+     variation       6638
+                     /gene="F"
+                     /note="a in 4 clones [4]; t in [7]"
+                     /replace="t"
+     variation       6748
+                     /gene="F"
+                     /note="a in 2 clones [4]; g in 2 clones [4],[7]"
+                     /replace="g"
+     variation       6952
+                     /gene="F"
+                     /note="a in 2 clones [4]; g in two clones [4],[7]"
+                     /replace="g"
+     gene            7550..8506
+                     /gene="22K"
+     mRNA            7550..8506
+                     /gene="22K"
+                     /product="22K mRNA"
+     CDS             7559..8143
+                     /gene="22K"
+                     /codon_start=1
+                     /product="envelope-associated protein"
+                     /protein_id="AAB59860.1"
+                     /translation="MSRRNPCKFEIRGHCLNGKRCHFSHNYFEWPPHALLVRQNFMLN
+                     RILKSMDKSIDTLSEISGAAELDRTEEYALGVVGVLESYIGSINNITKQSACVAMSKL
+                     LTELNSDDIKKLRDNEELNSPKIRVYNTVISYIESNRKNNKQTIHLLKRLPADVLKKT
+                     IKNTLDIHKSITINNPKESTVSDTNDHAKNNDTT"
+ORIGIN      
+        1 ggggcaaata agaatttgat aagtaccact taaatttaac tcccttggtt agagatgggc
+       61 agcaattcat tgagtatgat aaaagttaga ttacaaaatt tgtttgacaa tgatgaagta
+      121 gcattgttaa aaataacatg ctatactgat aaattaatac atttaactaa cgctttggct
+      181 aaggcagtga tacatacaat caaattgaat ggcattgtgt ttgtgcatgt tattacaagt
+      241 agtgatattt gccctaataa taatattgta gtaaaatcca atttcacaac aatgccagta
+      301 ctacaaaatg gaggttatat atgggaaatg atggaattaa cacattgctc tcaacctaat
+      361 ggtctactag atgacaattg tgaaattaaa ttctccaaaa aactaagtga ttcaacaatg
+      421 accaattata tgaatcaatt atctgaatta cttggatttg atcttaatcc ataaattata
+      481 attaatatca actagcaaat caatgtcact aacaccatta gttaatataa aacttaacag
+      541 aagacaaaaa tggggcaaat aaatcaattc agccaaccca accatggaca caacccacaa
+      601 tgataataca ccacaaagac tgatgatcac agacatgaga ccgttgtcac ttgagaccat
+      661 aataacatca ctaaccagag acatcataac acacaaattt atatacttga taaatcatga
+      721 atgcatagtg agaaaacttg atgaaaaaca ggccacattt acattcctgg tcaactatga
+      781 aatgaaacta ttacacaaag taggaagcac taaatataaa aaatatactg aatacaacac
+      841 aaaatatggc actttcccta tgccaatatt catcaatcat gatgggttct tagaatgcat
+      901 tggcattaag cctacaaagc atactcccat aatatacaag tatgatctca atccataaat
+      961 ttcaacacaa tattcacaca atctaaaaca acaactctat gcataactat actccatagt
+     1021 ccagatggag cctgaaaatt atagtaattt aaaattaagg agagatataa gatagaagat
+     1081 ggggcaaata caaagatggc tcttagcaaa gtcaagttga atgatacact caacaaagat
+     1141 caacttctgt catccagcaa atacaccatc caacggagca caggagatag tattgatact
+     1201 cctaattatg atgtgcagaa acacatcaat aagttatgtg gcatgttatt aatcacagaa
+     1261 gatgctaatc ataaattcac tgggttaata ggtatgttat atgcgatgtc taggttagga
+     1321 agagaagaca ccataaaaat actcagagat gcgggatatc atgtaaaagc aaatggagta
+     1381 gatgtaacaa cacatcgtca agacattaat ggaaaagaaa tgaaatttga agtgttaaca
+     1441 ttggcaagct taacaactga aattcaaatc aacattgaga tagaatctag aaaatcctac
+     1501 aaaaaaatgc taaaagaaat gggagaggta gctccagaat acaggcatga ctctcctgat
+     1561 tgtgggatga taatattatg tatagcagca ttagtaataa ctaaattagc agcaggggac
+     1621 agatctggtc ttacagccgt gattaggaga gctaataatg tcctaaaaaa tgaaatgaaa
+     1681 cgttacaaag gcttactacc caaggacata gccaacagct tctatgaagt gtttgaaaaa
+     1741 catccccact ttatagatgt ttttgttcat tttggtatag cacaatcttc taccagaggt
+     1801 ggcagtagag ttgaagggat ttttgcagga ttgtttatga atgcctatgg tgcagggcaa
+     1861 gtgatgttac ggtggggagt cttagcaaaa tcagttaaaa atattatgtt aggacatgct
+     1921 agtgtgcaag cagaaatgga acaagttgtt gaggtttatg aatatgccca aaaattgggt
+     1981 ggtgaagcag gattctacca tatattgaac aacccaaaag catcattatt atctttgact
+     2041 caatttcctc acttctccag tgtagtatta ggcaatgctg ctggcctagg cataatggga
+     2101 gagtacagag gtacaccgag gaatcaagat ctatatgatg cagcaaaggc atatgctgaa
+     2161 caactcaaag aaaatggtgt gattaactac agtgtactag acttgacagc agaagaacta
+     2221 gaggctatca aacatcagct taatccaaaa gataatgatg tagagctttg agttaataaa
+     2281 aaatggggca aataaatcat catggaaaag tttgctcctg aattccatgg agaagatgca
+     2341 aacaacaggg ctactaaatt cctagaatca ataaagggca aattcacatc acccaaagat
+     2401 cccaagaaaa aagatagtat catatctgtc aactcaatag atatagaagt aaccaaagaa
+     2461 agccctataa catcaaattc aactattatc aacccaacaa atgagacaga tgatactgca
+     2521 gggaacaagc ccaattatca aagaaaacct ctagtaagtt tcaaagaaga ccctacacca
+     2581 agtgataatc ccttttctaa actatacaaa gaaaccatag aaacatttga taacaatgaa
+     2641 gaagaatcca gctattcata cgaagaaata aatgatcaga caaacgataa tataacagca
+     2701 agattagata ggattgatga aaaattaagt gaaatactag gaatgcttca cacattagta
+     2761 gtggcaagtg caggacctac atctgctcgg gatggtataa gagatgccat gattggttta
+     2821 agagaagaaa tgatagaaaa aatcagaact gaagcattaa tgaccaatga cagattagaa
+     2881 gctatggcaa gactcaggaa tgaggaaagt gaaaagatgg caaaagacac atcagatgaa
+     2941 gtgtctctca atccaacatc agagaaattg aacaacctat tggaagggaa tgatagtgac
+     3001 aatgatctat cacttgaaga tttctgatta gttaccactc ttcacatcaa cacacaatac
+     3061 caacagaaga ccaacaaact aaccaaccca atcatccaac caaacatcca tccgccaatc
+     3121 agccaaacag ccaacaaaac aaccagccaa tccaaaacta accacccgga aaaaatctat
+     3181 aatatagtta aaaaacggaa agggtgggga aatatggaaa catacgtgaa caagcttcac
+     3241 gaaggctcca catacacagc tgctgttcaa tacaatgtct tagaaaaaga cgatgaccct
+     3301 gcatcactta caatatgggt gcccatgttc caatcatcta tgccagcaga tttacttata
+     3361 aaagaactag ctaatgtcaa catactagtg aaacaaatat ccacacccaa gggaccttca
+     3421 ctaagagtca tgataaactc aagaagtgca gtgctagcac aaatgcccag caaatttacc
+     3481 atatgcgcta atgtgtcctt ggatgaaaga agcaaactag catatgatgt aaccacaccc
+     3541 tgtgaaatca aggcatgtag tctaacatgc ctaaaatcaa aaaatatgtt gactacagtt
+     3601 aaagatctca ctatgaagac actcaaccct acacatgata ttattgcttt atgtgaattt
+     3661 gaaaacatag taacatcaaa aaaagtcata ataccaacat acctaagatc catcagtgtc
+     3721 agaaataaag atctgaacac acttgaaaat ataacaacca ctgaattcaa aaatgctatc
+     3781 acaaatgcaa aaatcatccc ttactcagga ttactattag tcatcacagt gactgacaac
+     3841 aaaggagcat tcaaatacat aaagccacaa agtcaattca tagtagatct tggagcttac
+     3901 ctagaaaaag aaagtatata ttatgttacc acaaattgga agcacacagc tacacgattt
+     3961 gcaatcaaac ccatggaaga ttaacctttt tcctctacat cagtgtgtta attcatacaa
+     4021 actttctacc tacattcttc acttcaccat cacaatcaca aacactctgt ggttcaacca
+     4081 atcaaacaaa acttatctga agtcccagat catcccaagt cattgtttat cagatctagt
+     4141 actcaaataa gttaataaaa aatatacaca tggggcaaat aatcattgga ggaaatccaa
+     4201 ctaatcacaa tatctgttaa catagacaag tccacacacc atacagaatc aaccaatgga
+     4261 aaatacatcc ataacaatag aattctcaag caaattctgg ccttacttta cactaataca
+     4321 catgatcaca acaataatct ctttgctaat cataatctcc atcatgattg caatactaaa
+     4381 caaactttgt gaatataacg tattccataa caaaaccttt gagttaccaa gagctcgagt
+     4441 caacacatag cattcatcaa tccaacagcc caaaacagta accttgcatt taaaaatgaa
+     4501 caacccctac ctctttacaa cacctcatta acatcccacc atgcaaacca ctatccatac
+     4561 tataaagtag ttaattaaaa atagtcataa caatgaacta ggatatcaag actaacaata
+     4621 acattggggc aaatgcaaac atgtccaaaa acaaggacca acgcaccgct aagacattag
+     4681 aaaggacctg ggacactctc aatcatttat tattcatatc atcgtgctta tataagttaa
+     4741 atcttaaatc tgtagcacaa atcacattat ccattctggc aatgataatc tcaacttcac
+     4801 ttataattgc agccatcata ttcatagcct cggcaaacca caaagtcaca ccaacaactg
+     4861 caatcataca agatgcaaca agccagatca agaacacaac cccaacatac ctcacccaga
+     4921 atcctcagct tggaatcagt ccctctaatc cgtctgaaat tacatcacaa atcaccacca
+     4981 tactagcttc aacaacacca ggagtcaagt caaccctgca atccacaaca gtcaagacca
+     5041 aaaacacaac aacaactcaa acacaaccca gcaagcccac cacaaaacaa cgccaaaaca
+     5101 aaccaccaag caaacccaat aatgattttc actttgaagt gttcaacttt gtaccctgca
+     5161 gcatatgcag caacaatcca acctgctggg ctatctgcaa aagaatacca aacaaaaaac
+     5221 caggaaagaa aaccactacc aagcccacaa aaaaaccaac cctcaagaca accaaaaaag
+     5281 atcccaaacc tcaaaccact aaatcaaagg aagtacccac caccaagccc acagaagagc
+     5341 caaccatcaa caccaccaaa acaaacatca taactacact actcacctcc aacaccacag
+     5401 gaaatccaga actcacaagt caaatggaaa ccttccactc aacttcctcc gaaggcaatc
+     5461 caagcccttc tcaagtctct acaacatccg agtacccatc acaaccttca tctccaccca
+     5521 acacaccacg ccagtagtta cttaaaaaca tattatcaca aaaagccatg accaacttaa
+     5581 acagaatcaa aataaactct ggggcaaata acaatggagt tgctaatcct caaagcaaat
+     5641 gcaattacca caatcctcac tgcagtcaca ttttgttttg cttctggtca aaacatcact
+     5701 gaagaatttt atcaatcaac atgcagtgca gttagcaaag gctatcttag tgctctgaga
+     5761 actggttggt ataccagtgt tataactata gaattaagta atatcaagga aaataagtgt
+     5821 aatggaacag atgctaaggt aaaattgata aaacaagaat tagataaata taaaaatgct
+     5881 gtaacagaat tgcagttgct catgcaaagc acaccaccaa caaacaatcg agccagaaga
+     5941 gaactaccaa ggtttatgaa ttatacactc aacaatgcca aaaaaaccaa tgtaacatta
+     6001 agcaagaaaa ggaaaagaag atttcttggt tttttgttag gtgttggatc tgcaatcgcc
+     6061 agtggcgttg ctgtatctaa ggtcctgcac ctagaagggg aagtgaacaa gatcaaaagt
+     6121 gctctactat ccacaaacaa ggctgtagtc agcttatcaa atggagttag tgtcttaacc
+     6181 agcaaagtgt tagacctcaa aaactatata gataaacaat tgttacctat tgtgaacaag
+     6241 caaagctgca gcatatcaaa tatagaaact gtgatagagt tccaacaaaa gaacaacaga
+     6301 ctactagaga ttaccaggga atttagtgtt aatgcaggtg taactacacc tgtaagcact
+     6361 tacatgttaa ctaatagtga attattgtca ttaatcaatg atatgcctat aacaaatgat
+     6421 cagaaaaagt taatgtccaa caatgttcaa atagttagac agcaaagtta ctctatcatg
+     6481 tccataataa aagaggaagt cttagcatat gtagtacaat taccactata tggtgttata
+     6541 gatacaccct gttggaaact acacacatcc cctctatgta caaccaacac aaaagaaggg
+     6601 tccaacatct gtttaacaag aactgacaga ggatggtact gtgacaatgc aggatcagta
+     6661 tctttcttcc cacaagctga aacatgtaaa gttcaatcaa atcgagtatt ttgtgacaca
+     6721 atgaacagtt taacattacc aagtgaaata aatctctgca atgttgacat attcaacccc
+     6781 aaatatgatt gtaaaattat gacttcaaaa acagatgtaa gcagctccgt tatcacatct
+     6841 ctaggagcca ttgtgtcatg ctatggcaaa actaaatgta cagcatccaa taaaaatcgt
+     6901 ggaatcataa agacattttc taacgggtgc gattatgtat caaataaagg gatggacact
+     6961 gtgtctgtag gtaacacatt atattatgta aataagcaag aaggtaaaag tctctatgta
+     7021 aaaggtgaac caataataaa tttctatgac ccattagtat tcccctctga tgaatttgat
+     7081 gcatcaatat ctcaagtcaa cgagaagatt aaccagagcc tagcatttat tcgtaaatcc
+     7141 gatgaattat tacataatgt aaatgctggt aaatccacca caaatatcat gataactact
+     7201 ataattatag tgattatagt aatattgtta tcattaattg ctgttggact gctcttatac
+     7261 tgtaaggcca gaagcacacc agtcacacta agcaaagatc aactgagtgg tataaataat
+     7321 attgcattta gtaactaaat aaaaatagca cctaatcatg ttcttacaat ggtttactat
+     7381 ctgctcatag acaacccatc tgtcattgga ttttcttaaa atctgaactt catcgaaact
+     7441 ctcatctata aaccatctca cttacactat ttaagtagat tcctagttta tagttatata
+     7501 aaacacaatt gaatgccaga ttaacttacc atctgtaaaa atgaaaactg gggcaaatat
+     7561 gtcacgaagg aatccttgca aatttgaaat tcgaggtcat tgcttaaatg gtaagaggtg
+     7621 tcattttagt cataattatt ttgaatggcc accccatgca ctgcttgtaa gacaaaactt
+     7681 tatgttaaac agaatactta agtctatgga taaaagtata gataccttat cagaaataag
+     7741 tggagctgca gagttggaca gaacagaaga gtatgctctt ggtgtagttg gagtgctaga
+     7801 gagttatata ggatcaataa acaatataac taaacaatca gcatgtgttg ccatgagcaa
+     7861 actcctcact gaactcaata gtgatgatat caaaaagctg agggacaatg aagagctaaa
+     7921 ttcacccaag ataagagtgt acaatactgt catatcatat attgaaagca acaggaaaaa
+     7981 caataaacaa actatccatc tgttaaaaag attgccagca gacgtattga agaaaaccat
+     8041 caaaaacaca ttggatatcc ataagagcat aaccatcaac aacccaaaag aatcaactgt
+     8101 tagtgataca aatgaccatg ccaaaaataa tgatactacc tgacaaatat ccttgtagta
+     8161 taacttccat actaataaca agtagatgta gagttactat gtataatcaa aagaacacac
+     8221 tatatttcaa tcaaaacaac ccaaataacc atatgtactc accgaatcaa acattcaatg
+     8281 aaatccattg gacctctcaa gaattgattg acacaattca aaattttcta caacatctag
+     8341 gtattattga ggatatatat acaatatata tattagtgtc ataacactca attctaacac
+     8401 tcaccacatc gttacattat taattcaaac aattcaagtt gtgggacaaa atggatccca
+     8461 ttattaatgg aaattctgct aatgtttatc taaccgatag ttatttaaaa
+//
+

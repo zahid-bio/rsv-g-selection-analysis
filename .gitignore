@@ -1,0 +1,24 @@
+# Secrets (NCBI Entrez email + API key) — never commit
+code/.entrez_secrets.txt
+*.secret
+.env
+
+# Vendored external tool binaries (install separately; see README)
+tools/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Scratch
+*.tmp
+scratch/

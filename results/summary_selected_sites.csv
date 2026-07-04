@@ -1,0 +1,13 @@
+target,aln_pos,reference_residue,reference,region_hit,beta_dN,p_value
+flu (H3N2),66,50,H3 mature HA1,Site C,2.3248,0.03510
+flu (H3N2),161,135,H3 mature HA1,Site A,4.2112,0.00193
+flu (H3N2),183,157,H3 mature HA1,Site B,4.1714,0.04621
+flu (H3N2),219,193,H3 mature HA1,Site B,2.5898,0.01495
+flu (H3N2),287,261,H3 mature HA1,Site E,4.3934,0.00167
+RSV-A,237,237,RSV-A2 (M11486),outside,3.9430,0.03408
+RSV-A,247,247,RSV-A2 (M11486),outside,2.3345,0.00385
+RSV-A,274,n/a (ON1 insertion),RSV-A2 (M11486),n/a,8.9442,0.00876
+RSV-A,298,274,RSV-A2 (M11486),outside,5.2034,0.00260
+RSV-B,236,218,RSV-A2 (M11486),outside,5.0000,0.00205
+RSV-B,304,266,RSV-A2 (M11486),outside,7.6912,0.01965
+RSV-B,322,284,RSV-A2 (M11486),outside,2.0747,0.02770

@@ -1,0 +1,7 @@
+aln_codon_pos,a2_residue,in_ccr,in_cx3c,beta_dN,p_value,source_subtype
+237,237,False,False,3.9430,0.03408,A
+247,247,False,False,2.3345,0.00385,A
+298,274,False,False,5.2034,0.00260,A
+236,218,False,False,5.0000,0.00205,B
+304,266,False,False,7.6912,0.01965,B
+322,284,False,False,2.0747,0.02770,B

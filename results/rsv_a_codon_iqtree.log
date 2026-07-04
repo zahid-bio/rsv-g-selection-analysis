@@ -1,0 +1,271 @@
+IQ-TREE version 3.1.3 for Windows 64-bit built Jun 19 2026
+Developed by Bui Quang Minh, Thomas Wong, Nhan Ly-Trong, Huaiyan Ren
+Contributed by Lam-Tung Nguyen, Dominik Schrempf, Chris Bielow,
+Olga Chernomor, Michael Woodhams, Diep Thi Hoang, Heiko Schmidt
+
+Host:    Zahids-Desktop (AVX2, FMA3, 31 GB RAM)
+Command: C:\Users\zahid\Documents\Research\U6_project\bin\..\tools\iqtree-3.1.3-Windows\iqtree-3.1.3-Windows\bin\iqtree3.exe -s C:\Users\zahid\Documents\Research\U6_project\results\rsv_a_codon_aligned.fasta -m MFP -B 1000 -T AUTO --prefix C:\Users\zahid\Documents\Research\U6_project\results\rsv_a_codon_iqtree -redo
+Seed:    176937 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Sat Jul 04 13:23:53 2026
+Kernel:  AVX+FMA - auto-detect threads (16 CPU cores detected)
+
+Reading alignment file C:\Users\zahid\Documents\Research\U6_project\results\rsv_a_codon_aligned.fasta ... Fasta format detected
+Reading fasta file: done in 0.001725 secs
+Alignment most likely contains DNA/RNA sequences
+Constructing alignment: done in 0.0022493 secs
+Alignment has 108 sequences with 966 columns, 337 distinct patterns
+192 parsimony-informative, 182 singleton sites, 592 constant sites
+            Gap/Ambiguity  Composition  p-value
+Analyzing sequences: done in 5.31999e-005 secs
+   1  KC297269.1    7.76%    passed     98.80%
+   2  KC297404.1    7.76%    passed     97.85%
+   3  JX976359.1    7.76%    passed     99.96%
+   4  KC297243.1    7.76%    passed     98.26%
+   5  KC297362.1    7.76%    passed     97.82%
+   6  KC297370.1    7.76%    passed     99.52%
+   7  KC297375.1    7.76%    passed     99.72%
+   8  KC297397.1    7.76%    passed     97.58%
+   9  KC297244.1    7.76%    passed     97.40%
+  10  KC297406.1    7.76%    passed     98.41%
+  11  KC297259.1    7.76%    passed     97.42%
+  12  HQ699266.1    7.45%    passed     99.28%
+  13  KC297293.1    7.76%    passed     97.21%
+  14  KC297410.1    7.76%    passed     99.90%
+  15  KC297281.1    7.76%    passed     99.47%
+  16  KC297324.1    7.45%    passed     91.88%
+  17  JX976357.1    7.76%    passed     99.93%
+  18  KC297409.1    7.76%    passed     99.86%
+  19  KC297377.1    7.76%    passed     98.86%
+  20  KC297373.1    7.76%    passed     96.32%
+  21  KC297278.1    7.76%    passed     97.31%
+  22  HQ699265.1    7.45%    passed     97.03%
+  23  KC297289.1    7.76%    passed     98.56%
+  24  KC297382.1    7.76%    passed     98.41%
+  25  KC297249.1    7.76%    passed     97.29%
+  26  HQ699275.1    7.45%    passed     99.07%
+  27  KC297325.1    7.76%    passed     97.95%
+  28  KC297318.1    7.76%    passed     98.68%
+  29  KC297282.1    7.76%    passed     89.70%
+  30  KC297361.1    7.76%    passed     97.82%
+  31  JX976364.1    7.76%    passed     95.26%
+  32  MN007080.1    0.31%    passed     95.50%
+  33  KU955195.1    7.76%    passed     98.16%
+  34  KU955237.1    7.76%    passed     97.40%
+  35  KU955269.1    7.76%    passed     97.34%
+  36  MN007082.1    0.31%    passed     98.48%
+  37  MN007049.1    0.31%    passed     87.91%
+  38  KU955239.1    7.76%    passed     97.40%
+  39  MF445767.1    0.31%    passed     98.70%
+  40  MF445772.1    0.31%    passed     95.93%
+  41  KU955217.1    7.76%    passed     93.53%
+  42  MF445770.1    0.31%    passed     98.70%
+  43  KU955228.1    7.76%    passed     98.86%
+  44  KU955235.1    7.76%    passed     97.42%
+  45  KU955276.1    7.45%    passed     97.24%
+  46  MF445797.1    0.31%    passed     98.97%
+  47  KU955176.1    7.76%    passed     96.72%
+  48  KU955137.1    7.76%    passed     94.11%
+  49  MF445756.1    0.31%    passed     98.70%
+  50  MF445779.1    7.45%    passed     94.11%
+  51  KU955129.1    7.76%    passed     97.11%
+  52  KU955261.1    7.76%    passed     98.61%
+  53  KU955226.1    7.76%    passed     97.46%
+  54  KU955116.1    7.76%    passed     99.01%
+  55  MN007062.1    0.31%    passed     97.63%
+  56  MF445784.1    7.76%    passed     85.04%
+  57  MF445796.1    7.76%    passed     99.46%
+  58  MN007043.1    0.31%    passed     94.98%
+  59  KU955263.1    7.76%    passed     98.53%
+  60  MN007040.1    0.31%    passed     97.10%
+  61  MF445768.1    0.31%    passed     99.00%
+  62  KU955179.1    7.76%    passed     91.56%
+  63  MN007078.1    0.31%    passed     92.78%
+  64  KU955222.1    7.76%    passed     97.23%
+  65  OP927947.1    0.31%    passed     90.89%
+  66  OP927829.1    0.31%    passed     88.75%
+  67  OP927932.1    0.31%    passed     98.47%
+  68  OP927821.1    0.31%    passed     99.25%
+  69  OP927826.1    0.31%    passed     98.88%
+  70  OP927835.1    0.31%    passed     92.72%
+  71  OP927982.1    0.31%    passed     98.73%
+  72  OP927845.1    0.31%    passed     99.01%
+  73  OP927957.1    0.31%    passed     94.98%
+  74  OP927864.1    0.31%    passed     99.16%
+  75  OR045926.1    8.49%    passed     97.01%
+  76  OP927938.1    0.31%    passed     92.72%
+  77  OP927882.1    0.31%    passed     98.79%
+  78  OP927903.1    0.31%    passed     91.23%
+  79  OP927931.1    0.00%    passed     90.90%
+  80  OP927837.1    0.31%    passed     96.52%
+  81  OP927858.1    0.31%    passed     97.54%
+  82  OP927917.1    0.31%    passed     93.37%
+  83  OP927986.1    0.31%    passed     99.38%
+  84  OP927992.1    0.31%    passed     98.58%
+  85  OP927920.1    0.31%    passed     97.68%
+  86  OP927898.1    0.31%    passed     99.37%
+  87  MW455131.1    0.31%    passed     96.59%
+  88  PQ822255.1    0.31%    passed     97.94%
+  89  PQ822308.1    0.31%    passed     98.68%
+  90  PX103265.1    0.31%    passed     99.62%
+  91  PZ111144.1    0.31%    passed     99.98%
+  92  PQ822281.1    0.31%    passed     99.01%
+  93  PZ111146.1    0.31%    passed     91.05%
+  94  PQ822290.1    0.31%    passed     94.36%
+  95  PQ822282.1    0.31%    passed     97.93%
+  96  PX453150.1    0.31%    passed     98.66%
+  97  PQ822304.1    0.31%    passed     95.13%
+  98  PZ111147.1    0.31%    passed     94.64%
+  99  PZ111171.1    0.31%    passed     99.65%
+ 100  PZ111193.1    0.31%    passed     99.61%
+ 101  PZ111161.1    0.31%    passed     96.94%
+ 102  PZ111139.1    0.31%    passed     83.20%
+ 103  PQ822335.1    0.31%    passed     95.25%
+ 104  PZ111185.1    0.31%    passed     97.37%
+ 105  PX442151.1    0.31%    passed     98.45%
+ 106  PX442153.1    0.31%    passed     97.35%
+ 107  PQ822288.1    0.31%    passed     95.08%
+ 108  PZ111212.1    0.31%    passed     99.97%
+****  TOTAL         3.89%  0 sequences failed composition chi2 test (p-value<5%; df=3)
+NOTE: KU955239.1 is identical to KC297244.1 but kept for subsequent analysis
+NOTE: KU955235.1 is identical to KC297259.1 but kept for subsequent analysis
+NOTE: OP927938.1 is identical to OP927835.1 but kept for subsequent analysis
+Checking for duplicate sequences: done in 0.0002393 secs
+
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.008 seconds
+Measuring multi-threading efficiency up to 16 CPU cores
+Increase to 10 rounds for branch lengths
+248 trees examined
+Threads: 1 / Time: 16.049 sec / Speedup: 1.000 / Efficiency: 100% / LogL: -9851
+Threads: 2 / Time: 12.448 sec / Speedup: 1.289 / Efficiency: 64% / LogL: -9851
+Threads: 3 / Time: 12.014 sec / Speedup: 1.336 / Efficiency: 45% / LogL: -9851
+Determining AUTO threadcount: done in 40.5139 secs using 186.4% CPU
+BEST NUMBER OF THREADS: 2
+
+Perform fast likelihood tree search using GTR+I+G model...
+Estimate model parameters (epsilon = 5.000)
+Perform nearest neighbor interchange...
+Estimate model parameters (epsilon = 1.000)
+1. Initial log-likelihood: -5391.775
+Optimal log-likelihood: -5391.663
+Rate parameters:  A-C: 0.52275  A-G: 3.85591  A-T: 0.75332  C-G: 0.28691  C-T: 7.35964  G-T: 1.00000
+Base frequencies:  A: 0.405  C: 0.320  G: 0.107  T: 0.169
+Proportion of invariable sites: 0.282
+Gamma shape alpha: 1.577
+Parameters optimization took 1 rounds (0.036 sec)
+Time for fast ML tree search: 0.273 seconds
+
+NOTE: ModelFinder requires 13 MB RAM!
+ModelFinder will test up to 968 DNA models (sample size: 966 epsilon: 0.100) ...
+ No. Model         -LnL         df  AIC          AICc         BIC
+Akaike Information Criterion:           TIM3+F+I+R2
+Corrected Akaike Information Criterion: TIM3+F+I+R2
+Bayesian Information Criterion:         TN+F+I+R2
+Best-fit model: TN+F+I+R2 chosen according to BIC
+
+All model information printed to C:\Users\zahid\Documents\Research\U6_project\results\rsv_a_codon_iqtree.model.gz
+CPU time for ModelFinder: 101.562 seconds (0h:1m:41s)
+Wall-clock time for ModelFinder: 54.434 seconds (0h:0m:54s)
+Generating 1000 samples for ultrafast bootstrap (seed: 176937)...
+
+NOTE: 3 MB RAM (0 GB) is required!
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -5390.585
+2. Current log-likelihood: -5390.179
+Optimal log-likelihood: -5390.174
+Rate parameters:  A-C: 1.00000  A-G: 6.89104  A-T: 1.00000  C-G: 1.00000  C-T: 12.39438  G-T: 1.00000
+Base frequencies:  A: 0.405  C: 0.320  G: 0.107  T: 0.169
+Proportion of invariable sites: 0.303
+Site proportion and rates:  (0.623,1.039) (0.074,4.759)
+Parameters optimization took 2 rounds (0.054 sec)
+Wrote distance file to... 
+Computing ML distances based on estimated model parameters...
+Calculating distance matrix: done in 0.0174769 secs using 268.2% CPU
+Computing ML distances took 0.017806 sec (of wall-clock time) 0.046875 sec (of CPU time)
+Setting up auxiliary I and S matrices: done in 0.0002912 secs
+Constructing RapidNJ tree: done in 0.0007452 secs
+Computing RapidNJ tree took 0.001163 sec (of wall-clock time) 0.000000 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -5409.546
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.938 second
+Computing log-likelihood of 98 initial trees ... 0.580 seconds
+Current best score: -5386.931
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -5385.925
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 2: -5384.768
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 7: -5382.463
+Iteration 10 / LogL: -5385.559 / Time: 0h:0m:58s
+Iteration 20 / LogL: -5387.554 / Time: 0h:1m:0s
+Finish initializing candidate tree set (20)
+Current best tree score: -5382.463 / CPU time: 5.614
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -5384.764 / Time: 0h:1m:2s (0h:0m:21s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 31: -5381.761
+Iteration 40 / LogL: -5382.467 / Time: 0h:1m:4s (0h:0m:23s left)
+Iteration 50 / LogL: -5381.786 / Time: 0h:1m:6s (0h:0m:20s left)
+Log-likelihood cutoff on original alignment: -5415.680
+Iteration 60 / LogL: -5382.470 / Time: 0h:1m:9s (0h:0m:17s left)
+Iteration 70 / LogL: -5399.904 / Time: 0h:1m:11s (0h:0m:14s left)
+Iteration 80 / LogL: -5383.935 / Time: 0h:1m:13s (0h:0m:12s left)
+Iteration 90 / LogL: -5384.072 / Time: 0h:1m:16s (0h:0m:9s left)
+Iteration 100 / LogL: -5381.776 / Time: 0h:1m:18s (0h:0m:7s left)
+Log-likelihood cutoff on original alignment: -5416.653
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 0.997
+Iteration 110 / LogL: -5387.938 / Time: 0h:1m:20s (0h:0m:21s left)
+Iteration 120 / LogL: -5404.955 / Time: 0h:1m:23s (0h:0m:19s left)
+Iteration 130 / LogL: -5382.463 / Time: 0h:1m:26s (0h:0m:17s left)
+TREE SEARCH COMPLETED AFTER 132 ITERATIONS / Time: 0h:1m:26s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -5381.761
+2. Current log-likelihood: -5381.747
+3. Current log-likelihood: -5381.737
+Optimal log-likelihood: -5381.730
+Rate parameters:  A-C: 1.00000  A-G: 6.89056  A-T: 1.00000  C-G: 1.00000  C-T: 12.62049  G-T: 1.00000
+Base frequencies:  A: 0.405  C: 0.320  G: 0.107  T: 0.169
+Proportion of invariable sites: 0.303
+Site proportion and rates:  (0.631,1.050) (0.066,5.106)
+Parameters optimization took 3 rounds (0.072 sec)
+BEST SCORE FOUND : -5381.730
+Creating bootstrap support values...
+Split supports printed to NEXUS file C:\Users\zahid\Documents\Research\U6_project\results\rsv_a_codon_iqtree.splits.nex
+Total tree length: 0.772
+
+Total number of iterations: 132
+CPU time used for tree search: 58.875 sec (0h:0m:58s)
+Wall-clock time used for tree search: 32.153 sec (0h:0m:32s)
+Total CPU time used: 161.594 sec (0h:2m:41s)
+Total wall-clock time used: 87.240 sec (0h:1m:27s)
+
+Computing bootstrap consensus tree...
+Reading input file C:\Users\zahid\Documents\Research\U6_project\results\rsv_a_codon_iqtree.splits.nex...
+108 taxa and 986 splits.
+Consensus tree written to C:\Users\zahid\Documents\Research\U6_project\results\rsv_a_codon_iqtree.contree
+Reading input trees file C:\Users\zahid\Documents\Research\U6_project\results\rsv_a_codon_iqtree.contree
+Log-likelihood of consensus tree: -5381.765
+
+Analysis results written to: 
+  IQ-TREE report:                C:\Users\zahid\Documents\Research\U6_project\results\rsv_a_codon_iqtree.iqtree
+  Maximum-likelihood tree:       C:\Users\zahid\Documents\Research\U6_project\results\rsv_a_codon_iqtree.treefile
+  Likelihood distances:          C:\Users\zahid\Documents\Research\U6_project\results\rsv_a_codon_iqtree.mldist
+
+Ultrafast bootstrap approximation results written to:
+  Split support values:          C:\Users\zahid\Documents\Research\U6_project\results\rsv_a_codon_iqtree.splits.nex
+  Consensus tree:                C:\Users\zahid\Documents\Research\U6_project\results\rsv_a_codon_iqtree.contree
+  Screen log file:               C:\Users\zahid\Documents\Research\U6_project\results\rsv_a_codon_iqtree.log
+
+Date and Time: Sat Jul 04 13:25:20 2026

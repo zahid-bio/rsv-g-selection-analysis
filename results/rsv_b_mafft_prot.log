@@ -1,0 +1,70 @@
+Active code page: 65001
+ 
+Preparing environment to run MAFFT on Windows. 
+This may take a while, if real-time scanning by anti-virus software is on. 
+
+It may take a while before the calculation starts
+if being scanned by anti-virus software.
+Also consider using a faster version for Windows 10:
+https://mafft.cbrc.jp/alignment/software/wsl.html
+outputhat23=2
+treein = 0
+compacttree = 0
+rescale = 1
+All-to-all alignment.
+    0 / 115    1 / 115    2 / 115    3 / 115    4 / 115    5 / 115    6 / 115    7 / 115    8 / 115    9 / 115   10 / 115   11 / 115   12 / 115   13 / 115   14 / 115   15 / 115   16 / 115   17 / 115   18 / 115   19 / 115   20 / 115   21 / 115   22 / 115   23 / 115   24 / 115   25 / 115   26 / 115   27 / 115   28 / 115   29 / 115   30 / 115   31 / 115   32 / 115   33 / 115   34 / 115   35 / 115   36 / 115   37 / 115   38 / 115   39 / 115   40 / 115   41 / 115   42 / 115   43 / 115   44 / 115   45 / 115   46 / 115   47 / 115   48 / 115   49 / 115   50 / 115   51 / 115   52 / 115   53 / 115   54 / 115   55 / 115   56 / 115   57 / 115   58 / 115   59 / 115   60 / 115   61 / 115   62 / 115   63 / 115   64 / 115   65 / 115   66 / 115   67 / 115   68 / 115   69 / 115   70 / 115   71 / 115   72 / 115   73 / 115   74 / 115   75 / 115   76 / 115   77 / 115   78 / 115   79 / 115   80 / 115   81 / 115   82 / 115   83 / 115   84 / 115   85 / 115   86 / 115   87 / 115   88 / 115   89 / 115   90 / 115   91 / 115   92 / 115   93 / 115   94 / 115   95 / 115   96 / 115   97 / 115   98 / 115   99 / 115  100 / 115  101 / 115  102 / 115  103 / 115  104 / 115  105 / 115  106 / 115  107 / 115  108 / 115  109 / 115  110 / 115  111 / 115  112 / 115  113 / 115tbfast-pair (aa) Version 7.526
+alg=L, model=BLOSUM62, 2.00, -0.10, +0.10, noshift, amax=0.0
+0 thread(s)
+
+outputhat23=2
+Loading 'hat3.seed' ... 
+done.
+Writing hat3 for iterative refinement
+rescale = 1
+Gap Penalty = -1.53, +0.00, +0.00
+tbutree = 1, compacttree = 0
+Constructing a UPGMA tree ... 
+    0 / 115   10 / 115   20 / 115   30 / 115   40 / 115   50 / 115   60 / 115   70 / 115   80 / 115   90 / 115  100 / 115  110 / 115
+done.
+
+Progressive alignment ... 
+STEP     1 /114 STEP     2 /114 STEP     3 /114 STEP     4 /114 STEP     5 /114 STEP     6 /114 STEP     7 /114 STEP     8 /114 STEP     9 /114 STEP    10 /114 STEP    11 /114 STEP    12 /114 STEP    13 /114 STEP    14 /114 STEP    15 /114 STEP    16 /114 STEP    17 /114 STEP    18 /114 STEP    19 /114 STEP    20 /114 STEP    21 /114 STEP    22 /114 STEP    23 /114 STEP    24 /114 STEP    25 /114 STEP    26 /114 STEP    27 /114 STEP    28 /114 STEP    29 /114 STEP    30 /114 STEP    31 /114 STEP    32 /114 STEP    33 /114 STEP    34 /114 STEP    35 /114 STEP    36 /114 STEP    37 /114 STEP    38 /114 STEP    39 /114 STEP    40 /114 STEP    41 /114 STEP    42 /114 STEP    43 /114 STEP    44 /114 STEP    45 /114 STEP    46 /114 STEP    47 /114 STEP    48 /114 STEP    49 /114 STEP    50 /114 STEP    51 /114 STEP    52 /114 STEP    53 /114 STEP    54 /114 STEP    55 /114 STEP    56 /114 STEP    57 /114 STEP    58 /114 STEP    59 /114 STEP    60 /114 STEP    61 /114 STEP    62 /114 STEP    63 /114 STEP    64 /114 STEP    65 /114 STEP    66 /114 STEP    67 /114 STEP    68 /114 STEP    69 /114 STEP    70 /114 STEP    71 /114 STEP    72 /114 STEP    73 /114 STEP    74 /114 STEP    75 /114 STEP    76 /114 STEP    77 /114 STEP    78 /114 STEP    79 /114 STEP    80 /114 STEP    81 /114 STEP    82 /114 STEP    83 /114 STEP    84 /114 STEP    85 /114 STEP    86 /114 STEP    87 /114 STEP    88 /114 STEP    89 /114 STEP    90 /114 STEP    91 /114 STEP    92 /114 STEP    93 /114 STEP    94 /114 STEP    95 /114 STEP    96 /114 STEP    97 /114 STEP    98 /114 STEP    99 /114 STEP   100 /114 STEP   101 /114 STEP   102 /114 STEP   103 /114 STEP   104 /114 STEP   105 /114 STEP   106 /114 STEP   107 /114 STEP   108 /114 STEP   109 /114 STEP   110 /114 STEP   111 /114 STEP   112 /114 STEP   113 /114 STEP   114 /114 
+done.
+C:\Users\zahid\Documents\Research\U6_project\tools\mafft-7.526-win64\mafft-win\usr\lib\mafft\tbfast.exe (aa) Version 7.526
+alg=A, model=BLOSUM62, 1.53, -0.00, -0.00, noshift, amax=0.0
+1 thread(s)
+
+minimumweight = 0.000010
+autosubalignment = 0.000000
+nthread = 0
+randomseed = 0
+blosum 62 / kimura 200
+poffset = 0
+niter = 2
+sueff_global = 0.100000
+nadd = 2
+Loading 'hat3' ... done.
+rescale = 1
+
+    0 / 115   10 / 115   20 / 115   30 / 115   40 / 115   50 / 115   60 / 115   70 / 115   80 / 115   90 / 115  100 / 115  110 / 115
+Segment   1/  1    1- 337
+STEP 001-001-0  identical.   STEP 001-001-1  identical.   STEP 001-002-0  identical.   STEP 001-002-1  identical.   STEP 001-003-0  identical.   STEP 001-003-1  identical.   STEP 001-004-0  identical.   STEP 001-004-1  identical.   STEP 001-005-0  identical.   STEP 001-005-1  identical.   STEP 001-006-0  identical.   STEP 001-006-1  identical.   STEP 001-007-0  identical.   STEP 001-007-1  identical.   STEP 001-008-0  identical.   STEP 001-008-1  identical.   STEP 001-009-0  identical.   STEP 001-009-1  identical.   STEP 001-010-0  identical.   STEP 001-010-1  identical.   STEP 001-011-0  identical.   STEP 001-011-1  identical.   STEP 001-012-0  identical.   STEP 001-012-1  identical.   STEP 001-013-0  identical.   STEP 001-013-1  identical.   STEP 001-014-0  identical.   STEP 001-014-1  identical.   STEP 001-015-0  identical.   STEP 001-015-1  identical.   STEP 001-016-0  identical.   STEP 001-016-1  identical.   STEP 001-017-0  identical.   STEP 001-017-1  identical.   STEP 001-018-0  identical.   STEP 001-018-1  identical.   STEP 001-019-0  identical.   STEP 001-019-1  identical.   STEP 001-020-0  identical.   STEP 001-020-1  identical.   STEP 001-021-0  identical.   STEP 001-021-1  identical.   STEP 001-022-0  identical.   STEP 001-022-1  identical.   STEP 001-023-0  identical.   STEP 001-023-1  identical.   STEP 001-024-0  identical.   STEP 001-024-1  identical.   STEP 001-025-0  identical.   STEP 001-025-1  identical.   STEP 001-026-0  identical.   STEP 001-026-1  identical.   STEP 001-027-0  identical.   STEP 001-027-1  identical.   STEP 001-028-0  identical.   STEP 001-028-1  identical.   STEP 001-029-0  identical.   STEP 001-029-1  identical.   STEP 001-030-0  identical.   STEP 001-030-1  identical.   STEP 001-031-0  identical.   STEP 001-031-1  identical.   STEP 001-032-0  identical.   STEP 001-032-1  identical.   STEP 001-033-0  identical.   STEP 001-033-1  identical.   STEP 001-034-0  identical.   STEP 001-034-1  identical.   STEP 001-035-0  identical.   STEP 001-035-1  identical.   STEP 001-036-0  identical.   STEP 001-036-1  identical.   STEP 001-037-0  identical.   STEP 001-037-1  identical.   STEP 001-038-0  identical.   STEP 001-038-1  identical.   STEP 001-039-0  identical.   STEP 001-039-1  identical.   STEP 001-040-0  identical.   STEP 001-040-1  identical.   STEP 001-041-0  identical.   STEP 001-041-1  identical.   STEP 001-042-0  identical.   STEP 001-042-1  identical.   STEP 001-043-0  identical.   STEP 001-043-1  identical.   STEP 001-044-0  identical.   STEP 001-044-1  identical.   STEP 001-045-0  identical.   STEP 001-045-1  identical.   STEP 001-046-0  identical.   STEP 001-046-1  identical.   STEP 001-047-0  identical.   STEP 001-047-1  identical.   STEP 001-048-0  identical.   STEP 001-048-1  identical.   STEP 001-049-0  identical.   STEP 001-049-1  identical.   STEP 001-050-0  identical.   STEP 001-050-1  identical.   STEP 001-051-0  identical.   STEP 001-051-1  identical.   STEP 001-052-0  identical.   STEP 001-052-1  identical.   STEP 001-053-0  identical.   STEP 001-053-1  identical.   STEP 001-054-0  identical.   STEP 001-054-1  identical.   STEP 001-055-0  identical.   STEP 001-055-1  identical.   STEP 001-056-0  identical.   STEP 001-056-1  identical.   STEP 001-057-0  identical.   STEP 001-057-1  identical.   STEP 001-058-0  identical.   STEP 001-058-1  identical.   STEP 001-059-0  identical.   STEP 001-059-1  identical.   STEP 001-060-0  identical.   STEP 001-060-1  identical.   STEP 001-061-0  identical.   STEP 001-061-1  identical.   STEP 001-062-0  identical.   STEP 001-062-1  identical.   STEP 001-063-0  identical.   STEP 001-063-1  identical.   STEP 001-064-0  identical.   STEP 001-064-1  identical.   STEP 001-065-0  identical.   STEP 001-065-1  identical.   STEP 001-066-0  identical.   STEP 001-066-1  identical.   STEP 001-067-0  identical.   STEP 001-067-1  identical.   STEP 001-068-0  identical.   STEP 001-068-1  identical.   STEP 001-069-0  identical.   STEP 001-069-1  identical.   STEP 001-070-0  identical.   STEP 001-070-1  identical.   STEP 001-071-0  identical.   STEP 001-071-1  identical.   STEP 001-072-0  identical.   STEP 001-072-1  identical.   STEP 001-073-0  identical.   STEP 001-073-1  identical.   STEP 001-074-0  identical.   STEP 001-074-1  identical.   STEP 001-075-0  identical.   STEP 001-075-1  identical.   STEP 001-076-0  identical.   STEP 001-076-1  identical.   STEP 001-077-0  identical.   STEP 001-077-1  identical.   STEP 001-078-0  identical.   STEP 001-078-1  identical.   STEP 001-079-0  identical.   STEP 001-079-1  identical.   STEP 001-080-0  identical.   STEP 001-080-1  identical.   STEP 001-081-0  identical.   STEP 001-081-1  identical.   STEP 001-082-0  identical.   STEP 001-082-1  identical.   STEP 001-083-0  identical.   STEP 001-083-1  identical.   STEP 001-084-0  identical.   STEP 001-084-1  identical.   STEP 001-085-0  identical.   STEP 001-085-1  identical.   STEP 001-086-0  identical.   STEP 001-086-1  identical.   STEP 001-087-0  identical.   STEP 001-087-1  identical.   STEP 001-088-0  identical.   STEP 001-088-1  identical.   STEP 001-089-0  identical.   STEP 001-089-1  identical.   STEP 001-090-0  identical.   STEP 001-090-1  identical.   STEP 001-091-0  identical.   STEP 001-091-1  identical.   STEP 001-092-0  identical.   STEP 001-092-1  identical.   STEP 001-093-0  identical.   STEP 001-093-1  identical.   STEP 001-094-0  identical.   STEP 001-094-1  identical.   STEP 001-095-0  identical.   STEP 001-095-1  identical.   STEP 001-096-0  identical.   STEP 001-096-1  identical.   STEP 001-097-0  identical.   STEP 001-097-1  identical.   STEP 001-098-0  identical.   STEP 001-098-1  identical.   STEP 001-099-0  identical.   STEP 001-099-1  identical.   STEP 001-100-0  identical.   STEP 001-100-1  identical.   STEP 001-101-0  identical.   STEP 001-101-1  identical.   STEP 001-102-0  identical.   STEP 001-102-1  identical.   STEP 001-103-0  identical.   STEP 001-103-1  identical.   STEP 001-104-0  identical.   STEP 001-104-1  identical.   STEP 001-105-0  identical.   STEP 001-105-1  identical.   STEP 001-106-0  identical.   STEP 001-106-1  identical.   STEP 001-107-0  identical.   STEP 001-107-1  identical.   STEP 001-108-0  identical.   STEP 001-108-1  identical.   STEP 001-109-0  identical.   STEP 001-109-1  identical.   STEP 001-110-0  identical.   STEP 001-110-1  identical.   STEP 001-111-0  identical.   STEP 001-111-1  identical.   STEP 001-112-0  identical.   STEP 001-112-1  identical.   STEP 001-113-0  identical.   STEP 001-113-1  identical.   STEP 001-114-1  identical.   STEP 002-114-1  identical.   STEP 002-113-0  identical.   STEP 002-113-1  identical.   
+Converged.
+
+done
+C:\Users\zahid\Documents\Research\U6_project\tools\mafft-7.526-win64\mafft-win\usr\lib\mafft\dvtditr.exe (aa) Version 7.526
+alg=A, model=BLOSUM62, 1.53, -0.00, -0.00, noshift, amax=0.0
+0 thread(s)
+
+
+Strategy:
+ L-INS-i (Probably most accurate, very slow)
+ Iterative refinement method (<2) with LOCAL pairwise alignment information
+
+If unsure which option to use, try 'mafft --auto input > output'.
+For more information, see 'mafft --help', 'mafft --man' and the mafft page.
+
+The default gap scoring scheme has been changed in version 7.110 (2013 Oct).
+It tends to insert more gaps into gap-rich regions than previous versions.
+To disable this change, add the --leavegappyregion option.
+

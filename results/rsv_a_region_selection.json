@@ -1,0 +1,110 @@
+{
+  "label": "rsv_a",
+  "regions_locked": "2026-07-04",
+  "a2_ref_len": 298,
+  "a2_ref_expected": 298,
+  "n_codons_total": 322,
+  "region_definitions": {
+    "Nterm": "A2 1-156",
+    "CCR": "A2 157-198",
+    "CX3C_nested": "A2 182-186",
+    "Mucin": "A2 199-298",
+    "insertion": "no A2 residue (ON1 duplication)"
+  },
+  "region_stats": {
+    "Nterm": {
+      "n_codons": 156,
+      "mean_dN_minus_dS": -0.4460838641623292,
+      "median_dN_minus_dS": 0.0,
+      "n_diversifying_p05": 0,
+      "n_purifying_p05": 16,
+      "frac_purifying_p05": 0.10256410256410256,
+      "frac_diversifying_p05": 0.0
+    },
+    "CCR": {
+      "n_codons": 42,
+      "mean_dN_minus_dS": -0.9671140197788823,
+      "median_dN_minus_dS": -0.0376519896770065,
+      "n_diversifying_p05": 0,
+      "n_purifying_p05": 5,
+      "frac_purifying_p05": 0.11904761904761904,
+      "frac_diversifying_p05": 0.0
+    },
+    "Mucin": {
+      "n_codons": 100,
+      "mean_dN_minus_dS": -0.003798850527804447,
+      "median_dN_minus_dS": 0.0,
+      "n_diversifying_p05": 3,
+      "n_purifying_p05": 7,
+      "frac_purifying_p05": 0.07,
+      "frac_diversifying_p05": 0.03
+    },
+    "insertion": {
+      "n_codons": 24,
+      "mean_dN_minus_dS": -0.47317496830998707,
+      "median_dN_minus_dS": 0.0,
+      "n_diversifying_p05": 1,
+      "n_purifying_p05": 1,
+      "frac_purifying_p05": 0.041666666666666664,
+      "frac_diversifying_p05": 0.041666666666666664
+    },
+    "CX3C_nested": {
+      "n_codons": 5,
+      "mean_dN_minus_dS": -1.4299104632184783,
+      "median_dN_minus_dS": -0.7576638330076615,
+      "n_diversifying_p05": 0,
+      "n_purifying_p05": 1,
+      "frac_purifying_p05": 0.2,
+      "frac_diversifying_p05": 0.0
+    }
+  },
+  "tests": {
+    "kruskal_Nterm_CCR_Mucin": {
+      "H": 7.188849086773165,
+      "p": 0.027476490155437926,
+      "df": 2,
+      "epsilon_squared": 0.017589318938214117,
+      "groups": [
+        "Nterm",
+        "CCR",
+        "Mucin"
+      ],
+      "n_per_group": {
+        "Nterm": 156,
+        "CCR": 42,
+        "Mucin": 100
+      }
+    },
+    "CCR_vs_Mucin_dNdS_less": {
+      "U": 1546.5,
+      "p_one_sided_CCR_lower": 0.00662179358653065,
+      "rank_biserial": -0.26357142857142857,
+      "n_CCR": 42,
+      "n_Mucin": 100
+    },
+    "CCR_vs_nonCCR_dNdS_less": {
+      "U": 4171.5,
+      "p_one_sided_CCR_lower": 0.00938946870282846,
+      "rank_biserial": -0.2240513392857143,
+      "n_CCR": 42,
+      "n_nonCCR": 256
+    },
+    "CX3C_vs_Mucin_dNdS_less": {
+      "U": 156.0,
+      "p_one_sided_CX3C_lower": 0.07960469288073857,
+      "rank_biserial": -0.376,
+      "n_CX3C": 5,
+      "n_Mucin": 100
+    },
+    "fisher_purifying_CCR_gt_Mucin": {
+      "CCR_purifying": 5,
+      "CCR_nonpurifying": 37,
+      "Mucin_purifying": 7,
+      "Mucin_nonpurifying": 93,
+      "odds_ratio": 1.7953667953667953,
+      "p_one_sided_CCR_more_purifying": 0.25793829430058846
+    }
+  },
+  "pcut_for_counts": 0.05,
+  "metric": "dN - dS  (FEL beta - alpha) per codon"
+}

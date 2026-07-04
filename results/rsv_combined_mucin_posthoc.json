@@ -1,0 +1,23 @@
+{
+  "analysis": "POST-HOC exploratory \u2014 NOT pre-registered",
+  "region_name": "C-terminal mucin-like variable domain (A2 199-298)",
+  "region_size": 100,
+  "domain_length": 298,
+  "n_sites_tested": 6,
+  "site_residues": [
+    218,
+    237,
+    247,
+    266,
+    274,
+    284
+  ],
+  "hits_in_region": 6,
+  "observed_fraction": 1.0,
+  "expected_fraction": 0.3372500000000003,
+  "enrichment_ratio": 2.9651593773165277,
+  "p_value": 0.0018998100189981002,
+  "n_permutations": 10000,
+  "seed": 42,
+  "caveat": "The boundary A2 199-298 was chosen after observing that all selected sites fell C-terminal to CCR. This p-value is descriptive, not a hypothesis test. Report only as an EXPLORATORY finding and do not use it to support a primary claim."
+}

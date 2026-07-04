@@ -1,0 +1,7 @@
+target,comparison,test,statistic,effect_size,p_value,significant_at_0.05
+rsv_a,Nterm/CCR/Mucin (omnibus),Kruskal-Wallis,H=7.19,eps2=0.018,0.0275,YES
+rsv_a,CCR < Mucin (more purifying),Mann-Whitney U (1-sided),U=1546,rbc=-0.264,0.0066,YES
+rsv_a,CCR < non-CCR (mapped),Mann-Whitney U (1-sided),U=4172,rbc=-0.224,0.0094,YES
+rsv_b,Nterm/CCR/Mucin (omnibus),Kruskal-Wallis,H=2.76,eps2=0.003,0.252,no
+rsv_b,CCR < Mucin (more purifying),Mann-Whitney U (1-sided),U=1705,rbc=-0.154,0.0742,no
+rsv_b,CCR < non-CCR (mapped),Mann-Whitney U (1-sided),U=4494,rbc=-0.151,0.0561,no

@@ -1,0 +1,59 @@
+Active code page: 65001
+ 
+Preparing environment to run MAFFT on Windows. 
+This may take a while, if real-time scanning by anti-virus software is on. 
+
+It may take a while before the calculation starts
+if being scanned by anti-virus software.
+Also consider using a faster version for Windows 10:
+https://mafft.cbrc.jp/alignment/software/wsl.html
+nadd = 1
+nthread = 0
+nthreadpair = 0
+nthreadtb = 0
+ppenalty_ex = 0
+rescale = 1
+Gap Penalty = -1.53, +0.00, +0.00
+
+
+
+Making a distance matrix ..
+    1 / 109  101 / 109
+done.
+
+Constructing a UPGMA tree (efffree=0) ... 
+    0 / 109   10 / 109   20 / 109   30 / 109   40 / 109   50 / 109   60 / 109   70 / 109   80 / 109   90 / 109  100 / 109
+done.
+
+Progressive alignment 1/2... 
+STEP   107 / 108  f
+done.
+
+Making a distance matrix from msa.. 
+    0 / 109  100 / 109
+done.
+
+Constructing a UPGMA tree (efffree=1) ... 
+    0 / 109   10 / 109   20 / 109   30 / 109   40 / 109   50 / 109   60 / 109   70 / 109   80 / 109   90 / 109  100 / 109
+done.
+
+Progressive alignment 2/2... 
+STEP   108 / 108  f
+done.
+
+C:\Users\zahid\Documents\Research\U6_project\tools\mafft-7.526-win64\mafft-win\usr\lib\mafft\disttbfast.exe (aa) Version 7.526
+alg=A, model=BLOSUM62, 1.53, -0.00, -0.00, noshift, amax=0.0
+0 thread(s)
+
+
+Strategy:
+ FFT-NS-2 (Fast but rough)
+ Progressive method (guide trees were built 2 times.)
+
+If unsure which option to use, try 'mafft --auto input > output'.
+For more information, see 'mafft --help', 'mafft --man' and the mafft page.
+
+The default gap scoring scheme has been changed in version 7.110 (2013 Oct).
+It tends to insert more gaps into gap-rich regions than previous versions.
+To disable this change, add the --leavegappyregion option.
+
