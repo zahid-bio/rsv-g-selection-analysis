@@ -1,0 +1,7 @@
+dataset,method,n_positive,n_a2_mappable,n_in_ccr,n_in_cx3c,n_in_mucin,n_on1_or_unmappable,n_other_mapped,n_h3_antigenic
+rsv_a,FEL,4,3,0,0,3,1,0,
+rsv_a,MEME,8,6,1,0,4,2,1,
+rsv_b,FEL,3,3,0,0,3,0,0,
+rsv_b,MEME,7,7,1,0,5,0,1,
+flu_h3_ha,FEL,6,,,,,,,5
+flu_h3_ha,MEME,11,,,,,,,6

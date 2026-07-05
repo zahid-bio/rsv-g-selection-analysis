@@ -1,0 +1,12 @@
+dataset,protein,aln_codon_pos,coordinate_system,reference_residue,region,a2_mappable,in_ccr,in_cx3c,in_mucin,alpha,beta_plus,p_plus,omega_plus,lrt,p_value,branches_under_selection
+flu_h3_ha,Influenza H3N2 HA,2,H3 HA1,,outside mature HA1,,,,,1.41059,331.097,0.0322575,234.722,5.23243,0.0334465,3
+flu_h3_ha,Influenza H3N2 HA,16,H3 HA1,,outside mature HA1,,,,,1.91363e-05,163.071,0.0394938,8.52153e+06,6.18687,0.0204879,2
+flu_h3_ha,Influenza H3N2 HA,150,H3 HA1,124,H3 antigenic site A,,,,,0.000111557,62.4284,0.139664,559612,11.1908,0.00160875,4
+flu_h3_ha,Influenza H3N2 HA,157,H3 HA1,131,H3 antigenic site A,,,,,2.61004,50824.5,0.00979526,19472.7,20.8609,1.23055e-05,2
+flu_h3_ha,Influenza H3N2 HA,161,H3 HA1,135,H3 antigenic site A,,,,,0.000164419,31.4479,0.99,191267,9.61719,0.00357004,8
+flu_h3_ha,Influenza H3N2 HA,216,H3 HA1,190,H3 antigenic site B,,,,,2.38159e-05,24.3875,0.156379,1.024e+06,4.70042,0.0440079,2
+flu_h3_ha,Influenza H3N2 HA,219,H3 HA1,193,H3 antigenic site B,,,,,7.21482e-05,19.3035,0.98685,267553,5.88342,0.0239363,5
+flu_h3_ha,Influenza H3N2 HA,249,H3 HA1,223,non-antigenic HA1,,,,,7.19106e-05,68.7524,0.154899,956081,8.82656,0.00533293,4
+flu_h3_ha,Influenza H3N2 HA,287,H3 HA1,261,H3 antigenic site E,,,,,0.000883152,32.3871,0.99,36672.2,9.87433,0.0031336,6
+flu_h3_ha,Influenza H3N2 HA,374,H3 HA1,,outside mature HA1,,,,,1.62462,178.16,0.12376,109.662,9.79089,0.00326901,4
+flu_h3_ha,Influenza H3N2 HA,557,H3 HA1,,outside mature HA1,,,,,1.0706,101.044,0.116135,94.381,5.69019,0.0264319,4

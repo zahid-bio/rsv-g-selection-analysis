@@ -688,3 +688,58 @@ Outputs:
 - figures/rsv_g_ccd_structure_pymol_raw.png  SHA256 743B8483E9C52B7216860EFE2F68A240E5653F9AB99B0086A4E086EFD5DAF022
 - code/render_ccd_pymol.pml (updated)        SHA256 3CE23DC2BE6020DA9E661AD1BA52B3E7B06D72F2957CE32CE127626DC5239DA1
 - code/compose_structure_figure.py (new)     SHA256 A7C1DB72BD23D28602706C01002BE219AC0A728A7B4257EF7D236A78A5CC3A16
+
+================================================================================
+2026-07-04  ADDENDUM 4: MEME episodic-selection sensitivity analysis
+================================================================================
+Goal: add MEME as a secondary sensitivity analysis without replacing FEL. FEL
+remains the primary pervasive/site-wise analysis; MEME tests episodic site-wise
+diversifying selection on the same codon alignments and ML trees.
+
+Runtime:
+- Docker image: quay.io/biocontainers/hyphy:2.5.100--h74d3ee0_0
+- Verified: HYPHY 2.5.100(MP)
+- MEME analysis version in JSON: 4.1
+- Genetic code: Universal
+- Branches: All
+- Threshold used for reporting/parsing: p <= 0.05
+
+Commands:
+- docker run --rm --mount type=bind,source="${PWD}",target=/data quay.io/biocontainers/hyphy:2.5.100--h74d3ee0_0 hyphy meme --alignment /data/results/rsv_a_codon_aligned.fasta --tree /data/results/rsv_a_codon_iqtree.treefile --code Universal --pvalue 0.05 --output /data/results/meme/rsv_a_meme.json
+- docker run --rm --mount type=bind,source="${PWD}",target=/data quay.io/biocontainers/hyphy:2.5.100--h74d3ee0_0 hyphy meme --alignment /data/results/rsv_b_codon_aligned.fasta --tree /data/results/rsv_b_codon_iqtree.treefile --code Universal --pvalue 0.05 --output /data/results/meme/rsv_b_meme.json
+- docker run --rm --mount type=bind,source="${PWD}",target=/data quay.io/biocontainers/hyphy:2.5.100--h74d3ee0_0 hyphy meme --alignment /data/results/flu_h3_ha_codon_aligned.fasta --tree /data/results/flu_h3_ha_codon_iqtree.treefile --code Universal --pvalue 0.05 --output /data/results/meme/flu_h3_ha_meme.json
+- python code/parse_meme.py --p-cutoff 0.05 --out-dir results/meme
+
+Raw MEME results:
+- RSV-A: 8 MEME-positive sites at p <= 0.05. Region summary: 1 broader-CCR
+  site outside CX3C (A2 residue 178; p=0.0438), 0 CX3C, 4 A2-mappable mucin
+  sites, 1 N-terminal site, 2 ON1/unmappable insertion sites.
+- RSV-B: 7 MEME-positive sites at p <= 0.05. Region summary: 1 broader-CCR
+  site outside CX3C (A2 residue 164; p=0.00053), 0 CX3C, 5 mucin sites,
+  1 N-terminal site, 0 insertion/unmappable sites.
+- Influenza H3 HA positive control: 11 MEME-positive sites at p <= 0.05;
+  6 map to H3 HA1 antigenic sites.
+
+Interpretation guardrail:
+- MEME did not identify episodic diversifying selection in the CX3C motif in
+  this dataset.
+- MEME did identify one non-CX3C broader-CCR site in each RSV subtype. These
+  sites are not FEL-positive and are estimated as branch-sparse (about one
+  branch under selection each), so the manuscript now treats them as sensitivity
+  signals rather than a replacement for the FEL/region-level result.
+- Do not claim "episodic selection is absent" or that the entire CCR is uniformly
+  free of episodic signal.
+
+Outputs:
+- results/meme/rsv_a_meme.json                 SHA256 5B7F524A641FC6DCA2F4164794E4930D62B1E3F6D9FBE5B17AF1B625D7CA60D6
+- results/meme/rsv_b_meme.json                 SHA256 2990A19CE7ADBBD8168F7EB94AF4AC067BE58FDBC35D721D2331385AB153ED0B
+- results/meme/flu_h3_ha_meme.json             SHA256 0E3B30E989C9F5FBA0E4B1BBF30CE77FD2DCAAC2F12E786B99C7ABAEC15407D6
+- results/meme/rsv_a_meme_sites.csv            SHA256 D80B417105B082F071C1A4FBD7ECE078281C858AD707D11893AA8A0ACE1A8D64
+- results/meme/rsv_b_meme_sites.csv            SHA256 3B4E453BAD1AE04EB3FDD55504179507040DED29767F8B738245B2502B32DB17
+- results/meme/flu_h3_ha_meme_sites.csv        SHA256 77C9F5E39F79B0B5378DDE633F646301F95030EFCD531AF3FA2D54D30E36AE42
+- results/meme/summary_fel_meme_sites.csv      SHA256 333E87B7DD85D6FA25761BC47E516B3839587A8D22A0F796DE2FC43AF4441BB0
+- results/meme/summary_meme_region_counts.csv  SHA256 CC69757E0A1CB1BB5B22CC9970C6B6041E6E86E4E78AF5343D293806F9F855B5
+- results/meme/summary_fel_meme_sites.md       SHA256 D976678DA14D2A819BF945E353684BA3966CDAAECE76795EB1245B85E4773E40
+- code/parse_meme.py                           SHA256 4FDBC9A3F37C5787FD4DAEFE41D9B6DDE6BB62C189FF171799F5F645AB431396
+- papers/RSV_G_selection_manuscript.md         SHA256 485D7AD545C61C626AC91FEA7EDB1B09CFE3DDDB42C9D6E24F71E60A0B818EA4
+- README.md                                    SHA256 2FE935BA2BBF5EACE6BD39C0853832D8A3978593805D8446A19D86BACD4E8AC3

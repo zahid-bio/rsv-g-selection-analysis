@@ -1,0 +1,8 @@
+dataset,protein,aln_codon_pos,coordinate_system,reference_residue,region,a2_mappable,in_ccr,in_cx3c,in_mucin,alpha,beta_plus,p_plus,omega_plus,lrt,p_value,branches_under_selection
+rsv_b,RSV-B G,94,RSV-A2 mature G,77,N-terminal region,yes,no,no,no,0.00520249,272.538,0.02307,52386.1,5.75932,0.0255102,1
+rsv_b,RSV-B G,181,RSV-A2 mature G,164,CCR,yes,yes,no,no,1.16308e-05,23355.7,0.00598878,2.00809e+09,13.3997,0.000526903,1
+rsv_b,RSV-B G,235,RSV-A2 mature G,217,C-terminal mucin-like domain,yes,no,no,yes,0.0231858,5608.86,0.0154552,241909,5.86735,0.0241344,2
+rsv_b,RSV-B G,236,RSV-A2 mature G,218,C-terminal mucin-like domain,yes,no,no,yes,0.00720238,22.9844,0.99,3191.22,9.52385,0.00374313,5
+rsv_b,RSV-B G,304,RSV-A2 mature G,266,C-terminal mucin-like domain,yes,no,no,yes,5.275,36.1167,0.989828,6.84677,5.47945,0.0294548,8
+rsv_b,RSV-B G,311,RSV-A2 mature G,273,C-terminal mucin-like domain,yes,no,no,yes,0.000390141,199.023,0.0466988,510129,4.9065,0.0395651,2
+rsv_b,RSV-B G,322,RSV-A2 mature G,284,C-terminal mucin-like domain,yes,no,no,yes,7.48432e-05,9.77493,0.98988,130606,4.87725,0.0401669,5

@@ -1,0 +1,30 @@
+dataset,protein,aln_codon_pos,coordinate_system,reference_residue,region,a2_mappable,in_ccr,in_cx3c,in_mucin,fel_positive,fel_alpha_dS,fel_beta_dN,fel_beta_minus_alpha,fel_p_value,meme_positive,meme_alpha,meme_beta_plus,meme_p_plus,meme_omega_plus,meme_lrt,meme_p_value,meme_branches_under_selection
+rsv_a,RSV-A G,142,RSV-A2 mature G,142,N-terminal region,yes,no,no,no,no,,,,,yes,7.97508,550.237,0.0336723,68.9945,6.50458,0.0174126,3
+rsv_a,RSV-A G,178,RSV-A2 mature G,178,CCR,yes,yes,no,no,no,,,,,yes,3.73315,223.192,0.0308067,59.7865,4.7091,0.0438109,1
+rsv_a,RSV-A G,237,RSV-A2 mature G,237,C-terminal mucin-like domain,yes,no,no,yes,yes,0.00932638,3.94304,3.93371,0.0340795,yes,0.003642,16.3308,0.99,4484.01,4.50442,0.0487034,3
+rsv_a,RSV-A G,247,RSV-A2 mature G,247,C-terminal mucin-like domain,yes,no,no,yes,yes,0.00893832,2.33449,2.32555,0.00385094,yes,0.00018143,9.8635,0.98988,54365.3,8.3972,0.00663349,6
+rsv_a,RSV-A G,267,RSV-A2 mature G,,ON1/unmappable insertion,no,no,no,no,no,,,,,yes,0.132122,734.164,0.0188173,5556.7,8.19879,0.00733789,1
+rsv_a,RSV-A G,274,RSV-A2 mature G,,ON1/unmappable insertion,no,no,no,no,yes,0.00806162,8.94418,8.93611,0.0087561,yes,0.00447241,36.572,0.99,8177.26,6.85953,0.0145231,5
+rsv_a,RSV-A G,298,RSV-A2 mature G,274,C-terminal mucin-like domain,yes,no,no,yes,yes,0.0074116,5.20335,5.19594,0.00259555,yes,0.00497534,21.3533,0.98988,4291.82,9.07769,0.00469434,4
+rsv_a,RSV-A G,321,RSV-A2 mature G,297,C-terminal mucin-like domain,yes,no,no,yes,no,,,,,yes,0.00331907,743.877,0.0501405,224122,8.36781,0.00673338,2
+rsv_b,RSV-B G,94,RSV-A2 mature G,77,N-terminal region,yes,no,no,no,no,,,,,yes,0.00520249,272.538,0.02307,52386.1,5.75932,0.0255102,1
+rsv_b,RSV-B G,181,RSV-A2 mature G,164,CCR,yes,yes,no,no,no,,,,,yes,1.16308e-05,23355.7,0.00598878,2.00809e+09,13.3997,0.000526903,1
+rsv_b,RSV-B G,235,RSV-A2 mature G,217,C-terminal mucin-like domain,yes,no,no,yes,no,,,,,yes,0.0231858,5608.86,0.0154552,241909,5.86735,0.0241344,2
+rsv_b,RSV-B G,236,RSV-A2 mature G,218,C-terminal mucin-like domain,yes,no,no,yes,yes,0.01,5,4.99,0.00205211,yes,0.00720238,22.9844,0.99,3191.22,9.52385,0.00374313,5
+rsv_b,RSV-B G,304,RSV-A2 mature G,266,C-terminal mucin-like domain,yes,no,no,yes,yes,1.15097,7.69121,6.54024,0.0196514,yes,5.275,36.1167,0.989828,6.84677,5.47945,0.0294548,8
+rsv_b,RSV-B G,311,RSV-A2 mature G,273,C-terminal mucin-like domain,yes,no,no,yes,no,,,,,yes,0.000390141,199.023,0.0466988,510129,4.9065,0.0395651,2
+rsv_b,RSV-B G,322,RSV-A2 mature G,284,C-terminal mucin-like domain,yes,no,no,yes,yes,0.0105876,2.07474,2.06415,0.0276992,yes,7.48432e-05,9.77493,0.98988,130606,4.87725,0.0401669,5
+flu_h3_ha,Influenza H3N2 HA,2,H3 HA1,,outside mature HA1,,,,,no,,,,,yes,1.41059,331.097,0.0322575,234.722,5.23243,0.0334465,3
+flu_h3_ha,Influenza H3N2 HA,9,H3 HA1,,outside mature HA1,,,,,yes,0.00358019,1.34292,1.33934,0.0459126,no,,,,,,,
+flu_h3_ha,Influenza H3N2 HA,16,H3 HA1,,outside mature HA1,,,,,no,,,,,yes,1.91363e-05,163.071,0.0394938,8.52153e+06,6.18687,0.0204879,2
+flu_h3_ha,Influenza H3N2 HA,66,H3 HA1,50,H3 antigenic site C,,,,,yes,0.0111347,2.32483,2.31369,0.0351043,no,,,,,,,
+flu_h3_ha,Influenza H3N2 HA,150,H3 HA1,124,H3 antigenic site A,,,,,no,,,,,yes,0.000111557,62.4284,0.139664,559612,11.1908,0.00160875,4
+flu_h3_ha,Influenza H3N2 HA,157,H3 HA1,131,H3 antigenic site A,,,,,no,,,,,yes,2.61004,50824.5,0.00979526,19472.7,20.8609,1.23055e-05,2
+flu_h3_ha,Influenza H3N2 HA,161,H3 HA1,135,H3 antigenic site A,,,,,yes,0.00881127,4.2112,4.20238,0.00193496,yes,0.000164419,31.4479,0.99,191267,9.61719,0.00357004,8
+flu_h3_ha,Influenza H3N2 HA,183,H3 HA1,157,H3 antigenic site B,,,,,yes,0.656532,4.17143,3.5149,0.046212,no,,,,,,,
+flu_h3_ha,Influenza H3N2 HA,216,H3 HA1,190,H3 antigenic site B,,,,,no,,,,,yes,2.38159e-05,24.3875,0.156379,1.024e+06,4.70042,0.0440079,2
+flu_h3_ha,Influenza H3N2 HA,219,H3 HA1,193,H3 antigenic site B,,,,,yes,0.000341889,2.5898,2.58945,0.0149545,yes,7.21482e-05,19.3035,0.98685,267553,5.88342,0.0239363,5
+flu_h3_ha,Influenza H3N2 HA,249,H3 HA1,223,non-antigenic HA1,,,,,no,,,,,yes,7.19106e-05,68.7524,0.154899,956081,8.82656,0.00533293,4
+flu_h3_ha,Influenza H3N2 HA,287,H3 HA1,261,H3 antigenic site E,,,,,yes,0.00967564,4.39342,4.38374,0.0016728,yes,0.000883152,32.3871,0.99,36672.2,9.87433,0.0031336,6
+flu_h3_ha,Influenza H3N2 HA,374,H3 HA1,,outside mature HA1,,,,,no,,,,,yes,1.62462,178.16,0.12376,109.662,9.79089,0.00326901,4
+flu_h3_ha,Influenza H3N2 HA,557,H3 HA1,,outside mature HA1,,,,,no,,,,,yes,1.0706,101.044,0.116135,94.381,5.69019,0.0264319,4
