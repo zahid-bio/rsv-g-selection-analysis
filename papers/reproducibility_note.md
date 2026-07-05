@@ -1,8 +1,5 @@
 # Reproducibility Note
 
-This note records the reproducibility status of the RSV G selection analysis after
-the critical review of `main (5).pdf`.
-
 ## Frozen Inputs
 
 - RSV-A input: `data/rsv_a_nt.fasta`, 108 records.

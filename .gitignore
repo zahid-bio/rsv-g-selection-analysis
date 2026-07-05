@@ -30,3 +30,14 @@ scratch/
 *.synctex.gz
 papers/*.log
 papers/*.out
+
+# Repo-prep / submission-process notes (kept locally, not part of the published repo)
+PUBLICATION_PREPARATION_SUMMARY.md
+RELEASE_CHECKLIST.md
+MEME_REPRODUCIBILITY_QUICKSTART.md
+papers/student_journal_submission_checklist.md
+papers/student_journal_cover_letter.md
+papers/AI_use_statement.md
+notes/REPRODUCIBILITY_COMPLETION_REPORT.md
+notes/MEME_manuscript_reproducibility_summary.md
+notes/MEME_reproducibility_checklist.md
