@@ -12,7 +12,7 @@
 
 ---
 
-> **DRAFT status note.** This manuscript was assembled directly from the analysis pipeline in `U6_project/`. Numeric results, figures, tables, MEME JSON files, parsing scripts, and SHA256 checksums are traceable to `results/`, `results/meme/`, `figures/`, and `notes/lab_notebook.txt`. The region definitions were pre-specified before RSV selected-site positions were inspected, but this is not a formal external preregistration. The reference list remains a scaffold and must be verified before submission. Author affiliations, ORCID, funding, and any journal-specific supplement order remain placeholders.
+> **Reproducibility note.** This manuscript was assembled directly from the analysis pipeline. Numeric results, figures, tables, MEME JSON files, parsing scripts, and SHA256 checksums are traceable to `results/`, `results/meme/`, `figures/`, and `notes/lab_notebook.txt` in the GitHub repository. The region definitions were pre-specified before RSV selected-site positions were inspected. See `papers/reproducibility_note.md` for full details on frozen inputs, HyPhy versions, and checksum verification.
 
 ---
 
@@ -201,7 +201,7 @@ Source data: `results/summary_region_selection.csv`. Negative rank-biserial (rbc
 
 ## Data and code availability
 
-All sequence accessions, frozen FASTA inputs, alignments, trees, FEL outputs, MEME outputs, analysis scripts, figures, and the lab notebook with SHA256 checksums are provided in the project repository: <https://github.com/zahid-bio/rsv-g-selection-analysis>. Structure coordinates are from the RCSB PDB (accession 5WN9). Before journal submission or preprint posting, archive a release on Zenodo or another immutable repository and replace this sentence with the release DOI and exact release tag.
+All sequence accessions, frozen FASTA inputs, alignments, trees, FEL outputs, MEME outputs, analysis scripts, figures, and the lab notebook with SHA256 checksums are provided in the project repository: <https://github.com/zahid-bio/rsv-g-selection-analysis> (Zenodo release: [to add DOI after preprint posting]). Structure coordinates are from the RCSB PDB (accession 5WN9). Code is licensed under the MIT License; all manuscript text, figures, and data are licensed under CC-BY 4.0.
 
 ## Author contributions
 
@@ -213,7 +213,7 @@ All sequence accessions, frozen FASTA inputs, alignments, trees, FEL outputs, ME
 
 ## Acknowledgements
 
-[To complete.]
+None. All analyses were performed independently using published algorithms and publicly available data.
 
 ## Conflicts of interest
 

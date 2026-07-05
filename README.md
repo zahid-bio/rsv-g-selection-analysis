@@ -1,7 +1,6 @@
-# Selection analysis of the RSV G glycoprotein central conserved region
+# RSV G selection analyses support CX3C/cystine-noose constraint and diversification in mucin-like regions
 
-Reproducible pipeline and data for the study *"RSV G selection analyses support
-CX3C/cystine-noose constraint and diversification in mucin-like regions."*
+Reproducible pipeline and data for the manuscript by Zahid et al.
 
 **Summary of findings.** Using a uniform align -> maximum-likelihood phylogeny -> FEL
 site-wise selection pipeline, validated on influenza H3N2 haemagglutinin, we find no
