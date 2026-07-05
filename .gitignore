@@ -22,3 +22,11 @@ Thumbs.db
 # Scratch
 *.tmp
 scratch/
+
+# LaTeX build artifacts (compiled PDF is committed; intermediates are not)
+*.aux
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+papers/*.log
+papers/*.out

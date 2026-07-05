@@ -4,11 +4,12 @@ This work is licensed under the Creative Commons Attribution 4.0 International L
 To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/
 or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
 
-Attribution: Zahid (2026). "RSV G selection analyses support CX3C/cystine-noose constraint
-and diversification in mucin-like regions." GitHub repository: https://github.com/zahid-bio/rsv-g-selection-analysis
+Attribution: Zahid Ayomide Nassoro-Ally (2026). "RSV G selection analyses support constraint
+of the CX3C/cystine-noose core and diversification in mucin-like regions."
+GitHub repository: https://github.com/zahid-bio/rsv-g-selection-analysis
 
 APPLIES TO:
-- Manuscript text (papers/RSV_G_selection_manuscript.md)
+- Manuscript source and PDF (papers/RSV_G_SELECTION_PAPER.tex, papers/RSV_G_Selection_Paper.pdf)
 - All figures (figures/*.png)
 - All data files (results/*.json, results/*.csv, data/*)
 - Lab notebook (notes/lab_notebook.txt)

@@ -1,6 +1,8 @@
-# RSV G selection analyses support CX3C/cystine-noose constraint and diversification in mucin-like regions
+# RSV G selection analyses support constraint of the CX3C/cystine-noose core and diversification in mucin-like regions
 
-Reproducible pipeline and data for the manuscript by Zahid et al.
+Reproducible pipeline and data for the manuscript by Zahid Ayomide Nassoro-Ally
+(Independent Researcher, Chicago, IL, USA; ORCID
+[0009-0002-0550-5115](https://orcid.org/0009-0002-0550-5115)).
 
 **Summary of findings.** Using a uniform align -> maximum-likelihood phylogeny -> FEL
 site-wise selection pipeline, validated on influenza H3N2 haemagglutinin, we find no
@@ -27,7 +29,7 @@ signature over the functional motif.
 |-- results/         alignments, ML trees, FEL/MEME outputs, per-site/region tables (JSON/CSV)
 |-- figures/         publication figures (PNG)
 |-- notes/           lab_notebook.txt (narrative + SHA256 checksums) and accession lists
-`-- papers/          manuscript draft and reproducibility note (Markdown)
+`-- papers/          manuscript source (LaTeX), compiled PDF, and reproducibility note
 ```
 
 ## Data and code availability
@@ -120,13 +122,29 @@ python code/parse_meme.py --p-cutoff 0.05 --out-dir results/meme
 | Region-level dN-dS figure | `figures/rsv_region_selection_dnds.png` |
 | Structure panel (PyMOL) | `figures/rsv_g_ccd_structure_pymol.png` |
 | Full narrative + checksums | `notes/lab_notebook.txt` |
-| Manuscript draft | `papers/RSV_G_selection_manuscript.md` |
+| Manuscript source (LaTeX) | `papers/RSV_G_SELECTION_PAPER.tex` |
+| Compiled manuscript (PDF) | `papers/RSV_G_Selection_Paper.pdf` |
 
 ## License
 
-To be added before publication (e.g., MIT for code, CC-BY for data/figures).
+This project uses a split license:
+
+- **Code** (`code/`): MIT License — see [`LICENSE_CODE`](LICENSE_CODE).
+- **Manuscript text, figures, tables, and derived data**: Creative Commons
+  Attribution 4.0 International (CC BY 4.0) — see
+  [`LICENSE_DATA_MANUSCRIPT`](LICENSE_DATA_MANUSCRIPT).
+
+Third-party structure coordinates (PDB 5WN9) are redistributed under the
+original RCSB PDB terms and are not covered by the licenses above. Input
+sequences are public GenBank records; see the accession lists in `notes/`.
 
 ## Citation
 
 If you use this pipeline or data, please cite the manuscript
-(`papers/RSV_G_selection_manuscript.md`). Structure coordinates: RCSB PDB 5WN9.
+(`papers/RSV_G_SELECTION_PAPER.tex` / `papers/RSV_G_Selection_Paper.pdf`):
+
+> Nassoro-Ally ZA. RSV G selection analyses support constraint of the
+> CX3C/cystine-noose core and diversification in mucin-like regions. 2026.
+> GitHub: https://github.com/zahid-bio/rsv-g-selection-analysis
+
+Structure coordinates: RCSB PDB 5WN9.
