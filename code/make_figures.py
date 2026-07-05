@@ -82,12 +82,12 @@ def rsv_lollipop(out_png):
     ax.set_ylim(-max_dN - 1, max_dN + 1)
     ax.set_xlabel("RSV G residue position (A2 numbering)")
     ax.set_ylabel(r"$\beta$ (dN)  — RSV-A up, RSV-B down")
-    ax.set_title("Positively-selected sites in RSV G (FEL p ≤ 0.05)\n"
-                 "compared to pre-registered CCR and CX3C motif")
+    ax.set_title("Positively-selected sites in RSV G (FEL p <= 0.05)\n"
+                 "compared to pre-specified CCR and CX3C motif")
     a_patch = mpatches.Patch(color="#3182bd", label="RSV-A")
     b_patch = mpatches.Patch(color="#e6550d", label="RSV-B")
-    ccr_patch = mpatches.Patch(color="#c6dbef", label="CCR (pre-reg.)", alpha=0.55)
-    cx3c_patch = mpatches.Patch(color="#fdae6b", label="CX3C (pre-reg.)", alpha=0.85)
+    ccr_patch = mpatches.Patch(color="#c6dbef", label="CCR (pre-spec.)", alpha=0.55)
+    cx3c_patch = mpatches.Patch(color="#fdae6b", label="CX3C (pre-spec.)", alpha=0.85)
     ax.legend(handles=[a_patch, b_patch, ccr_patch, cx3c_patch], loc="upper left",
               fontsize=8, frameon=False)
     ax.spines["top"].set_visible(False); ax.spines["right"].set_visible(False)
@@ -267,8 +267,8 @@ def summary_tables():
                 w.writerow(row)
         print(f"  wrote {reg_csv}")
         with open(md, "a", encoding="utf-8") as f:
-            f.write("\n## Region-level selection (powered companion)\n\n")
-            f.write("Per-codon dN−dS (FEL β−α) compared across regions using ALL codons "
+            f.write("\n## Region-level selection (threshold-free companion)\n\n")
+            f.write("Per-codon dN-dS (FEL beta-alpha) compared across regions using ALL codons "
                     "(not just the FEL-significant handful). Negative effect size = CCR "
                     "under stronger purifying selection.\n\n")
             f.write("| Target | Comparison | Test | Statistic | Effect size | p-value | sig |\n")

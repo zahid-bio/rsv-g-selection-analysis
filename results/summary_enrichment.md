@@ -12,9 +12,9 @@
 
 All tests: 10,000 permutations, seed 42, one-sided (enrichment).
 
-## Region-level selection (powered companion)
+## Region-level selection (threshold-free companion)
 
-Per-codon dN−dS (FEL β−α) compared across regions using ALL codons (not just the FEL-significant handful). Negative effect size = CCR under stronger purifying selection.
+Per-codon dN-dS (FEL beta-alpha) compared across regions using ALL codons (not just the FEL-significant handful). Negative effect size = CCR under stronger purifying selection.
 
 | Target | Comparison | Test | Statistic | Effect size | p-value | sig |
 |---|---|---|---|---|---:|:---:|

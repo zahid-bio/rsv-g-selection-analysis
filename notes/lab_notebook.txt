@@ -741,5 +741,52 @@ Outputs:
 - results/meme/summary_meme_region_counts.csv  SHA256 CC69757E0A1CB1BB5B22CC9970C6B6041E6E86E4E78AF5343D293806F9F855B5
 - results/meme/summary_fel_meme_sites.md       SHA256 D976678DA14D2A819BF945E353684BA3966CDAAECE76795EB1245B85E4773E40
 - code/parse_meme.py                           SHA256 4FDBC9A3F37C5787FD4DAEFE41D9B6DDE6BB62C189FF171799F5F645AB431396
-- papers/RSV_G_selection_manuscript.md         SHA256 485D7AD545C61C626AC91FEA7EDB1B09CFE3DDDB42C9D6E24F71E60A0B818EA4
-- README.md                                    SHA256 2FE935BA2BBF5EACE6BD39C0853832D8A3978593805D8446A19D86BACD4E8AC3
+
+2026-07-04  ADDENDUM 5: critical-review response and manuscript caution pass
+
+Reviewed the critical review of main (5).pdf and updated the repository-facing
+manuscript text without changing raw FEL/MEME outputs.
+
+Main wording corrections:
+- Replaced "principal/dominant target of the antibody response" framing with a
+  more cautious F-vs-G framing: RSV F remains the leading vaccine/
+  immunoprophylaxis target, while RSV G is a variable surface antigen and major
+  humoral/immunological target.
+- Replaced "pre-registered" in the manuscript/README with "pre-specified before
+  RSV selected-site positions were inspected." There is no external immutable
+  preregistration artifact yet.
+- Replaced "rejected" with "not supported" for the FEL enrichment hypothesis.
+  The one-sided site-count test supports not-enriched, not formal depletion or
+  proof of absence.
+- Replaced "powered companion" with "threshold-free companion analysis" except
+  where older historical notebook entries are left intact.
+- Changed the RSV-A rank-biserial label from "medium effect" to
+  "small-to-moderate shift" because rbc=-0.264 is below the stated |r|=0.3
+  medium threshold.
+- Made MEME interpretation model-specific: MEME did not identify CX3C episodic
+  selection in this dataset, but did identify one non-CX3C broader-CCR site in
+  each RSV subtype. Therefore the broader CCR is not described as completely
+  spared.
+- Added limitations for frozen RSV sequence sampling, unadjusted FEL/MEME
+  site-wise p-values, per-codon point-estimate assumptions in the region-level
+  analysis, no recombination/tree-sensitivity screen, and RSV-B mapping loss.
+
+New/updated files:
+- papers/RSV_G_selection_manuscript.md
+- papers/reproducibility_note.md
+- README.md
+- code/make_figures.py
+- results/summary_enrichment.md
+
+Important reviewer-context note:
+- The critical review reported missing MEME files after cloning commit eefd345.
+  The current repository already has MEME raw JSON and summaries under
+  results/meme/ from commit 61f475d and later.
+
+Review-response output hashes:
+- README.md                                    SHA256 DC30018AB5022D379A8752AFDDC915CC3D9B111808AA84DDB436CB51982CE6E6
+- code/make_figures.py                        SHA256 7356A1214872795F2F87D0CD60B40FF80B718025EFA43EE6C986C0AEA0EF9775
+- papers/RSV_G_selection_manuscript.md         SHA256 72C356C5F425C1255064258DB0D5196DFD4FE3920550525436A31E7790303CEC
+- papers/reproducibility_note.md               SHA256 FCBF31288FB6EC8E7C0BD00E9C65FDDB0E4AAE90C934B812489029D58E4C40C6
+- results/summary_enrichment.md                SHA256 14BA46F47EB33F33818CA4FB5EA84809A18989C737CD3819B5C4097B4B508C4C
+- figures/rsv_selected_sites_lollipop.png      SHA256 BA463E5564F400B74B75132056E464BD27C42649FFC0535FC193BFCFD418EC0C
