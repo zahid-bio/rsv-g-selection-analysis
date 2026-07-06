@@ -17,9 +17,6 @@
 \usepackage{fancyhdr}
 \usepackage{setspace}
 \usepackage[modulo]{lineno}
-% Journal-style formatting: move all figures and tables to the end of the document
-\usepackage[nomarkers,tablesfirst,nolists]{endfloat}
-\renewcommand{\efloatseparator}{\mbox{}}
 
 \hypersetup{
   colorlinks=true,
@@ -238,7 +235,7 @@ Colouring the ordered experimental CCD coordinates (PDB 5WN9, residues 169--189)
 \label{fig:structure}
 \end{figure}
 
-\begin{table}[p]
+\begin{table}[H]
 \centering
 \scriptsize
 \setlength{\tabcolsep}{4pt}
@@ -307,11 +304,7 @@ None.
 
 No competing interests are declared.
 
-% Flush all main figures and tables (Figures 1-4, Tables 1-3) at the end of the main text
-\clearpage
-\processdelayedfloats
-\clearpage
-
+\bigskip
 \section*{Supplementary tables}
 \setcounter{table}{0}
 \renewcommand{\thetable}{S\arabic{table}}
@@ -343,7 +336,7 @@ RSV-B & 322 & 284 & RSV-A2 (M11486) & outside & 2.0747 & 0.02770 & 0.4432 \\
 \end{tabular}
 \end{table}
 
-\begin{table}[p]
+\begin{table}[H]
 \centering
 \tiny
 \setlength{\tabcolsep}{2pt}
@@ -389,11 +382,7 @@ H3N2 HA & MEME & 557 & -- & outside mature HA1 & -- & -- & -- & 0.0264 & 0.734 &
 \end{table}
 
 
-% Flush the supplementary tables (S1, S2) under their heading
-\clearpage
-\processdelayedfloats
-\clearpage
-
+\bigskip
 \begin{thebibliography}{17}
 
 \bibitem{katoh2013}
@@ -455,28 +444,28 @@ Schr\"odinger, LLC. The PyMOL Molecular Graphics System, Version 3.1.0. 2010. \u
 \renewcommand{\thefigure}{S\arabic{figure}}
 \captionsetup[figure]{name=Supplementary Figure}
 
-\begin{figure}[p]
+\begin{figure}[H]
 \centering
-\includegraphics[height=0.82\textheight,keepaspectratio]{figures/flu_h3_ha_tree.png}
+\includegraphics[height=0.7\textheight,keepaspectratio]{figures/flu_h3_ha_tree.png}
 \caption{Maximum-likelihood phylogeny for influenza H3N2 HA.}
 \label{fig:s1_flu_tree}
 \end{figure}
 
-\begin{figure}[p]
+\begin{figure}[H]
 \centering
-\includegraphics[height=0.82\textheight,keepaspectratio]{figures/rsv_a_tree.png}
+\includegraphics[height=0.7\textheight,keepaspectratio]{figures/rsv_a_tree.png}
 \caption{Maximum-likelihood phylogeny for RSV-A G.}
 \label{fig:s2_rsva_tree}
 \end{figure}
 
-\begin{figure}[p]
+\begin{figure}[H]
 \centering
-\includegraphics[height=0.82\textheight,keepaspectratio]{figures/rsv_b_tree.png}
+\includegraphics[height=0.7\textheight,keepaspectratio]{figures/rsv_b_tree.png}
 \caption{Maximum-likelihood phylogeny for RSV-B G.}
 \label{fig:s3_rsvb_tree}
 \end{figure}
 
-\begin{figure}[p]
+\begin{figure}[H]
 \centering
 \begin{subfigure}{0.48\textwidth}
   \centering
@@ -503,7 +492,7 @@ Schr\"odinger, LLC. The PyMOL Molecular Graphics System, Version 3.1.0. 2010. \u
 \label{fig:s4_subtype_nulls}
 \end{figure}
 
-\begin{figure}[p]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.75\textwidth]{figures/rsv_combined_cx3c_null_hist.png}
 \caption{Pooled RSV-A+B permutation-null histogram for the CX3C enrichment test.}
