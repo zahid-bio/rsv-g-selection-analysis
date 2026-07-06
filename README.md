@@ -135,7 +135,7 @@ python code/parse_meme.py --p-cutoff 0.05 --out-dir results/meme
 
 This project uses a split license:
 
-- **Code** (`code/`): MIT License — see [`LICENSE_CODE`](LICENSE_CODE).
+- **Code** (`code/`): MIT License — see [`LICENSE`](LICENSE).
 - **Manuscript text, figures, tables, and derived data**: Creative Commons
   Attribution 4.0 International (CC BY 4.0) — see
   [`LICENSE_DATA_MANUSCRIPT`](LICENSE_DATA_MANUSCRIPT).
