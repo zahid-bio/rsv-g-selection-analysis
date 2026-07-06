@@ -15,6 +15,11 @@
 \usepackage[table]{xcolor}
 \usepackage{hyperref}
 \usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage[modulo]{lineno}
+% Journal-style formatting: move all figures and tables to the end of the document
+\usepackage[nomarkers,tablesfirst,nolists]{endfloat}
+\renewcommand{\efloatseparator}{\mbox{}}
 
 \hypersetup{
   colorlinks=true,
@@ -27,6 +32,10 @@
 \setlength{\parskip}{0.85\baselineskip}
 \setlength{\headheight}{14pt}
 \renewcommand{\arraystretch}{1.12}
+
+% Double spacing and line numbering for peer review
+\doublespacing
+\linenumbers
 
 \newcommand{\dndsdiff}{\ensuremath{d_N-d_S}}
 \newcommand{\dn}{\ensuremath{d_N}}
@@ -54,8 +63,14 @@
 \noindent\textbf{Keywords:} respiratory syncytial virus; G glycoprotein; central conserved region; CX3C motif; purifying selection; \dn/\ds; molecular evolution; FEL; MEME
 
 \begin{abstract}
-The RSV attachment (G) glycoprotein is a highly variable surface antigen and an important target of humoral immunity, yet it contains a short central conserved region (CCR; RSV-A2 residues 157--198) with a CX3C chemokine-mimic motif and disulfide-bonded cystine noose. A pre-specified hypothesis was tested: FEL-positive diversifying sites are enriched in the CCR and/or the CX3C motif. Using a uniform align $\rightarrow$ maximum-likelihood phylogeny $\rightarrow$ site-wise selection pipeline based on FEL, validated against influenza H3N2 haemagglutinin (positive selection significantly enriched in antigenic sites A--E; $p=0.0081$), the FEL enrichment hypothesis was not supported: no mappable RSV G FEL-positive sites fell in the CCR or CX3C motif in RSV-A, RSV-B, or a descriptive pooled summary. MEME, used as an episodic-selection companion analysis, identified one CCR site in RSV-A and one in RSV-B, but zero CX3C sites in either subtype; most RSV MEME-positive sites were in the mucin-like C-terminal domain or ON1/unmappable sequence. Because the FEL site-count test has low power with only 3--6 significant sites, a threshold-free companion analysis compared the per-codon \dndsdiff{} distribution across regions. Region-level distributions support stronger CCR purifying constraint in RSV-A (Kruskal--Wallis $p=0.0275$; CCR vs. mucin Mann--Whitney $p=0.0066$, rank-biserial $=-0.26$, small-to-moderate shift) and a concordant but non-significant trend in RSV-B ($p=0.074$). Mapping per-codon \dndsdiff{} onto the ordered CX3C/cystine-noose core in PDB 5WN9 is consistent with purifying selection over the functional motif. These evolutionary data support, but do not by themselves establish, the rationale for monitoring and targeting the CX3C/cystine-noose core while recognizing sparse episodic-selection signals in the broader CCR.
+The RSV attachment (G) glycoprotein is a highly variable surface antigen and an important target of humoral immunity, yet it contains a short central conserved region (CCR; RSV-A2 residues 157--198) with a CX3C chemokine-mimic motif and disulfide-bonded cystine noose. A pre-specified hypothesis was tested: FEL-positive diversifying sites are enriched in the CCR and/or the CX3C motif. Using a uniform align $\rightarrow$ maximum-likelihood phylogeny $\rightarrow$ site-wise selection pipeline based on FEL, validated against influenza H3N2 haemagglutinin (positive selection significantly enriched in antigenic sites A--E; $p=0.0081$), the FEL enrichment hypothesis was not supported: no mappable RSV G FEL-positive sites fell in the CCR or CX3C motif in RSV-A, RSV-B, or a descriptive pooled summary. MEME, used as an episodic-selection companion analysis, identified one CCR site in RSV-A and one in RSV-B, but zero CX3C sites in either subtype; most RSV MEME-positive sites were in the mucin-like C-terminal domain or ON1/unmappable sequence. These site-level calls are screening-level: after Benjamini--Hochberg false-discovery-rate (FDR) correction no RSV G site remained significant at $q\leq0.05$, whereas the influenza antigenic-site control signal did survive FDR, and a GARD screen found no recombination in either RSV G alignment. Because the FEL site-count test has low power with only 3--6 significant sites, a threshold-free companion analysis, which does not depend on any per-site cutoff, compared the per-codon \dndsdiff{} distribution across regions. Region-level distributions support stronger CCR purifying constraint in RSV-A (Kruskal--Wallis $p=0.0275$; CCR vs. mucin Mann--Whitney $p=0.0066$, rank-biserial $=-0.26$, small-to-moderate shift) and a concordant but non-significant trend in RSV-B ($p=0.074$). Mapping per-codon \dndsdiff{} onto the ordered CX3C/cystine-noose core in PDB 5WN9 is consistent with purifying selection over the functional motif. These evolutionary data support, but do not by themselves establish, the rationale for monitoring and targeting the CX3C/cystine-noose core while recognizing sparse episodic-selection signals in the broader CCR.
 \end{abstract}
+
+\vspace{0.5em}
+\begin{center}
+{\small\textbf{Graphical abstract}}\\[0.3em]
+\includegraphics[width=0.95\textwidth]{figures/graphical_abstract.png}
+\end{center}
 
 \section{Introduction}
 
@@ -71,7 +86,11 @@ To discriminate between these hypotheses, a uniform molecular-evolution pipeline
 
 \subsection{Sequence data}
 
-Coding sequences of the RSV G gene were obtained for RSV-A ($n=108$ sequences) and RSV-B ($n=115$ sequences); influenza A/H3N2 haemagglutinin (HA) coding sequences were obtained as a positive-control dataset. Accession lists are provided in \texttt{notes/rsv\_a\_nt\_accessions.tsv}, \texttt{notes/rsv\_b\_nt\_accessions.tsv}, and \texttt{notes/flu\_h3\_ha\_nt\_accessions.tsv}. The exact RSV database query, download date, and random seed used to create the frozen RSV FASTA inputs could not be reconstructed from the current workspace snapshot; the accession lists and checksums therefore define the reproducible input set for this manuscript. All coordinates for RSV G are reported in RSV-A2 G protein residue numbering, using GenBank M11486 as the 298-aa reference; H3 HA sites are reported in mature-HA1 (H3) numbering.
+Coding sequences of the RSV G gene were obtained for RSV-A ($n=108$ sequences) and RSV-B ($n=115$ sequences); influenza A/H3N2 haemagglutinin (HA) coding sequences were obtained as a positive-control dataset ($n=148$ sequences). Accession lists are provided in \texttt{notes/rsv\_a\_nt\_accessions.tsv}, \texttt{notes/rsv\_b\_nt\_accessions.tsv}, and \texttt{notes/flu\_h3\_ha\_nt\_accessions.tsv}.
+
+The influenza control set was retrieved reproducibly from the NCBI Nucleotide database with the scripted query \texttt{code/download\_sequences.py}: \texttt{"Influenza A virus"[Organism] AND H3N2[All Fields] AND hemagglutinin[Title] AND "complete cds"[Title] AND "Homo sapiens"[All Fields]}, stratified across nine publication-date windows spanning 1968--2026, sampling up to 22 records per window from a pool of up to 400, retaining sequences of 1650--1780~nt after sequence-level deduplication, under fixed random seed 42.
+
+The RSV-A and RSV-B G sequences are treated as frozen inputs: the archived FASTA files and accession lists (collection years spanning approximately 2007--2022 for RSV-A and 2005--2021 for RSV-B, as recorded in the accession descriptions) define the reproducible input set, but the exact original NCBI query string and download date for the RSV sets were not captured at acquisition time and are not reconstructable from the workspace. Analyses are therefore reproducible from the archived RSV FASTA/accession files forward, with SHA256 checksums recorded in \texttt{notes/lab\_notebook.txt}. All coordinates for RSV G are reported in RSV-A2 G protein residue numbering, using GenBank M11486 as the 298-aa reference; H3 HA sites are reported in mature-HA1 (H3) numbering.
 
 \subsection{Alignment and phylogenetics}
 
@@ -82,6 +101,12 @@ Nucleotide coding sequences were codon-aware aligned with MAFFT v7.526 using a t
 Per-codon selection was estimated with FEL (Fixed Effects Likelihood) in HyPhy v2.5.100, run in Docker using image \texttt{quay.io/biocontainers/hyphy:2.5.100}~\cite{kosakovsky2005fel,kosakovsky2005hyphy}. FEL estimates a synonymous rate ($\alpha=\ds$) and a non-synonymous rate ($\beta=\dn$) at each codon and tests for pervasive site-wise selection. A site was called positively, or diversifyingly, selected when $\beta>\alpha$ at $p\leq0.05$, and purifying when $\beta<\alpha$ at $p\leq0.05$. Site-wise $p$-values are unadjusted and are used as screening thresholds for region-enrichment and summary analyses; individual selected sites are therefore interpreted cautiously. The per-codon selection metric used throughout is \dndsdiff{} ($\beta-\alpha$).
 
 As a companion analysis for episodic diversifying selection, MEME (Mixed Effects Model of Evolution) was run on the same codon alignments and phylogenies~\cite{murrell2012meme}. A site was called MEME-positive at an unadjusted $p\leq0.05$, and the estimated number of branches under selection was retained from the MEME output.
+
+To account for multiple testing across codons, Benjamini--Hochberg false-discovery-rate (FDR) $q$-values were computed over all site-wise $p$-values, separately for each dataset and method (\texttt{code/apply\_fdr.py}), and the FDR was controlled at $q\leq0.05$. Because the pre-specified screening threshold is an unadjusted $p\leq0.05$, both the unadjusted $p$-value and the FDR-adjusted $q$-value are reported for every selected site (Supplementary Tables~\ref{tab:selected_sites}--\ref{tab:fel_meme_sites}); site-level claims are treated as screening-level, and the primary regional inference rests on the threshold-free distributional analysis described below, which does not depend on any site-wise significance cutoff.
+
+\subsection{Recombination screen}
+
+Because recombination can distort single-tree selection inference, each RSV G codon alignment was screened for recombination with GARD (Genetic Algorithm for Recombination Detection) under HyPhy~\cite{kosakovsky2006gard}, using the small-sample AIC (c-AIC) to compare models with increasing numbers of breakpoints (\texttt{code/run\_gard.sh}). A dataset was considered to show topology-relevant recombination only if the best c-AIC model contained one or more breakpoints.
 
 \subsection{Pre-specified functional regions}
 
@@ -101,13 +126,13 @@ The experimental structure of the RSV-A2 G CCD peptide (PDB 5WN9, ordered chain-
 
 \subsection{Software and reproducibility}
 
-Analyses used Python 3.11 with Biopython 1.87, NumPy, SciPy, and Matplotlib~\cite{cock2009}. Summary CSVs, available HyPhy JSON outputs, figures, and SHA256 checksums are in the project repository. Every table is regenerated from stable files in \texttt{results/}; no values are hand-entered.
+Analyses used Python 3.11 with Biopython 1.87, NumPy, SciPy, and Matplotlib~\cite{cock2009}. Recombination screening used HyPhy GARD run under MPI with the \texttt{TOLERATE\_NUMERICAL\_ERRORS} option enabled for numerical stability (\texttt{code/run\_gard.sh}); FDR $q$-values were computed by \texttt{code/apply\_fdr.py} and the graphical abstract by \texttt{code/graphical\_abstract.py}. Summary CSVs, HyPhy JSON outputs (FEL, MEME, and GARD), figures, and SHA256 checksums are in the project repository. Every table is regenerated from stable files in \texttt{results/}; no values are hand-entered.
 
 \section{Results}
 
 \subsection{The pipeline recovers known positive selection in influenza HA}
 
-Applied to influenza H3N2 HA, the FEL output contained six positively selected alignment codons, of which five were mappable to mature-HA1 antigenic-site coordinates. All five mappable sites (100\%) fall in antigenic sites A--E (observed 100\% vs. 39.4\% expected by chance; enrichment 2.5$\times$; permutation $p=0.0081$; Figure~\ref{fig:flu_validation}; Table~\ref{tab:enrichment}). These sites map to HA1 antigenic sites C (residue 50), A (135), B (157), B (193), and E (261). This supports that the align $\rightarrow$ tree $\rightarrow$ FEL $\rightarrow$ enrichment workflow can detect immune-driven diversifying selection where it is known to occur.
+Applied to influenza H3N2 HA, the FEL output contained six positively selected alignment codons, of which five were mappable to mature-HA1 antigenic-site coordinates. All five mappable sites (100\%) fall in antigenic sites A--E (observed 100\% vs. 39.4\% expected by chance; enrichment 2.5$\times$; permutation $p=0.0081$; Figure~\ref{fig:flu_validation}; Table~\ref{tab:enrichment}). These sites map to HA1 antigenic sites C (residue 50), A (135), B (157), B (193), and E (261). Importantly, this immune-driven signal is robust to multiple-testing correction: two of the FEL codons (HA1 sites 135 and 261) and one MEME codon (HA1 site 131), all in antigenic site A or E, survive Benjamini--Hochberg FDR control at $q\leq0.05$ (Supplementary Tables~\ref{tab:selected_sites}--\ref{tab:fel_meme_sites}). This supports that the align $\rightarrow$ tree $\rightarrow$ FEL/MEME $\rightarrow$ enrichment workflow can detect immune-driven diversifying selection where it is known to occur, even under a conservative multiplicity threshold.
 
 \begin{figure}[H]
 \centering
@@ -115,6 +140,10 @@ Applied to influenza H3N2 HA, the FEL output contained six positively selected a
 \caption{\textbf{Pipeline validation on influenza H3N2 HA.} Permutation-null distribution of the fraction of positively selected HA sites expected in antigenic sites A--E. The observed fraction, shown by the red line, is 100\% and lies far in the upper tail ($p=0.0081$).}
 \label{fig:flu_validation}
 \end{figure}
+
+\subsection{No recombination is detected in the RSV G alignments}
+
+Screening each RSV G codon alignment with GARD gave no evidence of recombination. The exhaustive single-breakpoint scan identified no breakpoint that improved the small-sample AIC (c-AIC) over the no-breakpoint model in either RSV-A (373 candidate breakpoints) or RSV-B (360 candidate breakpoints), and the multi-breakpoint genetic-algorithm search (run to full convergence) returned a best-fitting model containing no breakpoints, with zero c-AIC improvement over the single-tree model ($\Delta$c-AIC $=0$; RSV-A baseline c-AIC $=11600.6$, RSV-B $=11932.2$). Because no supported breakpoint partitions either alignment into topologically incongruent segments, the single-tree FEL and MEME analyses are appropriate for these data, and the selection results below are not attributable to unmodelled recombination.
 
 \subsection{FEL-positive selection is not enriched in the RSV G CCR or CX3C motif}
 
@@ -143,7 +172,7 @@ RSV-A+B & CX3C 182--186 & 6 & 0 & 0.0 & 1.66 & 0$\times$ & 1.0 & no \\
 
 \subsection{FEL-positive RSV G sites localize to the mucin-like C-terminal domain}
 
-Every mappable FEL-positive site---six across both subtypes (RSV-A2 positions 237, 247, and 274 from RSV-A; 218, 266, and 284 from RSV-B)---lies in the C-terminal mucin-like hypervariable domain (residues 199--298), i.e., 6/6 versus approximately 34\% expected (Figure~\ref{fig:rsv_selected}; the complete FEL-positive site list with coordinate mapping is given in Supplementary Table~\ref{tab:selected_sites}). An additional strongly FEL-positive RSV-A site ($\beta=8.9$, $p=0.009$) falls within the ON1-genotype C-terminal duplication itself, indicating that the duplicated segment is also a locus of diversification. Because the mucin-domain boundary was examined after observing site positions, this localization is reported as exploratory and post hoc.
+Every mappable FEL-positive site---six across both subtypes (RSV-A2 positions 237, 247, and 274 from RSV-A; 218, 266, and 284 from RSV-B)---lies in the C-terminal mucin-like hypervariable domain (residues 199--298), i.e., 6/6 versus approximately 34\% expected (Figure~\ref{fig:rsv_selected}; the complete FEL-positive site list with coordinate mapping is given in Supplementary Table~\ref{tab:selected_sites}). An additional strongly FEL-positive RSV-A site ($\beta=8.9$, $p=0.009$) falls within the ON1-genotype C-terminal duplication itself, indicating that the duplicated segment is also a locus of diversification. These RSV site-level calls are screening-level: none of the RSV G FEL-positive sites survives Benjamini--Hochberg FDR control ($q>0.09$ for all; Supplementary Table~\ref{tab:selected_sites}), so their spatial clustering in the mucin-like domain is reported as an exploratory, post hoc pattern rather than a set of individually significant sites. The direction of this pattern is corroborated by the threshold-free region-level analysis below, which does not depend on any per-site significance cutoff.
 
 \begin{figure}[H]
 \centering
@@ -163,7 +192,7 @@ Every mappable FEL-positive site---six across both subtypes (RSV-A2 positions 23
 
 \subsection{MEME detects sparse episodic selection in the CCR but not the CX3C motif}
 
-MEME identified more RSV G positive sites than FEL, consistent with its sensitivity to episodic branch-specific selection (Table~\ref{tab:meme_region_counts}; Supplementary Table~\ref{tab:fel_meme_sites}). In RSV-A, MEME found 8 positive sites, 6 of which were A2-mappable: 1 in the CCR, 0 in the CX3C motif, 4 in the mucin-like C-terminal domain, and 1 in another mapped region. Two additional RSV-A MEME sites were ON1 insertion or otherwise unmappable sites. In RSV-B, MEME found 7 positive sites, all A2-mappable: 1 in the CCR, 0 in the CX3C motif, 5 in the mucin-like C-terminal domain, and 1 in another mapped region. Thus MEME softens the strict FEL-only statement for the broader CCR, but the CX3C motif remains free of positive-site calls in both subtypes, and most RSV MEME signal is still concentrated in the mucin-like/ON1 portion of G.
+MEME identified more RSV G positive sites than FEL, consistent with its sensitivity to episodic branch-specific selection (Table~\ref{tab:meme_region_counts}; Supplementary Table~\ref{tab:fel_meme_sites}). In RSV-A, MEME found 8 positive sites, 6 of which were A2-mappable: 1 in the CCR, 0 in the CX3C motif, 4 in the mucin-like C-terminal domain, and 1 in another mapped region. Two additional RSV-A MEME sites were ON1 insertion or otherwise unmappable sites. In RSV-B, MEME found 7 positive sites, all A2-mappable: 1 in the CCR, 0 in the CX3C motif, 5 in the mucin-like C-terminal domain, and 1 in another mapped region. Thus MEME softens the strict FEL-only statement for the broader CCR, but the CX3C motif remains free of positive-site calls in both subtypes, and most RSV MEME signal is still concentrated in the mucin-like/ON1 portion of G. As with FEL, these MEME calls are screening-level: no RSV G MEME site survives Benjamini--Hochberg FDR control ($q>0.17$ for all; Supplementary Table~\ref{tab:fel_meme_sites}), so the sparse broader-CCR MEME hits should be read as unadjusted sensitivity signals rather than individually significant episodic sites.
 
 \begin{table}[H]
 \centering
@@ -209,8 +238,6 @@ Colouring the ordered experimental CCD coordinates (PDB 5WN9, residues 169--189)
 \label{fig:structure}
 \end{figure}
 
-\FloatBarrier
-
 \begin{table}[p]
 \centering
 \scriptsize
@@ -231,8 +258,6 @@ RSV-B & CCR $<$ rest & Mann--Whitney U & $U=4494$ & $\rbc=-0.151$ & 0.0561 & no 
 \end{tabular}
 \end{table}
 
-\FloatBarrier
-
 \section{Discussion}
 
 The central finding is that adaptive diversification of the RSV G glycoprotein is spatially partitioned: the strongest and most consistent selected-site signals are in the mucin-like flanking domains, while the CX3C chemokine-mimic motif and its cystine noose show no FEL- or MEME-positive selected-site calls in these data. The primary, pre-specified FEL enrichment test gives a clear negative result for both the CCR and CX3C motif, but this is an absence of enrichment evidence rather than proof of absence. MEME detects sparse episodic selection in the broader CCR, but still detects no CX3C sites and places most RSV sites in the mucin-like or ON1/unmappable portions of G. The threshold-free companion analysis supports this spatial pattern: the CCR is under purifying constraint overall in RSV-A, with a concordant but non-significant trend in RSV-B, so it is unlikely to behave as a broad hotspot of positive selection in the sampled data.
@@ -251,10 +276,10 @@ Together with structural and antibody studies of the RSV G CCD, these evolutiona
 \item \textbf{Cross-subtype coordinate mapping.} RSV-B G was mapped onto RSV-A2 numbering because the CCR is conserved across subtypes. Adding the A2 reference via MAFFT \texttt{--keeplength} dropped four C-terminal A2 residues in the RSV-B alignment (\texttt{a2\_ref\_len} 294 vs. 298), affecting 4 of approximately 96 mucin codons; this does not alter the RSV-B conclusion but is disclosed for completeness.
 \item \textbf{Structural coverage.} No full-length or mucin-domain G structure exists; the crystallized peptide (PDB 5WN9) spans only the CX3C/cystine-noose core (169--189). The structural figure therefore illustrates constraint on the functional core, not the entire CCR or the flanks.
 \item \textbf{Post-hoc localization.} The concentration of selected sites in the mucin domain used a boundary chosen after observing site positions and is reported as exploratory.
-\item \textbf{Sequence sampling metadata.} The current workspace preserves accession lists and checksums but not the exact original RSV database query, download date, or random seed used to create the frozen input FASTA files.
-\item \textbf{Site-wise multiplicity.} FEL and MEME calls use unadjusted $p\leq0.05$ thresholds as screening-level selected-site definitions. False-discovery control or threshold-sensitivity analyses would be useful before treating individual sites as definitive.
+\item \textbf{Sequence sampling metadata.} The influenza control set is fully scripted (query, date-stratified sampling, length filter, and random seed 42 in \texttt{code/download\_sequences.py}), but for the frozen RSV-A and RSV-B inputs the exact original NCBI query string and download date were not captured at acquisition time. The RSV analyses are reproducible from the archived FASTA/accession files (with checksums) forward, but not as a byte-for-byte re-download.
+\item \textbf{Site-wise multiplicity.} FEL and MEME site calls use an unadjusted $p\leq0.05$ screening threshold. After Benjamini--Hochberg FDR correction, no RSV G site remains significant at $q\leq0.05$ by either method, so individual RSV selected sites are treated as screening-level rather than definitive; the study's inference therefore rests on the threshold-free region-level analysis and on the influenza control, whose antigenic-site signal does survive FDR.
 \item \textbf{Distributional-analysis assumptions.} The threshold-free region analysis treats per-codon FEL point estimates as comparable site-level summaries and does not propagate uncertainty in those estimates or account for residual dependence among codons.
-\item \textbf{Recombination and tree uncertainty.} No formal recombination screen or tree-uncertainty sensitivity analysis was performed; alignment, recombination, or temporal clustering artifacts could affect site-wise selection calls.
+\item \textbf{Recombination and tree uncertainty.} A GARD recombination screen found no supported breakpoints in either RSV G alignment, so the single-tree analyses are not confounded by recombination; however, no tree-topology-uncertainty or alternative-alignment sensitivity analysis was performed, and residual temporal-clustering effects were not modelled.
 \item \textbf{Method scope.} FEL detects pervasive site-wise selection, while MEME detects episodic site-wise selection; branch-level or lineage-restricted selection, for example with aBSREL, was not modelled and could refine the picture.
 \end{enumerate}
 
@@ -282,6 +307,11 @@ None.
 
 No competing interests are declared.
 
+% Flush all main figures and tables (Figures 1-4, Tables 1-3) at the end of the main text
+\clearpage
+\processdelayedfloats
+\clearpage
+
 \section*{Supplementary tables}
 \setcounter{table}{0}
 \renewcommand{\thetable}{S\arabic{table}}
@@ -291,24 +321,24 @@ No competing interests are declared.
 \centering
 \scriptsize
 \setlength{\tabcolsep}{3pt}
-\caption{\textbf{FEL-positive sites with reference-coordinate mapping.} Source data: \texttt{results/summary\_selected\_sites.csv}.}
+\caption{\textbf{FEL-positive sites with reference-coordinate mapping and FDR-adjusted $q$-values.} Positive (diversifying) sites at unadjusted $p\leq0.05$ with $\beta>\alpha$. The $q$-value column is the Benjamini--Hochberg FDR adjustment computed across all codons for that dataset. Only the two influenza antigenic-site codons in bold survive FDR control at $q\leq0.05$; no RSV G site survives FDR. Source data: \texttt{results/summary\_selected\_sites.csv}, \texttt{results/summary\_fdr\_qvalues.csv}.}
 \label{tab:selected_sites}
-\begin{tabular}{lllp{2.7cm}llr}
+\begin{tabular}{lllp{2.5cm}llrr}
 \toprule
-Target & Aln. pos. & Ref. residue & Reference & Region/site & $\beta$ & $p$-value \\
+Target & Aln. pos. & Ref. residue & Reference & Region/site & $\beta$ & $p$-value & FDR $q$ \\
 \midrule
-flu (H3N2) & 66 & 50 & H3 mature HA1 & Site C & 2.3248 & 0.03510 \\
-flu (H3N2) & 161 & 135 & H3 mature HA1 & Site A & 4.2112 & 0.00193 \\
-flu (H3N2) & 183 & 157 & H3 mature HA1 & Site B & 4.1714 & 0.04621 \\
-flu (H3N2) & 219 & 193 & H3 mature HA1 & Site B & 2.5898 & 0.01495 \\
-flu (H3N2) & 287 & 261 & H3 mature HA1 & Site E & 4.3934 & 0.00167 \\
-RSV-A & 237 & 237 & RSV-A2 (M11486) & outside & 3.9430 & 0.03408 \\
-RSV-A & 247 & 247 & RSV-A2 (M11486) & outside & 2.3345 & 0.00385 \\
-RSV-A & 274 & n/a (ON1 insertion) & RSV-A2 (M11486) & -- & 8.9442 & 0.00876 \\
-RSV-A & 298 & 274 & RSV-A2 (M11486) & outside & 5.2034 & 0.00260 \\
-RSV-B & 236 & 218 & RSV-A2 (M11486) & outside & 5.0000 & 0.00205 \\
-RSV-B & 304 & 266 & RSV-A2 (M11486) & outside & 7.6912 & 0.01965 \\
-RSV-B & 322 & 284 & RSV-A2 (M11486) & outside & 2.0747 & 0.02770 \\
+flu (H3N2) & 66 & 50 & H3 mature HA1 & Site C & 2.3248 & 0.03510 & 0.1371 \\
+flu (H3N2) & \textbf{161} & 135 & H3 mature HA1 & Site A & 4.2112 & 0.00193 & \textbf{0.0264} \\
+flu (H3N2) & 183 & 157 & H3 mature HA1 & Site B & 4.1714 & 0.04621 & 0.1642 \\
+flu (H3N2) & 219 & 193 & H3 mature HA1 & Site B & 2.5898 & 0.01495 & 0.0823 \\
+flu (H3N2) & \textbf{287} & 261 & H3 mature HA1 & Site E & 4.3934 & 0.00167 & \textbf{0.0263} \\
+RSV-A & 237 & 237 & RSV-A2 (M11486) & outside & 3.9430 & 0.03408 & 0.4113 \\
+RSV-A & 247 & 247 & RSV-A2 (M11486) & outside & 2.3345 & 0.00385 & 0.1378 \\
+RSV-A & 274 & n/a (ON1 insertion) & RSV-A2 (M11486) & -- & 8.9442 & 0.00876 & 0.2169 \\
+RSV-A & 298 & 274 & RSV-A2 (M11486) & outside & 5.2034 & 0.00260 & 0.1194 \\
+RSV-B & 236 & 218 & RSV-A2 (M11486) & outside & 5.0000 & 0.00205 & 0.0985 \\
+RSV-B & 304 & 266 & RSV-A2 (M11486) & outside & 7.6912 & 0.01965 & 0.3668 \\
+RSV-B & 322 & 284 & RSV-A2 (M11486) & outside & 2.0747 & 0.02770 & 0.4432 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -317,49 +347,54 @@ RSV-B & 322 & 284 & RSV-A2 (M11486) & outside & 2.0747 & 0.02770 \\
 \centering
 \tiny
 \setlength{\tabcolsep}{2pt}
-\caption{\textbf{FEL-positive and MEME-positive sites with coordinate mapping.} Source data: \texttt{results/meme/summary\_fel\_meme\_sites.csv}.}
+\caption{\textbf{FEL-positive and MEME-positive sites with coordinate mapping and FDR-adjusted $q$-values.} Site-wise $p$-values are unadjusted; $q$-values are the Benjamini--Hochberg FDR adjustment computed across all codons per dataset and method. Values in bold survive FDR control at $q\leq0.05$: only three influenza antigenic/HA1 codons do so (FEL 161, 287; MEME 157), and no RSV G site survives FDR by either method. Source data: \texttt{results/meme/summary\_fel\_meme\_sites.csv}, \texttt{results/summary\_fdr\_qvalues.csv}.}
 \label{tab:fel_meme_sites}
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{lllrlclcc}
+\begin{tabular}{lllrlcccccc}
 \toprule
-Dataset & Method & Alignment codon & A2/reference residue & Region & A2-mappable & FEL $p$-value & MEME $p$-value & MEME branches under selection \\
+Dataset & Method & Aln. codon & A2/ref. residue & Region & A2-map. & FEL $p$ & FEL $q$ & MEME $p$ & MEME $q$ & MEME branches \\
 \midrule
-RSV-A & MEME & 142 & 142 & N-terminal region & yes & -- & 0.0174 & 3 \\
-RSV-A & MEME & 178 & 178 & CCR & yes & -- & 0.0438 & 1 \\
-RSV-A & FEL+MEME & 237 & 237 & C-terminal mucin-like domain & yes & 0.0341 & 0.0487 & 3 \\
-RSV-A & FEL+MEME & 247 & 247 & C-terminal mucin-like domain & yes & 0.0039 & 0.0066 & 6 \\
-RSV-A & MEME & 267 & -- & ON1/unmappable insertion & no & -- & 0.0073 & 1 \\
-RSV-A & FEL+MEME & 274 & -- & ON1/unmappable insertion & no & 0.0088 & 0.0145 & 5 \\
-RSV-A & FEL+MEME & 298 & 274 & C-terminal mucin-like domain & yes & 0.0026 & 0.0047 & 4 \\
-RSV-A & MEME & 321 & 297 & C-terminal mucin-like domain & yes & -- & 0.0067 & 2 \\
-RSV-B & MEME & 94 & 77 & N-terminal region & yes & -- & 0.0255 & 1 \\
-RSV-B & MEME & 181 & 164 & CCR & yes & -- & 5.27e-04 & 1 \\
-RSV-B & MEME & 235 & 217 & C-terminal mucin-like domain & yes & -- & 0.0241 & 2 \\
-RSV-B & FEL+MEME & 236 & 218 & C-terminal mucin-like domain & yes & 0.0021 & 0.0037 & 5 \\
-RSV-B & FEL+MEME & 304 & 266 & C-terminal mucin-like domain & yes & 0.0197 & 0.0295 & 8 \\
-RSV-B & MEME & 311 & 273 & C-terminal mucin-like domain & yes & -- & 0.0396 & 2 \\
-RSV-B & FEL+MEME & 322 & 284 & C-terminal mucin-like domain & yes & 0.0277 & 0.0402 & 5 \\
-H3N2 HA & MEME & 2 & -- & outside mature HA1 & -- & -- & 0.0334 & 3 \\
-H3N2 HA & FEL & 9 & -- & outside mature HA1 & -- & 0.0459 & -- & -- \\
-H3N2 HA & MEME & 16 & -- & outside mature HA1 & -- & -- & 0.0205 & 2 \\
-H3N2 HA & FEL & 66 & 50 & H3 antigenic site C & -- & 0.0351 & -- & -- \\
-H3N2 HA & MEME & 150 & 124 & H3 antigenic site A & -- & -- & 0.0016 & 4 \\
-H3N2 HA & MEME & 157 & 131 & H3 antigenic site A & -- & -- & 1.23e-05 & 2 \\
-H3N2 HA & FEL+MEME & 161 & 135 & H3 antigenic site A & -- & 0.0019 & 0.0036 & 8 \\
-H3N2 HA & FEL & 183 & 157 & H3 antigenic site B & -- & 0.0462 & -- & -- \\
-H3N2 HA & MEME & 216 & 190 & H3 antigenic site B & -- & -- & 0.0440 & 2 \\
-H3N2 HA & FEL+MEME & 219 & 193 & H3 antigenic site B & -- & 0.0150 & 0.0239 & 5 \\
-H3N2 HA & MEME & 249 & 223 & non-antigenic HA1 & -- & -- & 0.0053 & 4 \\
-H3N2 HA & FEL+MEME & 287 & 261 & H3 antigenic site E & -- & 0.0017 & 0.0031 & 6 \\
-H3N2 HA & MEME & 374 & -- & outside mature HA1 & -- & -- & 0.0033 & 4 \\
-H3N2 HA & MEME & 557 & -- & outside mature HA1 & -- & -- & 0.0264 & 4 \\
+RSV-A & MEME & 142 & 142 & N-terminal region & yes & -- & -- & 0.0174 & 0.917 & 3 \\
+RSV-A & MEME & 178 & 178 & CCR & yes & -- & -- & 0.0438 & 0.917 & 1 \\
+RSV-A & FEL+MEME & 237 & 237 & C-terminal mucin-like domain & yes & 0.0341 & 0.411 & 0.0487 & 0.917 & 3 \\
+RSV-A & FEL+MEME & 247 & 247 & C-terminal mucin-like domain & yes & 0.0039 & 0.138 & 0.0066 & 0.591 & 6 \\
+RSV-A & MEME & 267 & -- & ON1/unmappable insertion & no & -- & -- & 0.0073 & 0.591 & 1 \\
+RSV-A & FEL+MEME & 274 & -- & ON1/unmappable insertion & no & 0.0088 & 0.217 & 0.0145 & 0.917 & 5 \\
+RSV-A & FEL+MEME & 298 & 274 & C-terminal mucin-like domain & yes & 0.0026 & 0.119 & 0.0047 & 0.591 & 4 \\
+RSV-A & MEME & 321 & 297 & C-terminal mucin-like domain & yes & -- & -- & 0.0067 & 0.591 & 2 \\
+RSV-B & MEME & 94 & 77 & N-terminal region & yes & -- & -- & 0.0255 & 1.00 & 1 \\
+RSV-B & MEME & 181 & 164 & CCR & yes & -- & -- & 5.27e-04 & 0.177 & 1 \\
+RSV-B & MEME & 235 & 217 & C-terminal mucin-like domain & yes & -- & -- & 0.0241 & 1.00 & 2 \\
+RSV-B & FEL+MEME & 236 & 218 & C-terminal mucin-like domain & yes & 0.0021 & 0.099 & 0.0037 & 0.629 & 5 \\
+RSV-B & FEL+MEME & 304 & 266 & C-terminal mucin-like domain & yes & 0.0197 & 0.367 & 0.0295 & 1.00 & 8 \\
+RSV-B & MEME & 311 & 273 & C-terminal mucin-like domain & yes & -- & -- & 0.0396 & 1.00 & 2 \\
+RSV-B & FEL+MEME & 322 & 284 & C-terminal mucin-like domain & yes & 0.0277 & 0.443 & 0.0402 & 1.00 & 5 \\
+H3N2 HA & MEME & 2 & -- & outside mature HA1 & -- & -- & -- & 0.0334 & 0.734 & 3 \\
+H3N2 HA & FEL & 9 & -- & outside mature HA1 & -- & 0.0459 & 0.164 & -- & -- & -- \\
+H3N2 HA & MEME & 16 & -- & outside mature HA1 & -- & -- & -- & 0.0205 & 0.734 & 2 \\
+H3N2 HA & FEL & 66 & 50 & H3 antigenic site C & -- & 0.0351 & 0.137 & -- & -- & -- \\
+H3N2 HA & MEME & 150 & 124 & H3 antigenic site A & -- & -- & -- & 0.0016 & 0.413 & 4 \\
+H3N2 HA & MEME & 157 & 131 & H3 antigenic site A & -- & -- & -- & 1.23e-05 & \textbf{0.0071} & 2 \\
+H3N2 HA & FEL+MEME & 161 & 135 & H3 antigenic site A & -- & 0.0019 & \textbf{0.026} & 0.0036 & 0.413 & 8 \\
+H3N2 HA & FEL & 183 & 157 & H3 antigenic site B & -- & 0.0462 & 0.164 & -- & -- & -- \\
+H3N2 HA & MEME & 216 & 190 & H3 antigenic site B & -- & -- & -- & 0.0440 & 0.734 & 2 \\
+H3N2 HA & FEL+MEME & 219 & 193 & H3 antigenic site B & -- & 0.0150 & 0.082 & 0.0239 & 0.734 & 5 \\
+H3N2 HA & MEME & 249 & 223 & non-antigenic HA1 & -- & -- & -- & 0.0053 & 0.514 & 4 \\
+H3N2 HA & FEL+MEME & 287 & 261 & H3 antigenic site E & -- & 0.0017 & \textbf{0.026} & 0.0031 & 0.413 & 6 \\
+H3N2 HA & MEME & 374 & -- & outside mature HA1 & -- & -- & -- & 0.0033 & 0.413 & 4 \\
+H3N2 HA & MEME & 557 & -- & outside mature HA1 & -- & -- & -- & 0.0264 & 0.734 & 4 \\
 \bottomrule
 \end{tabular}%
 }
 \end{table}
 
 
-\begin{thebibliography}{16}
+% Flush the supplementary tables (S1, S2) under their heading
+\clearpage
+\processdelayedfloats
+\clearpage
+
+\begin{thebibliography}{17}
 
 \bibitem{katoh2013}
 Katoh K, Standley DM. MAFFT multiple sequence alignment software version 7: improvements in performance and usability. \emph{Molecular Biology and Evolution}. 2013;30(4):772--780. doi:\href{https://doi.org/10.1093/molbev/mst010}{10.1093/molbev/mst010}.
@@ -378,6 +413,9 @@ Kosakovsky Pond SL, Frost SDW, Muse SV. HyPhy: hypothesis testing using phylogen
 
 \bibitem{murrell2012meme}
 Murrell B, Wertheim JO, Moola S, Weighill T, Scheffler K, Kosakovsky Pond SL. Detecting individual sites subject to episodic diversifying selection. \emph{PLoS Genetics}. 2012;8(7):e1002764. doi:\href{https://doi.org/10.1371/journal.pgen.1002764}{10.1371/journal.pgen.1002764}.
+
+\bibitem{kosakovsky2006gard}
+Kosakovsky Pond SL, Posada D, Gravenor MB, Woelk CH, Frost SDW. Automated phylogenetic detection of recombination using a genetic algorithm. \emph{Molecular Biology and Evolution}. 2006;23(10):1891--1901. doi:\href{https://doi.org/10.1093/molbev/msl051}{10.1093/molbev/msl051}.
 
 \bibitem{cock2009}
 Cock PJA, Antao T, Chang JT, Chapman BA, Cox CJ, Dalke A, Friedberg I, Hamelryck T, Kauff F, Wilczynski B, de Hoon MJL. Biopython: freely available Python tools for computational molecular biology and bioinformatics. \emph{Bioinformatics}. 2009;25(11):1422--1423. doi:\href{https://doi.org/10.1093/bioinformatics/btp163}{10.1093/bioinformatics/btp163}.
@@ -413,25 +451,28 @@ Schr\"odinger, LLC. The PyMOL Molecular Graphics System, Version 3.1.0. 2010. \u
 
 \appendix
 \section{Supplementary figures}
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\captionsetup[figure]{name=Supplementary Figure}
 
 \begin{figure}[p]
 \centering
 \includegraphics[height=0.82\textheight,keepaspectratio]{figures/flu_h3_ha_tree.png}
-\caption{\textbf{Supplementary Figure S1.} Maximum-likelihood phylogeny for influenza H3N2 HA.}
+\caption{Maximum-likelihood phylogeny for influenza H3N2 HA.}
 \label{fig:s1_flu_tree}
 \end{figure}
 
 \begin{figure}[p]
 \centering
 \includegraphics[height=0.82\textheight,keepaspectratio]{figures/rsv_a_tree.png}
-\caption{\textbf{Supplementary Figure S2.} Maximum-likelihood phylogeny for RSV-A G.}
+\caption{Maximum-likelihood phylogeny for RSV-A G.}
 \label{fig:s2_rsva_tree}
 \end{figure}
 
 \begin{figure}[p]
 \centering
 \includegraphics[height=0.82\textheight,keepaspectratio]{figures/rsv_b_tree.png}
-\caption{\textbf{Supplementary Figure S3.} Maximum-likelihood phylogeny for RSV-B G.}
+\caption{Maximum-likelihood phylogeny for RSV-B G.}
 \label{fig:s3_rsvb_tree}
 \end{figure}
 
@@ -458,14 +499,14 @@ Schr\"odinger, LLC. The PyMOL Molecular Graphics System, Version 3.1.0. 2010. \u
   \includegraphics[width=\linewidth]{figures/rsv_b_cx3c_null_hist.png}
   \caption{RSV-B CX3C.}
 \end{subfigure}
-\caption{\textbf{Supplementary Figure S4.} Per-subtype permutation-null histograms for CCR and CX3C enrichment tests.}
+\caption{Per-subtype permutation-null histograms for CCR and CX3C enrichment tests: (a) RSV-A CCR, (b) RSV-A CX3C, (c) RSV-B CCR, (d) RSV-B CX3C.}
 \label{fig:s4_subtype_nulls}
 \end{figure}
 
 \begin{figure}[p]
 \centering
 \includegraphics[width=0.75\textwidth]{figures/rsv_combined_cx3c_null_hist.png}
-\caption{\textbf{Supplementary Figure S5.} Pooled RSV-A+B permutation-null histogram for the CX3C enrichment test.}
+\caption{Pooled RSV-A+B permutation-null histogram for the CX3C enrichment test.}
 \label{fig:s5_combined_cx3c}
 \end{figure}
 

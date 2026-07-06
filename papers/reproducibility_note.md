@@ -101,4 +101,22 @@ Verify with: `cd results/meme && sha256sum -c SHA256SUMS`
 - The selected-site enrichment test is one-sided for enrichment. A result of p = 1.0 means "not enriched," not formal depletion and not proof of absence.
 - The pooled RSV-A+B selected-site table is descriptive because RSV-A and RSV-B were analyzed with subtype-specific alignments and trees.
 - The region-level dN-dS analysis is threshold-free and uses all mapped codons, but it treats per-codon FEL point estimates as comparable summaries and does not propagate uncertainty in individual estimates or tree/model uncertainty.
-- No recombination screen or alternative-tree sensitivity analysis has been run.
+
+## Multiple-testing correction (FDR)
+
+- Benjamini-Hochberg FDR q-values are computed across all codons per dataset and method by `code/apply_fdr.py`, writing `results/summary_fdr_qvalues.csv`. FDR is controlled at q <= 0.05.
+- Result: after FDR correction, **no RSV G site remains significant** (FEL or MEME) in either subtype. Only 3 influenza control sites survive: FEL codons 161 and 287 (antigenic sites A/E) and MEME codon 157 (antigenic site A).
+- Reproduce: `python code/apply_fdr.py --p-cutoff 0.05 --q-cutoff 0.05 --out results/summary_fdr_qvalues.csv`.
+- Interpretation: RSV site-level calls are screening-level; the study's inference rests on the threshold-free region-level analysis (unaffected by any per-site cutoff) and on the influenza control, whose antigenic signal survives FDR.
+
+## Recombination screen (GARD)
+
+- Each RSV G codon alignment was screened with HyPhy GARD (`code/run_gard.sh`).
+- Command (MPI; the `TOLERATE_NUMERICAL_ERRORS` environment flag is required for numerical stability with these alignments, otherwise GARD aborts with a `ComputeBranchCache` internal error):
+  ```
+  docker run --rm --shm-size=1g -v "$PWD":/data quay.io/biocontainers/hyphy:2.5.100--h74d3ee0_0 \
+    mpirun --allow-run-as-root --mca btl tcp,self --oversubscribe -np 4 HYPHYMPI gard \
+    --alignment /data/results/rsv_a_codon_aligned.fasta --output /data/results/rsv_a_gard.json \
+    ENV="TOLERATE_NUMERICAL_ERRORS=1;"
+  ```
+- Result: the exhaustive single-breakpoint scan found **no breakpoint improving the c-AIC** over the no-breakpoint model in either RSV-A (373 candidate breakpoints) or RSV-B (360 candidate breakpoints), and the multi-breakpoint genetic-algorithm search returned no c-AIC improvement. No evidence of recombination; single-tree FEL/MEME analyses are appropriate. Console logs: `results/rsv_a_gard_console.log`, `results/rsv_b_gard_console.log`.

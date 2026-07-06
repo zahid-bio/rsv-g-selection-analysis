@@ -90,10 +90,13 @@ and selection (HyPhy FEL/MEME) are external steps; their inputs and outputs are 
 12. `code/region_selection_analysis.py` - threshold-free region-level dN-dS test (Kruskal-Wallis + directional Mann-Whitney with rank-biserial effect sizes). Writes `results/*_region_selection.json` and per-codon CSVs.
 13. **HyPhy MEME** - secondary episodic site-wise sensitivity analysis (external).
 14. `code/parse_meme.py` - parse MEME JSON, map RSV sites to RSV-A2 coordinates, and write FEL/MEME comparison summaries under `results/meme/`.
-15. `code/make_figures.py` - permutation-null histograms, site lollipop, trees, and summary tables.
-16. `code/region_selection_figure.py` - per-codon dN-dS distribution figure.
-17. `code/structure_figure.py` - Matplotlib structure figure; also writes the B-factor-encoded PDB.
-18. `code/render_ccd_pymol.pml` (open-source PyMOL) + `code/compose_structure_figure.py` - ray-traced structure panel with colorbar.
+15. `code/apply_fdr.py` - Benjamini-Hochberg FDR q-values for FEL and MEME site-wise p-values (`results/summary_fdr_qvalues.csv`); FDR controlled at q <= 0.05.
+16. **HyPhy GARD** - recombination screen (`code/run_gard.sh`; requires MPI + `TOLERATE_NUMERICAL_ERRORS=1`). Writes `results/*_gard.json`.
+17. `code/make_figures.py` - permutation-null histograms, site lollipop, trees, and summary tables.
+18. `code/region_selection_figure.py` - per-codon dN-dS distribution figure.
+19. `code/structure_figure.py` - Matplotlib structure figure; also writes the B-factor-encoded PDB.
+20. `code/render_ccd_pymol.pml` (open-source PyMOL) + `code/compose_structure_figure.py` - ray-traced structure panel with colorbar.
+21. `code/graphical_abstract.py` - the graphical-abstract summary figure (`figures/graphical_abstract.png`).
 
 Example (region-level test):
 
@@ -118,6 +121,9 @@ python code/parse_meme.py --p-cutoff 0.05 --out-dir results/meme
 | Region-level selection (threshold-free companion) | `results/summary_region_selection.csv`, `results/*_region_selection.json` |
 | Selected-site list | `results/summary_selected_sites.csv` |
 | MEME episodic sensitivity | `results/meme/*_meme.json`, `results/meme/summary_fel_meme_sites.csv`, `results/meme/summary_meme_region_counts.csv` |
+| FDR-adjusted q-values (FEL + MEME) | `results/summary_fdr_qvalues.csv` |
+| Recombination screen (GARD) | `results/rsv_a_gard.json`, `results/rsv_b_gard.json`, `results/*_gard_console.log` |
+| Graphical abstract | `figures/graphical_abstract.png` |
 | Reproducibility note | `papers/reproducibility_note.md` |
 | Region-level dN-dS figure | `figures/rsv_region_selection_dnds.png` |
 | Structure panel (PyMOL) | `figures/rsv_g_ccd_structure_pymol.png` |
